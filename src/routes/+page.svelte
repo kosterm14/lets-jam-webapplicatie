@@ -11,7 +11,7 @@
     let loading = true;
     let delayedLoading = false;
 
-    $: if (loading) {
+    if (loading) {
         delayedLoading = false;
         setTimeout(() => {
             delayedLoading = true;
@@ -25,7 +25,7 @@
             loading = true;
             setTimeout(() => {
                 loading = false;
-            }, 7000);
+            }, 11000);
         }
     }
 
@@ -39,7 +39,7 @@
                 sessionStorage.setItem("alreadyLoaded", "true");
                 setTimeout(() => {
                     loading = false;
-                }, 3000);
+                }, 11000);
             }
         }
     });
