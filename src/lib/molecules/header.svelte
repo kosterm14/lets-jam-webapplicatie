@@ -124,10 +124,18 @@
     li {
       width: 6.7rem;
     }
+
+    .animate {
+      animation: none;
+    }
   }
 
   /* mobile */
   @media (max-width: 31em) {
+    .animate {
+      animation: none;
+    }
+
     input {
       display: none;
     }
