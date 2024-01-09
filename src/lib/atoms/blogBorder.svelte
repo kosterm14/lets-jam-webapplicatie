@@ -1,28 +1,28 @@
 <script>
-import BlogButton from "./blogButton.svelte";
+  import BlogButton from "./blogButton.svelte";
 </script>
 
 <section>
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
 
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton/>
+    <BlogButton />
   </article>
 </section>
 
@@ -45,9 +45,15 @@ import BlogButton from "./blogButton.svelte";
     border-radius: 0.5em;
   }
 
-  @media screen and (min-width: 37.5em) {
-   section{
-    flex-direction: row;
-   }
+  @media screen and (max-width: 30em) {
+    section {
+      margin-left: 1em;
+    }
+  }
+
+  @media screen and (min-width: 37em) {
+    section {
+      flex-direction: row;
+    }
   }
 </style>

@@ -18,4 +18,12 @@
     margin-top: 0%;
     display: flex;
   }
+
+
+
+  @media screen and (min-width: 37em) {
+    .line {
+      padding-left: 7rem;
+    }
+  }
 </style>
