@@ -380,7 +380,8 @@
     .hexagon1-6 {
         position: relative;
         overflow: hidden;
-        background: var(--vtDarkBlue);
+        /* background: white; */
+        background: transparent;
     }
 
     /* tablet */
