@@ -1,5 +1,5 @@
 <script>
-    import { onMount, onDestroy} from "svelte";
+    import { onMount, onDestroy } from "svelte";
 
     import Header from "$lib/molecules/header.svelte";
     import Footer from "$lib/molecules/footer.svelte";
@@ -9,15 +9,13 @@
     import LoadingScreen from "$lib/organisms/loadingScreen.svelte";
 
     let loading = true;
-    let delayedLoading = false;
+    let loadingContent = false;
 
     if (loading) {
-        delayedLoading = false;
+        loadingContent = false;
         setTimeout(() => {
-            delayedLoading = true;
+            loadingContent = true;
         }, 4000);
-    } else {
-        delayedLoading = false;
     }
 
     function handleKeyDown(event) {
@@ -53,7 +51,7 @@
 
 {#if loading}
     <LoadingScreen />
-    {#if delayedLoading}
+    {#if loadingContent}
         <Header />
         <Homepage />
         <Footer />
