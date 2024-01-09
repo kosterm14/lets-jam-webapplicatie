@@ -5,6 +5,7 @@
   import BlogButton from "$lib/atoms/blogButton.svelte";
   import BlogHex from "$lib/atoms/blogHex.svelte";
   import Footer from "$lib/molecules/footer.svelte";
+  import Blog from "$lib/organisms/blog.svelte"
 
   export let data;
 </script>
@@ -12,6 +13,7 @@
 <Header />
 
 <!-- <BlogText /> -->
+<Blog/>
 <BlogBorder />
 <!-- <BlogButton /> -->
 <BlogHex />
