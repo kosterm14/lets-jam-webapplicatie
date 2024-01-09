@@ -219,12 +219,16 @@
 
 <style>
     .container {
-        position: relative;
+        position: absolute;
         overflow: hidden;
         height: 100vh;
+        pointer-events: none;
+        animation: float 3s forwards;
+        animation-delay: 4000ms;
+        /* background: transparent; */
         /* animation: blur 3s linear infinite; */
         /* background-color: hsl(60, 100%, 50%); */
-        background: radial-gradient(circle, transparent, var(--vtDarkBlue) 40%);
+        /* background: radial-gradient(circle, transparent, var(--vtDarkBlue) 40%); */
     }
 
     .container::before {
@@ -234,25 +238,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle, transparent, var(--vtYellow) 90%);
-    }
-
-    @keyframes blur {
-        0% {
-            opacity: 75%;
-        }
-
-        25% {
-            opacity: 100%;
-        }
-
-        50% {
-            opacity: 75%;
-        }
-
-        100% {
-            opacity: 0%;
-        }
+        pointer-events: none;
+        /* background: radial-gradient(circle, transparent, var(--vtYellow) 90%); */
     }
 
     .row {
@@ -301,7 +288,8 @@
 
     .hexagon2 {
         background: white;
-        background-color: var(--vtDarkBlue);
+        background-color: transparent;
+        pointer-events: none;
     }
 
     .hexagon1:before,
@@ -327,6 +315,17 @@
         }
         100% {
             height: 100%;
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
+            opacity: 0.5;
         }
     }
 
