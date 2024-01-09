@@ -32,7 +32,7 @@
 
 <style>
   .animate {
-    animation: appear 4s forwards;
+    animation: appear 3s forwards;
   }
 
   @keyframes appear {
