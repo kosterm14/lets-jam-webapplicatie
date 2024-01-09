@@ -382,11 +382,15 @@
 
     /* tablet */
     @media (min-width: 31em) and (max-width: 55em) {
-        
+        .container {
+            display: none;
+        }
     }
 
     /* mobile */
     @media (max-width: 31em) {
-
+        .container {
+            display: none;
+        }
     }
 </style>
