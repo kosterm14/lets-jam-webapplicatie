@@ -225,6 +225,7 @@
         pointer-events: none;
         animation: float 3s forwards;
         animation-delay: 4000ms;
+        z-index: 1000;
         /* background: transparent; */
         /* animation: blur 3s linear infinite; */
         /* background-color: hsl(60, 100%, 50%); */
@@ -239,6 +240,7 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+        z-index: 1000;
         /* background: radial-gradient(circle, transparent, var(--vtYellow) 90%); */
     }
 
@@ -288,8 +290,9 @@
 
     .hexagon2 {
         background: white;
-        background-color: transparent;
+        /* background-color: transparent; */
         pointer-events: none;
+        animation: gone 2s forwards;
     }
 
     .hexagon1:before,
@@ -329,6 +332,15 @@
         }
         100% {
             transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
+            opacity: 0;
+        }
+    }
+
+    @keyframes gone {
+        0% {
+            opacity: 1;
+        }
+        100% {
             opacity: 0;
         }
     }

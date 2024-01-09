@@ -9,21 +9,13 @@
     import LoadingScreen from "$lib/organisms/loadingScreen.svelte";
 
     let loading = true;
-    let loadingContent = false;
-
-    if (loading) {
-        loadingContent = false;
-        setTimeout(() => {
-            loadingContent = true;
-        }, 4000);
-    }
 
     function handleKeyDown(event) {
         if (event.key === "L" || event.key === "l") {
             loading = true;
             setTimeout(() => {
                 loading = false;
-            }, 11000);
+            }, 7000);
         }
     }
 
@@ -37,7 +29,7 @@
                 sessionStorage.setItem("alreadyLoaded", "true");
                 setTimeout(() => {
                     loading = false;
-                }, 11000);
+                }, 7000);
             }
         }
     });
@@ -51,11 +43,9 @@
 
 {#if loading}
     <LoadingScreen />
-    {#if loadingContent}
-        <Header />
-        <Homepage />
-        <Footer />
-    {/if}
+    <Header />
+    <Homepage />
+    <Footer />
 {:else}
     <Header />
     <Homepage />
