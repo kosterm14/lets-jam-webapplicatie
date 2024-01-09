@@ -323,9 +323,13 @@
             transform: translateY(0) scale(1);
             opacity: 1;
         }
-        100% {
+        80% {
             transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
             opacity: 0.5;
+        }
+        100% {
+            transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
+            opacity: 0;
         }
     }
 
