@@ -44,4 +44,10 @@ import BlogButton from "./blogButton.svelte";
     border: 4px solid var(--vtYellow);
     border-radius: 0.5em;
   }
+
+  @media screen and (min-width: 37.5em) {
+   section{
+    flex-direction: row;
+   }
+  }
 </style>
