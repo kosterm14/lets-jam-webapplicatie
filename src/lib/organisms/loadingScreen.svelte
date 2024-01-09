@@ -219,10 +219,10 @@
 
 <style>
     .container {
-        position: absolute; /* Changed from absolute to fixed */
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-46.5%, -50%); /* Corrects the position so the center of the element is at the center of the viewport */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-46.5%, -45%);
         overflow: hidden;
         height: 100vh;
         pointer-events: none;
@@ -326,7 +326,7 @@
 
     @keyframes float {
         0% {
-            transform: translate(-46.5%, -50%) scale(1);
+            transform: translate(-46.5%, -45%) scale(1);
             opacity: 1;
         }
         80% {
