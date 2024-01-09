@@ -10,9 +10,11 @@
     import HomepageHexRed from "$lib/atoms/homepageHexRed.svelte";
     import HomepageHexGray1 from "$lib/atoms/homepageHexGray1.svelte";
     import HomepageHexGray2 from "$lib/atoms/homepageHexGray2.svelte";
+
+    export let loading = false;
 </script>
 
-<div class="grid-container">
+<div class="grid-container {loading ? 'animate' : ''}">
     <HomepageText />
 
     <HomepageImg1 />
@@ -33,12 +35,30 @@
         margin-top: 5%;
         margin-bottom: 5%;
         justify-content: center;
+        /* animation: appear 4s forwards; */
+    }
+
+    .animate {
+        animation: appear 4s forwards;
+    }
+
+    @keyframes appear {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     /* tablet */
     @media (min-width: 31em) and (max-width: 55em) {
         .grid-container {
             margin-top: 0%;
+        }
+
+        .animate {
+            animation: none;
         }
     }
 
@@ -49,6 +69,10 @@
             /* justify-content: normal; */
             scale: 0.75;
             margin-bottom: -40%;
+        }
+
+        .animate {
+            animation: none;
         }
     }
 </style>

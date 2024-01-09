@@ -15,7 +15,7 @@
             loading = true;
             setTimeout(() => {
                 loading = false;
-            }, 7000);
+            }, 6500);
         }
     }
 
@@ -29,7 +29,7 @@
                 sessionStorage.setItem("alreadyLoaded", "true");
                 setTimeout(() => {
                     loading = false;
-                }, 7000);
+                }, 6500);
             }
         }
     });
@@ -43,11 +43,11 @@
 
 {#if loading}
     <LoadingScreen />
-    <Header />
-    <Homepage />
+    <Header {loading}/>
+    <Homepage {loading}/>
     <Footer />
 {:else}
-    <Header />
-    <Homepage />
+    <Header {loading}/>
+    <Homepage {loading}/>
     <Footer />
 {/if}

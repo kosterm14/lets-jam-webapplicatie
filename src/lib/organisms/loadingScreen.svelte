@@ -224,7 +224,7 @@
         height: 100vh;
         pointer-events: none;
         animation: float 3s forwards;
-        animation-delay: 4000ms;
+        animation-delay: 2500ms;
         z-index: 1000;
         /* background: transparent; */
         /* animation: blur 3s linear infinite; */
@@ -292,7 +292,7 @@
         background: white;
         /* background-color: transparent; */
         pointer-events: none;
-        animation: gone 2s forwards;
+        animation: gone 3s forwards;
     }
 
     .hexagon1:before,
@@ -309,7 +309,7 @@
         height: 0;
         pointer-events: none;
         background-color: var(--vtYellow);
-        animation: fill 2s forwards;
+        animation: fill 0.75s forwards;
     }
 
     @keyframes fill {

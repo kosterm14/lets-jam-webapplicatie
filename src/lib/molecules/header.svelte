@@ -1,4 +1,5 @@
 <script>
+  export let loading = false;
 </script>
 
 <section>
@@ -7,7 +8,7 @@
       <input type="checkbox" />
       <span class="menu"> <span class="hamburger" /> </span> -->
 
-    <nav>
+    <nav class={loading ? "animate" : ""}>
       <ul>
         <a href="/tekenmethodes"><li>Tekenmethodes</li></a>
         <a href="/over"><li>Over</li></a>
@@ -30,6 +31,19 @@
 </section>
 
 <style>
+  .animate {
+    animation: appear 4s forwards;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   body {
     margin: 0;
     padding: 0;
