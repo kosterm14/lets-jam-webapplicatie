@@ -1,6 +1,6 @@
-<!-- <section>
+<section>
   <button>Lees meer</button>
-</section> -->
+</section>
 
 <style>
   button {
@@ -12,8 +12,9 @@
     border: none;
     margin: 1em;
     padding: 1em;
-    margin-top: 32em;
+    margin-top: 0em;
     margin-left: 8em;
+    
   }
 
   button:hover {
