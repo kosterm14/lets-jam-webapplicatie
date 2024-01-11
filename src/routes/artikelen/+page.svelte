@@ -15,6 +15,6 @@
 <!-- <BlogText /> -->
 <Blog/>
 <BlogBorder data={data}/>
-<BlogButton />
+<!-- <BlogButton /> -->
 <BlogHex />
 <Footer />
