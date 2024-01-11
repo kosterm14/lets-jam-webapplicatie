@@ -1,6 +1,9 @@
 <script>
   import Header from "$lib/molecules/header.svelte";
   import Footer from "$lib/molecules/footer.svelte";
+
+  export let data;
+  console.log(data)
 </script>
 
 <header>
@@ -11,11 +14,16 @@
 </header>
 
 <section class="backgroundcolortitle">
-  <h1>Tekenen en spelen met kinderen (en hun ouders)</h1>
+  {#each data.detailpaginas as detail}
+    <h1>{detail?.title}</h1>
+  {/each}
 </section>
 
 <section class="textsection">
-  <i
+  {#each data.detailpaginas as detail}
+    <h1>{detail?.tekst.text}</h1>
+  {/each}
+  <!-- <i
     >Sinds de romantiek zoeken kunstenaars de oorsprong van de creativiteit bij
     het kind. De belangstelling voor kindertekeningen groeide. Van het
     expressionisme en Cobra tot Marlene Dumas die haar dochter de tekeningen
@@ -87,7 +95,7 @@
     gaat het?’ neer. De deelnemers hadden allebei een aantal kaarten in hun
     handen met woorden of zinsdelen. Ze mochten dan om de beurt een woord naar
     keuze neerleggen.
-  </p>
+  </p> -->
 </section>
 <Footer />
 
@@ -119,16 +127,16 @@
     margin-left: 12em;
   }
 
-  h2{
+  h2 {
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
   }
 
-  .textsection{
+  .textsection {
     padding: 4em;
   }
 
-  i{
+  i {
     color: var(--vtDarkBlue);
     font-weight: bold;
     font-family: var(--vtPrimaryFont);
@@ -136,10 +144,8 @@
     font-size: larger;
   }
 
-  p{
+  p {
     font-family: var(--vtSecondaryFont);
     line-height: 1.5em;
   }
-
-
 </style>

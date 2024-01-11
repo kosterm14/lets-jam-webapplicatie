@@ -1,28 +1,31 @@
 <script>
   import BlogButton from "./blogButton.svelte";
+
+  export let data;
+  // console.log(data.detailpaginas.slug);
 </script>
 
 <section>
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
 
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
   <article>
-    <BlogButton />
+    <BlogButton data={data}/>
   </article>
 </section>
 
