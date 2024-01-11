@@ -14,7 +14,11 @@
     <BlogButton data={data}/>
   </article>
   <article>
+<<<<<<< Updated upstream
     <BlogButton data={data}/>
+=======
+    <BlogButton/>
+>>>>>>> Stashed changes
   </article>
 
   <!-- CARDS - BORDER -->
