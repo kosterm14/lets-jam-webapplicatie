@@ -1,6 +1,6 @@
-<section>
+<!-- <section>
   <button>Lees meer</button>
-</section>
+</section> -->
 
 <style>
   button {
