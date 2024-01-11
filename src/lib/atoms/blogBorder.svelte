@@ -1,35 +1,31 @@
-<script>
+ <script>
   import BlogButton from "./blogButton.svelte";
 
-  export let data;
-  // console.log(data.detailpaginas.slug);
-</script>
+  // export let data;
+  // // console.log(data.detailpaginas.slug);
+</script> 
 
 <section>
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton data={data}/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton data={data}/>
+    <BlogButton />
   </article>
   <article>
-<<<<<<< Updated upstream
-    <BlogButton data={data}/>
-=======
-    <BlogButton/>
->>>>>>> Stashed changes
+    <BlogButton />
   </article>
 
   <!-- CARDS - BORDER -->
   <article>
-    <BlogButton data={data}/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton data={data}/>
+    <BlogButton />
   </article>
   <article>
-    <BlogButton data={data}/>
+    <BlogButton />
   </article>
 </section>
 

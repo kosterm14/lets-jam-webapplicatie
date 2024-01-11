@@ -1,15 +1,6 @@
-<script>
-  export let data;
-  // console.log(data);
-</script>
-
-{#each data.detailpaginas as detail}
-  <a href="artikelen/{detail.slug}">
-    <section>
-      <button>Lees meer</button>
-    </section>
-  </a>
-{/each}
+<section>
+  <button>Lees meer</button>
+</section>
 
 <style>
   button {

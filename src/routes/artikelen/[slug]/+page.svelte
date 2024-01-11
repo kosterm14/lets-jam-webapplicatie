@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import Header from "$lib/molecules/header.svelte";
   import Footer from "$lib/molecules/footer.svelte";
 
@@ -22,7 +22,7 @@
 <section class="textsection">
   {#each data.detailpaginas as detail}
     <h1>{detail?.tekst.text}</h1>
-  {/each}
+  {/each} -->
   <!-- <i
     >Sinds de romantiek zoeken kunstenaars de oorsprong van de creativiteit bij
     het kind. De belangstelling voor kindertekeningen groeide. Van het
@@ -96,8 +96,8 @@
     handen met woorden of zinsdelen. Ze mochten dan om de beurt een woord naar
     keuze neerleggen.
   </p> -->
-</section>
-<Footer />
+<!-- </section> -->
+<!-- <Footer />
 
 <style>
   .line {
@@ -148,4 +148,4 @@
     font-family: var(--vtSecondaryFont);
     line-height: 1.5em;
   }
-</style>
+</style> -->
