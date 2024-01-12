@@ -1,15 +1,6 @@
-<script>
-  export let data;
-  // console.log(data);
-</script>
-
-{#each data.detailpaginas as detail}
-  <a href="artikelen/{detail.slug}">
-    <section>
-      <button>Lees meer</button>
-    </section>
-  </a>
-{/each}
+<section>
+  <button>Lees meer</button>
+</section>
 
 <style>
   button {
@@ -21,8 +12,9 @@
     border: none;
     margin: 1em;
     padding: 1em;
-    margin-top: 32em;
+    margin-top: 0em;
     margin-left: 8em;
+    
   }
 
   button:hover {

@@ -3,15 +3,16 @@ import { hygraph } from "$lib/utils/hygraph.js";
 
 export async function load() {
   let query = gql`
-    query Artikelen {
-  detailpaginas(first: 10) {
-    title
-    tekst {
-      text
+    query ArtikelenHomepages {
+      artikelenHomepages {
+        description
+        id
+        title
+        img {
+          url
+        }
+      }
     }
-    slug
-  }
-}
   `;
 
   return await hygraph.request(query);
