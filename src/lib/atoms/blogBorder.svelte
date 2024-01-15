@@ -5,7 +5,7 @@
 
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
-    <!-- CARDS - BORDER -->
+    <!-- CARDS - BORDER --> 
     <article>
       <img src={artikelenHomepages.img.url} alt="" />
       <h1>{artikelenHomepages.title}</h1>
@@ -37,6 +37,7 @@
 
   img {
     width: 100%;
+    height: 40%;
     border-top-right-radius: 1em;
     border-top-left-radius: 1em;
   }
@@ -49,6 +50,9 @@
     padding: 0.6em;
     font-size: 20px;
     margin-left: 0.3em;
+    height: 12%;
+    display: flex;
+    align-items: end;
   }
 
   p {
@@ -57,6 +61,7 @@
     line-height: 1.5em;
     padding: 1em;
     margin-top: -2em;
+    height: 26%;
   }
 
   @media screen and (max-width: 30em) {
