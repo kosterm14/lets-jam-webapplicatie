@@ -12,23 +12,6 @@
       <p>{artikelenHomepages.description}</p>
       <BlogButton />
     </article>
-    <article>
-      <BlogButton />
-    </article>
-    <article>
-      <BlogButton />
-    </article>
-
-    <!-- CARDS - BORDER -->
-    <article>
-      <BlogButton />
-    </article>
-    <article>
-      <BlogButton />
-    </article>
-    <article>
-      <BlogButton />
-    </article>
   {/each}
 </section>
 
@@ -64,6 +47,8 @@
     line-height: 1.2em;
     margin-top: 0em;
     padding: 0.6em;
+    font-size: 20px;
+    margin-left: 0.3em;
   }
 
   p {
@@ -72,10 +57,6 @@
     line-height: 1.5em;
     padding: 1em;
     margin-top: -2em;
-  }
-
-  .scroll {
-    overflow: scroll;
   }
 
   @media screen and (max-width: 30em) {
