@@ -1,29 +1,35 @@
 <script>
   import BlogButton from "./blogButton.svelte";
+  export let data;
 </script>
 
 <section>
-  <!-- CARDS - BORDER -->
-  <article>
-    <BlogButton />
-  </article>
-  <article>
-    <BlogButton />
-  </article>
-  <article>
-    <BlogButton />
-  </article>
+  {#each data.artikelenHomepages as artikelenHomepages}
+    <!-- CARDS - BORDER -->
+    <article>
+      <img src={artikelenHomepages.img.url} alt="" />
+      <h1>{artikelenHomepages.title}</h1>
+      <p>{artikelenHomepages.description}</p>
+      <BlogButton />
+    </article>
+    <article>
+      <BlogButton />
+    </article>
+    <article>
+      <BlogButton />
+    </article>
 
-  <!-- CARDS - BORDER -->
-  <article>
-    <BlogButton />
-  </article>
-  <article>
-    <BlogButton />
-  </article>
-  <article>
-    <BlogButton />
-  </article>
+    <!-- CARDS - BORDER -->
+    <article>
+      <BlogButton />
+    </article>
+    <article>
+      <BlogButton />
+    </article>
+    <article>
+      <BlogButton />
+    </article>
+  {/each}
 </section>
 
 <style>
@@ -39,10 +45,37 @@
   }
 
   article {
-    height: 25em;
+    height: 30em;
     width: 16em;
     border: 4px solid var(--vtYellow);
     border-radius: 0.5em;
+    
+  }
+
+  img {
+    width: 100%;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em;
+  }
+
+  h1 {
+    font-family: var(--vtPrimaryFont);
+    color: var(--vtDarkBlue);
+    line-height: 1.2em;
+    margin-top: 0em;
+    padding: 0.6em;
+  }
+
+  p {
+    font-family: var(--vtSecondaryFont);
+    font-size: 17px;
+    line-height: 1.5em;
+    padding: 1em;
+    margin-top: -2em;
+  }
+
+  .scroll {
+    overflow: scroll;
   }
 
   @media screen and (max-width: 30em) {

@@ -8,29 +8,39 @@
   </section>
 </header>
 
-
 <main>
-  
-
   {#each data.categories as category}
+    <aside>
+      <button>
+        <img
+          class="left-arrow"
+          src="./arrows_black.svg"
+          alt="Knop met pijl naar volgende video"
+        />
+      </button>
+
+      <!-- <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a> -->
+      <iframe
+        width="780"
+        height="535"
+        src="https://www.youtube.com/embed/yr-rRMElLFg"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+
+      <button>
+        <img
+          class="right-arrow"
+          src="./arrows_black.svg"
+          alt="Knop met pijl naar volgende video"
+        />
+      </button>
+    </aside>
+
+    <h1>{category.title}</h1>
+
     <article class="category">
-
-        <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a>
-      <h1>{category.title}</h1>
       <p>{@html category.content.html}</p>
-
-      <aside>
-        <button>
-          <button onclick="myFunction()">Previous</button>
-        </button>
-
-        <!-- <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a> -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yr-rRMElLFg" frameborder="0" allowfullscreen></iframe>
-
-        <button>
-          <button onclick="myFunction()">Next</button>
-        </button>
-      </aside>
     </article>
   {/each}
 </main>
@@ -72,6 +82,12 @@
     --vtSecondaryFont: "yrsa", serif;
   }
 
+  body {
+    /* margin: 0; */
+    padding: 0;
+    overflow-x: hidden;
+  }
+
   /* Clip styling */
 
   /* Header styling */
@@ -80,9 +96,12 @@
     font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    line-height: 1.5rem;
+    margin-left: 7em;
+    margin-right: 7em;
+    line-height: 3rem;
+    text-align: center;
+    border-bottom: 0.5px solid #333; /* Adjust the color and thickness of the line as needed */
+    padding-bottom: 22px; /* Adjust the padding as needed */
   }
 
   h2 {
@@ -92,20 +111,6 @@
     color: var(--vtDarkBlue);
     margin-left: 1.5em;
     margin-right: 1.5em;
-  }
-
-  .h1-detail {
-    padding-left: 6.7rem;
-    max-width: 30rem;
-    max-height: 6rem;
-  }
-
-  .h2-detail,
-  .bold {
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: var(--vtPrimaryFont);
-    color: var(--vtSec-DarkBlue);
   }
 
   .bold {
@@ -126,85 +131,47 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0%;
   }
 
   /* Kennisclip teksten */
 
   p {
     text-align: left;
-    text-transform: none;
+    /* text-transform: none; */
     line-height: 1.5rem;
-    margin-left: 3em;
-    margin-right: 3em;
+    /* align-items: center; */
     font-family: var(--vtPrimaryFont);
     font-size: 1em;
+    margin-left: 20em;
+    margin-right: 20em;
   }
 
   /* Arrow buttons */
 
   button {
-    display: inline-block;
-    font-size: 10px;
-    text-align: center;
-    text-decoration: none;
+    border: none;
+    background-color: white;
     cursor: pointer;
+  }
+
+  button:hover {
     border-radius: 5px;
-    background-color: var(--vtDarkBlue);
-    color: #ffffff;
-    border: 2px solid var(--vtDarkBlue);
   }
 
-  /* Hexagon */
-
-  /* .yellow-wrapped {
-    display: grid;
-    grid-template-columns: auto;
-    margin-top: 1%;
-    justify-content: center;
-    margin-right: -13em;
-    margin-top: -3em;
+  .right-arrow {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-left: 2em;
   }
 
-  .yellow,
-  .yellow2,
-  .yellow3,
-  .yellow4 {
-    width: 80px;
-    height: 70px;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    transform: rotate(90deg);
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    margin-top: -14%;
+  .left-arrow {
+    cursor: pointer;
+    margin-right: 2em;
+    transform: rotate(180deg);
   }
-
-  .yellow {
-    background: var(--vtYellow);
-  }
-  .yellow2 {
-    background: rgb(255, 213, 97);
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    margin-top: -7%;
-  }
-
-  .yellow3 {
-    background: rgb(255, 213, 97);
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    margin-top: -7%;
-  }
-
-  .yellow4 {
-    background: var(--vtYellow);
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    margin-top: -7%;
-  } */
+  /* Header line */
 
   .line {
     text-transform: uppercase;
@@ -212,11 +179,13 @@
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 7rem;
+    padding-left: 30rem;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
-    margin-top: 0%;
-    display: flex;
+    margin: 0%;
+    /* display: flex; */
     /* align-items: center; */
   }
+
+  /* Carousel */
 </style>
