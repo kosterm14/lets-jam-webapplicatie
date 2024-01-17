@@ -11,28 +11,12 @@
                 <img class="logo" src="/assets/vtHBO-v1.0-Logo_1.svg" alt="" />
             </a>
         </section>
-
-        <section class="navheader">
-            <nav>
-                <ul>
-                    <a href="/over">
-                        <li>Over</li>
-                    </a>
-                    <a href="/blog">
-                        <li>Blog</li>
-                    </a>
-                    <!-- <li>
-                        <img src="/assets/account.svg" alt="" />
-                    </li> -->
-                </ul>
-            </nav>
-        </section>
     </header>
 
     <section>
         <a href="/tekenmethodes">
             <p class="line">
-                <img class="arrows-line" src="/assets/arrows.svg" alt="" />
+                <img class="arrows-line" src="/arrows.svg" alt="" />
                 Overzicht <strong>tekenmethodes</strong>
             </p>
         </a>
@@ -59,6 +43,7 @@
                                 <h2 class="h2-detail">Stappenplan</h2>
                             </li>
                         </a>
+                        <section class="wrapper-mobile">
                         <a href="/tekenmethodes/{method.slug}/voorbeelden">
                             <li>
                                 <h2 class="h2-detail">Voorbeelden</h2>
@@ -71,6 +56,7 @@
                                 <h2 class="h2-detail">Feedback</h2>
                             </li>
                         </a>
+                      </section>
                     </ul>
                 </nav>
             {/each}
@@ -97,28 +83,6 @@
     padding: 0;
     box-sizing: border-box;
   }
-
-
-   /* desktop */
-   @media (min-width: 55em) {
-
-   }
-
-
-   /* tablet */
-   @media (min-width: 31em) and (max-width: 55em) {
-
-   }
-
-
-
-       /* mobile */
-       @media (max-width: 31em) {
- 
-
-    }
-
- 
 
   h1 {
     font-size: 3.157rem;
@@ -178,31 +142,20 @@
     margin-top: 1%;
   }
 
-  .navmain ul,
-  .navheader ul {
+  .navmain ul {
     display: flex;
     align-items: center;
 
     list-style: none;
   }
 
-  .navmain li,
-  .navheader li {
+  .navmain li {
     padding: 0.6rem;
     font-size: 1rem;
 
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
     font-weight: bolder;
-  }
-
-  .navheader {
-    display: flex;
-    align-items: center;
-  }
-
-  .navheader li {
-    padding: 1.4rem;
   }
 
   .navmain {
@@ -309,7 +262,7 @@
   }
 
   .arrows-line {
-    width: 1%;
+    width: 5%;
     transform: rotate(180deg);
   }
 
@@ -348,6 +301,7 @@
       width: auto;
       float: right;
       padding: 5px 0;
+
     }
 
     nav ul {
@@ -363,6 +317,70 @@
     }
 
 
+    /* tablet */
+    @media (min-width: 31em) and (max-width: 55em) {
+      .wrapper-mobile {
+    
+      }
+    }
 
+    /* mobile */
+    @media (max-width: 31em) {
+    .line {
+    padding-left: 2rem;
+    }
+
+    .h1-detail {
+    padding-left: 2rem;
+    }
+
+    h1 {
+    font-size: 2rem;
+    }
+
+  nav {
+      /* display: block !important; */
+      /* prevent the nav to hide when resize */
+      position: absolute;
+      margin-top: 1em;
+      margin-left: -1em;
+      width: auto;
+      float: left;
+      padding: 5px 0;
+
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+
+  nav li{
+      flex: 0 0 auto;
+  }
+
+
+
+    
+  .flex-b {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .template-url {
+    width: 100%;
+    height: 100%;
+    margin-top: 5em;
+  }
+
+  .text {
+    margin-left: -15em;
+    margin-top: 15rem;
+  
+
+    font-size: 1rem;
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtSec-DarkBlue);
+  }
+  }
 
 </style>
