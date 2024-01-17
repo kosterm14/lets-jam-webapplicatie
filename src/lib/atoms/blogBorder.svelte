@@ -5,7 +5,6 @@
 
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
-    <!-- CARDS - BORDER --> 
     <article>
       <img src={artikelenHomepages.img.url} alt="" />
       <h1>{artikelenHomepages.title}</h1>
@@ -18,13 +17,15 @@
 <style>
   /* MOBILE - STYLING */
   section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin: 3em;
+    justify-items: center;
+    padding: -10em;
+    justify-content: center;
+    padding: 10em;
+    padding-bottom: 1em;
+    gap:2em;
   }
 
   article {
@@ -32,7 +33,7 @@
     width: 16em;
     border: 4px solid var(--vtYellow);
     border-radius: 0.5em;
-    
+    /* margin-left: -2em; */
   }
 
   img {
@@ -64,15 +65,47 @@
     height: 26%;
   }
 
-  @media screen and (max-width: 30em) {
+  /* 
+  @media screen and (min-width: 900px) {
+    section{
+      grid-template-columns: 1fr 1fr;
+    }
+
+  } */
+
+  @media screen and (min-width: 850px) {
     section {
-      margin-left: 1em;
+      grid-template-columns: 1fr 1fr;
     }
   }
 
-  @media screen and (min-width: 37em) {
+  @media screen and (min-width: 690px) {
     section {
-      flex-direction: row;
+      display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: -10em;
+    justify-content: center;
+    padding: 10em;
+    padding-bottom: 1em;
     }
+  }
+
+  @media screen and (min-width: 1400px) {
+    section {
+      display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    grid-auto-columns: auto;
+    align-items: center;
+    justify-items: center;
+    padding-left: 7em;
+    padding-right: 7em;
+    }
+    /* 
+    article{
+      margin-left: 1em;
+    } */
   }
 </style>
