@@ -1,8 +1,13 @@
 <script>
   import BlogButton from "./blogButton.svelte";
   export let data;
+  console.log(data.introTeksts)
 </script>
 
+{#each data.introTeksts as intro}
+<h1>{intro.title}</h1>
+<p>{intro.description.text}</p>
+{/each}
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
     <article>
@@ -18,14 +23,14 @@
   /* MOBILE - STYLING */
   section {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     align-items: center;
     justify-items: center;
-    padding: -10em;
+    padding: 10%;
     justify-content: center;
-    padding: 10em;
     padding-bottom: 1em;
-    gap:2em;
+    gap: 2em;
+    /* background-color: blue; */
   }
 
   article {
@@ -72,36 +77,35 @@
     }
 
   } */
-
+  /* 
   @media screen and (min-width: 850px) {
-    section {
+    div {
       grid-template-columns: 1fr 1fr;
     }
-  }
+  } */
 
-  @media screen and (min-width: 690px) {
+  @media screen and (min-width: 760px) {
     section {
       display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    padding: -10em;
-    justify-content: center;
-    padding: 10em;
-    padding-bottom: 1em;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      /* padding: -10em; */
+      justify-content: center;
+      padding-bottom: 1em;
     }
   }
 
   @media screen and (min-width: 1400px) {
     section {
       display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2em;
-    grid-auto-columns: auto;
-    align-items: center;
-    justify-items: center;
-    padding-left: 7em;
-    padding-right: 7em;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2em;
+      grid-auto-columns: auto;
+      align-items: center;
+      justify-items: center;
+      padding-left: 7em;
+      padding-right: 7em;
     }
     /* 
     article{
