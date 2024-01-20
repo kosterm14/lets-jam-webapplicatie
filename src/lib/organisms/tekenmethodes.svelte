@@ -150,12 +150,20 @@
         <section class="method-container" data-index={index}>
           <a href="/tekenmethodes/{method.slug}" class="link-detail-page">
             {#if method.template && method.template.url}
-              <img
-                class={method.categories[0].title.replaceAll(" ", "-")}
-                src={method.template.url}
-                alt={"Voorbeeld van " + method.title}
-                loading="lazy"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset={method.template.url}
+                  class={method.categories[0].title.replaceAll(" ", "-")}
+                  loading="lazy"
+                />
+                <img
+                  src={method.template.url.replace(":webp", ":png")}
+                  alt={"Voorbeeld van " + method.title}
+                  class={method.categories[0].title.replaceAll(" ", "-")}
+                  loading="lazy"
+                />
+              </picture>
             {:else}
               <img
                 class={method.categories[0].title.replaceAll(" ", "-")}
