@@ -1,17 +1,13 @@
 <script>
+    import Header from "$lib/molecules/header.svelte";
+    import Footer from "$lib/molecules/footer.svelte";
     export let data;
     console.log(data);
 </script>
 
-<!-- <Header /> -->
+<Header />
+
 <body class="page">
-    <header>
-        <section>
-            <a href="/">
-                <img class="logo" src="/assets/vtHBO-v1.0-Logo_1.svg" alt="" />
-            </a>
-        </section>
-    </header>
 
     <section>
         <a href="/tekenmethodes">
@@ -43,20 +39,11 @@
                                 <h2 class="h2-detail">Stappenplan</h2>
                             </li>
                         </a>
-                        <section class="wrapper-mobile">
                         <a href="/tekenmethodes/{method.slug}/voorbeelden">
                             <li>
                                 <h2 class="h2-detail">Voorbeelden</h2>
                             </li>
-                        </a>
-                        <a
-                            href="/tekenmethodes/{method.slug}/form?id={method.id}"
-                        >
-                            <li>
-                                <h2 class="h2-detail">Feedback</h2>
-                            </li>
-                        </a>
-                      </section>
+                          </a>
                     </ul>
                 </nav>
             {/each}
@@ -76,8 +63,16 @@
     </main>
 </body>
 
+<Footer />
+
 
 <style>
+  :root {
+    --vtGrey-80: #c0beb9;
+    --vtGrey-50: #e0dedc;
+    --vtGrey-10: #f9f8f8;
+  }
+
   .page {
     margin: 0;
     padding: 0;
@@ -134,19 +129,11 @@
     color: var(--vtWhite);
   }
 
-
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1%;
-  }
-
   .navmain ul {
     display: flex;
     align-items: center;
-
     list-style: none;
+    
   }
 
   .navmain li {
@@ -161,8 +148,8 @@
   .navmain {
     display: flex;
     justify-content: space-between;
-
-    margin-top: -1rem;
+    background-color: var(--vtGrey-10);
+    margin-top: -2rem;
     margin-bottom: -1rem;
   }
 
@@ -175,7 +162,6 @@
   .navmain ul {
     padding-right: 4rem;
   }
-
 
   h1 {
     font-size: 3.157rem;
@@ -226,7 +212,7 @@
   .text {
     padding-top: 1.5rem;
     max-width: 35rem;
-
+    margin-left: 1em;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
     color: var(--vtSec-DarkBlue);
@@ -262,12 +248,11 @@
   }
 
   .arrows-line {
-    width: 5%;
+    width: 20px;
     transform: rotate(180deg);
   }
 
-  .flex-b,
-  .flex-s {
+  .flex-b {
     display: flex;
     justify-content: space-evenly;
   }
@@ -285,6 +270,7 @@
     width: calc(39.8rem / 1.3);
     height: calc(27rem / 1.3);
     margin-left: 6.6rem;
+    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
 
@@ -318,10 +304,66 @@
 
 
     /* tablet */
-    @media (min-width: 31em) and (max-width: 55em) {
-      .wrapper-mobile {
-    
-      }
+    @media (min-width: 31em) and (max-width: 62em) {
+      .line {
+    padding-left: 2rem;
+    }
+
+    .h1-detail {
+    padding-left: 2rem;
+    }
+
+    h1 {
+    font-size: 2rem;
+    }
+
+    nav {
+      width: auto;
+      float: left;
+      margin-top: 2.5em;
+      margin-left: -11.5em;
+      padding: 5px 0;
+      
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .flex-b {
+    padding-left: 0rem;
+  }
+
+  /* .flex-b {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } */
+
+  .flex-b {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .template-url {
+    /* display: flex;
+    justify-content: center; */
+    width: 420px;
+    height: 300px;
+    margin-top: 3em;
+    /* margin-right: -10em; */
+    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
+  }
+
+  .text {
+    /* margin-left: -20em;
+    margin-top: 20rem; */
+    width: 77%;
+    font-size: 1rem;
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtSec-DarkBlue);
+  }
     }
 
     /* mobile */
@@ -338,45 +380,39 @@
     font-size: 2rem;
     }
 
-  nav {
-      /* display: block !important; */
-      /* prevent the nav to hide when resize */
-      position: absolute;
-      margin-top: 1em;
-      margin-left: -1em;
+    nav {
       width: auto;
       float: left;
+      margin-top: 4.5em;
+      margin-left: -11.5em;
       padding: 5px 0;
-
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      
+      overflow-x: scroll;
+      white-space: nowrap;
     }
 
+    nav::-webkit-scrollbar {
+      display: none;
+    }
 
-  nav li{
-      flex: 0 0 auto;
-  }
-
-
-
-    
   .flex-b {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
   .template-url {
-    width: 100%;
-    height: 100%;
-    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+    width: 330px;
+    height: 230px;
+    margin-top: 3em;
+    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
   .text {
     margin-left: -15em;
-    margin-top: 15rem;
-  
-
+    margin-top: 16rem;
+    min-width: 15em;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
     color: var(--vtSec-DarkBlue);
