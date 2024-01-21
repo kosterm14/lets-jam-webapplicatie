@@ -136,4 +136,15 @@
       margin-left: 7em;
     }
   }
+
+  @media screen and (min-width: 2280px) {
+    .introtitel {
+      margin-left: 10em;
+    }
+
+    .introtext {
+      width: 23%;
+      margin-left: 16em;
+    }
+  }
 </style>
