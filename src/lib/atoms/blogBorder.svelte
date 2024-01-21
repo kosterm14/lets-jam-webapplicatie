@@ -1,13 +1,13 @@
 <script>
   import BlogButton from "./blogButton.svelte";
   export let data;
-  console.log(data.introTeksts)
 </script>
 
 {#each data.introTeksts as intro}
-<h1>{intro.title}</h1>
-<p>{intro.description.text}</p>
+  <h1 class="introtitel">{intro.title}</h1>
+  <p class="introtext">{intro.description.text}</p>
 {/each}
+
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
     <article>
@@ -30,7 +30,6 @@
     justify-content: center;
     padding-bottom: 1em;
     gap: 2em;
-    /* background-color: blue; */
   }
 
   article {
@@ -38,7 +37,6 @@
     width: 16em;
     border: 4px solid var(--vtYellow);
     border-radius: 0.5em;
-    /* margin-left: -2em; */
   }
 
   img {
@@ -70,19 +68,15 @@
     height: 26%;
   }
 
-  /* 
-  @media screen and (min-width: 900px) {
-    section{
-      grid-template-columns: 1fr 1fr;
-    }
+  .introtitel {
+    margin-left: 0em;
+    font-size: 30px;
+  }
 
-  } */
-  /* 
-  @media screen and (min-width: 850px) {
-    div {
-      grid-template-columns: 1fr 1fr;
-    }
-  } */
+  .introtext {
+    font-size: 19px;
+    margin-bottom: -1em;
+  }
 
   @media screen and (min-width: 760px) {
     section {
@@ -90,13 +84,38 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       justify-items: center;
-      /* padding: -10em; */
       justify-content: center;
       padding-bottom: 1em;
     }
+
+    .introtitel {
+      margin-left: 3em;
+      font-size: 30px;
+    }
+
+    .introtext {
+      width: 45%;
+      font-size: 19px;
+      margin-left: 5em;
+      margin-bottom: -4em;
+    }
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 600px) {
+    .introtitel {
+      margin-left: 2em;
+      font-size: 30px;
+    }
+
+    .introtext {
+      width: 55%;
+      font-size: 19px;
+      margin-left: 3em;
+      margin-bottom: -1em;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
     section {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -107,9 +126,14 @@
       padding-left: 7em;
       padding-right: 7em;
     }
-    /* 
-    article{
-      margin-left: 1em;
-    } */
+
+    .introtitel {
+      margin-left: 4.2em;
+    }
+
+    .introtext {
+      width: 38%;
+      margin-left: 7em;
+    }
   }
 </style>
