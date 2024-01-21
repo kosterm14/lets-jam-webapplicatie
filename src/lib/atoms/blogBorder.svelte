@@ -111,7 +111,7 @@
       width: 55%;
       font-size: 19px;
       margin-left: 3em;
-      margin-bottom: -1em;
+      margin-bottom: -2em;
     }
   }
 
