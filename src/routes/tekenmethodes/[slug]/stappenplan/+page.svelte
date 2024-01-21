@@ -578,7 +578,7 @@
 
     /* tablet */
     @media (min-width: 31em) and (max-width: 68em) {
-      .line {
+    .line {
     padding-left: 2rem;
     }
 
@@ -591,14 +591,14 @@
     }
 
     nav {
-      width: auto;
-      float: left;
-      margin-top: 2.5em;
-      margin-left: -11.5em;
-      padding: 5px 0;
-      
-      overflow-x: scroll;
-      white-space: nowrap;
+    width: auto;
+    float: left;
+    margin-top: 2.5em;
+    margin-left: -11.5em;
+    padding: 5px 0;
+     
+    overflow-x: scroll;
+    white-space: nowrap;
     }
 
     .navmain {
@@ -606,45 +606,21 @@
     margin-top: -2em;
   }
 
-
-    /* nav {
-      display: block !important;
-      position: relative;
-      width: auto;
-      float: right;
-      padding: 5px 0;
-    }
-
-    nav ul {
-      float: left;
-    }
-
-    nav ul li {
-      display: inline-block;
-      padding-right: 30px;
-      padding-top: 5px;
-      color: var(--vtDarkBlue);
-      font: var(--vtMenuFont);
-    } */
-  
-
-
     nav::-webkit-scrollbar {
-      display: none;
+    display: none;
     }
 
-  .template-url {
+    .template-url {
     display: flex;
     justify-content: center;
     width: 420px;
     height: 300px;
     margin-top: 3em;
     margin-left: 3em;
-    /* margin-right: -10em; */
     box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
-  .flex-s {
+    .flex-s {
     margin-left: -35em;
     margin-top: 24rem;
     min-width: 15%;

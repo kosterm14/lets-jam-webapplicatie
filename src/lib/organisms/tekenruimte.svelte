@@ -71,8 +71,8 @@ import { onMount } from "svelte";
             <input id="lineWidth" name="lineWidth" type="number" value="5" />
             <button id="clear">Wissen</button>
         </div>
-        <div class="drawing-board">
-            <canvas id="drawing-board" />
+        <div class="drawing-board" >
+            <canvas id="drawing-board"  />
         </div>
     <div class="inputComponent"><Inputtekenruimte /></div> 
         
@@ -160,7 +160,7 @@ import { onMount } from "svelte";
 
     .inputComponent {
         position: absolute;
-        margin-left: 0em;
+        margin-left: 2em;
         margin-top: 1em;
     }
 
@@ -284,9 +284,10 @@ import { onMount } from "svelte";
         background-color: var(--vtGrey-10);
         box-shadow: var(--vtGrey-50) 1px 1px 20px 1px;
         margin: 2em;
+        margin-left: 4em;
         /* max-width: 30em; */
         height: 25em;
-        width: 100vw;
+        width: 90%;
         cursor: url('cursor-img.jpg');
     }
 
@@ -295,6 +296,27 @@ import { onMount } from "svelte";
         height: 3em;
         border-radius: 4px;
         margin: 0em;
+    }
+
+    #clear {
+        background-color: #090940;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 2px;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        width: 25%;
+    }
+
+    #clear:hover{
+        color: var(--vtYellow);
+
+    }
+
+    #clear:active{
+        transform: translateY(1px);
+
     }
   }
 
@@ -311,18 +333,20 @@ import { onMount } from "svelte";
         justify-content: center;
         align-items: center;
         width: 100vw;
+        margin-top: 2em;
     }
 
       .container {
         display: grid;
         grid-template-columns: 1fr;
         width: 100vw;
-        margin-top: 3em;
+        margin-top: 2em;
     }
 
       #toolbar {
         width: 50%;
-        height: 70%;
+        max-width: 15em;
+        height: 60%;
     }
 
       .drawing-board{
@@ -331,9 +355,9 @@ import { onMount } from "svelte";
         background-color: var(--vtGrey-10);
         box-shadow: var(--vtGrey-50) 1px 1px 20px 1px;
         margin: 2em;
-        max-width: 30em;
+        max-width: 22em;
         height: 35em;
-        width: 100vw;
+        width: 90%;
         cursor: url('cursor-img.jpg');
     }
 
@@ -346,11 +370,11 @@ import { onMount } from "svelte";
     }
 
 
-    /* mobile */
+    /* ---MOBILE--- */
     @media (max-width: 31em) {
 
-        .inputComponent {
-            display: none;
+      .inputComponent {
+        display: none;
         }
 
       .labeltekst {
@@ -359,8 +383,8 @@ import { onMount } from "svelte";
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100vw;
-        margin-left: 5em;
+        margin-top: 2em;
+        margin-left: 0em;
     }
 
       .container {
@@ -369,9 +393,10 @@ import { onMount } from "svelte";
     }
 
       #toolbar {
-        /* margin-left: 5em; */
-        width: 15em;
-        height: 15em;
+        margin-left: 2.5em;
+        margin-right: 1em;
+        width: 60%;
+        height: 12em;
     }
 
       .drawing-board{
@@ -379,19 +404,21 @@ import { onMount } from "svelte";
         border: none;
         background-color: var(--vtGrey-10);
         box-shadow: var(--vtGrey-50) 1px 1px 20px 1px;
-        margin: 2em;
+        margin: 1em;
         height: 30em;
-        width: 20em;
-        /* padding: 2em; */
-        /* padding-right: -2em; */
-        cursor: url('cursor-img.jpg');
+        width: 90%;
     }
 
-    #toolbar input {
+      #toolbar input {
         width: 50%;
         height: 3em;
         border-radius: 4px;
         margin: 0em;
+    }
+
+    .drawing-board #drawing-board {
+      /* width: 100%;
+      height: 100%; */
     }
     }
 

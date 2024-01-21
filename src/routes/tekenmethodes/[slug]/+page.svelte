@@ -86,7 +86,7 @@
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 2.369rem;
     font-family: var(--vtSecondaryFont);
     line-height: 1.5rem;
     color: var(--vtDarkBlue);
@@ -94,13 +94,25 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    max-width: 30rem;
-    max-height: 6rem;
+    /* max-width: 30rem; */
+    /* max-height: 6rem; */
+    /* width: 90%; */
+    /* margin-top: -0.7em; */
+    /* margin-bottom: 1.5em; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    hyphens: auto;
+  }
+
+  .h1-detail:hover {
+    white-space: unset;
+    text-overflow: unset;
   }
 
   .h2-detail,
   .bold {
-    font-size: 1rem;
+    font-size: 2.369rem;
     font-weight: 400;
 
     font-family: var(--vtPrimaryFont);
@@ -115,7 +127,7 @@
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.777rem;
     font-family: var(--vtSecondaryFont);
     line-height: 1.5rem;
   }
@@ -366,18 +378,18 @@
   }
     }
 
-    /* mobile */
-    @media (max-width: 31em) {
+    /* ---MOBILE--- */
+  @media (max-width: 31em) {
     .line {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     .h1-detail {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     h1 {
-    font-size: 2rem;
+      font-size: 2rem;
     }
 
     nav {
@@ -395,28 +407,28 @@
       display: none;
     }
 
-  .flex-b {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+    .flex-b {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
 
-  .template-url {
-    display: flex;
-    justify-content: center;
-    width: 330px;
-    height: 230px;
-    margin-top: 3em;
-    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
-  }
+    .template-url {
+      display: flex;
+      justify-content: center;
+      width: 330px;
+      height: 230px;
+      margin-top: 3em;
+      box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
+    }
 
-  .text {
-    margin-left: -15em;
-    margin-top: 16rem;
-    min-width: 15em;
-    font-size: 1rem;
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtSec-DarkBlue);
-  }
+    .text {
+      margin-left: -15em;
+      margin-top: 16rem;
+      min-width: 15em;
+      font-size: 1rem;
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtSec-DarkBlue);
+    }
   }
 
 </style>
