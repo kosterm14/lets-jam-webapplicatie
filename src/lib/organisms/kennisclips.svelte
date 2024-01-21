@@ -10,32 +10,34 @@
 
 <main>
   {#each data.categories as category}
-    <aside>
-      <button>
+    <article class="clips">
+      <a href="">
         <img
           class="left-arrow"
           src="./arrows_black.svg"
           alt="Knop met pijl naar volgende video"
         />
-      </button>
+      </a>
 
-      <!-- <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a> -->
       <iframe
-        width="780"
-        height="535"
-        src="https://www.youtube.com/embed/yr-rRMElLFg"
+        class="frame"
+        width="560"
+        height="315"
+        src={category.youTubeLink}
         frameborder="0"
         allowfullscreen
+        loading="lazy"
       ></iframe>
 
-      <button>
+      <a href="">
         <img
           class="right-arrow"
           src="./arrows_black.svg"
           alt="Knop met pijl naar volgende video"
         />
-      </button>
-    </aside>
+      </a>
+    </article>
+
 
     <h1>{category.title}</h1>
 
@@ -78,31 +80,41 @@
     --vtRed-30: #fdc4b9;
     --vtRed-10: #fee2dc;
 
+    --vtGrey-80: #c0beb9;
+    --vtGrey-50: #e0dedc;
+    --vtGrey-10: #f9f8f8;
+
     --vtPrimaryFont: "rigid-square", sans-serif;
     --vtSecondaryFont: "yrsa", serif;
   }
 
   body {
-    /* margin: 0; */
     padding: 0;
     overflow-x: hidden;
   }
 
-  /* Clip styling */
-
   /* Header styling */
-
   h1 {
     font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
-    margin-left: 7em;
-    margin-right: 7em;
     line-height: 3rem;
     text-align: center;
-    border-bottom: 0.5px solid #333; /* Adjust the color and thickness of the line as needed */
-    padding-bottom: 22px; /* Adjust the padding as needed */
+    /* border-bottom: 0.5px solid #333; */
+    padding-bottom: 22px;
+    /* padding-left: 1em; */
   }
+
+  /* h1 {
+  width: 100%; 
+  text-align: center; 
+  box-sizing: border-box; 
+
+h1::after {
+  display: inline-block; 
+  width: 90vw; 
+  border-bottom: 1px solid black;
+} */
 
   h2 {
     font-size: 2rem;
@@ -126,65 +138,95 @@
     line-height: 1.5rem;
   }
 
-  /* Header styling */
-  aside {
+  .frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+  /* Clip styling */
+
+  @media screen and (min-width: 1120px) {
+    .frame {
+      width: 884px;
+      height: 497px;
+    }
+  }
+
+  @media (max-width: 481px) {
+    .frame {
+      width: 320px;
+      height: 169px;
+    }
+  }
+
+  /* H1, iframe styling */
+  .clips {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0%;
+    padding-top: 40px;
+    /* padding-bottom: 30px ; */
+    background-color: var(--vtGrey-10);
   }
 
   /* Kennisclip teksten */
-
   p {
     text-align: left;
-    /* text-transform: none; */
     line-height: 1.5rem;
-    /* align-items: center; */
-    font-family: var(--vtPrimaryFont);
+    font-family: var(--vtSecondaryFont);
     font-size: 1em;
-    margin-left: 20em;
-    margin-right: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
   }
 
-  /* Arrow buttons */
+  @media screen and (max-width: 900px) {
+    p {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  }
 
-  button {
-    border: none;
-    background-color: white;
+  a {
+    padding: 2em;
+  }
+
+  a {
+    text-decoration: none;
     cursor: pointer;
   }
 
-  button:hover {
-    border-radius: 5px;
+  a:link {
+    text-decoration: none;
   }
 
   .right-arrow {
     cursor: pointer;
-    background-color: white;
     border: none;
-    margin-left: 2em;
   }
 
   .left-arrow {
     cursor: pointer;
-    margin-right: 2em;
     transform: rotate(180deg);
   }
+
   /* Header line */
 
   .line {
     text-transform: uppercase;
-    background-color: var(--vtLightBlue);
+    background-color: var(--vtSec-LightBlue);
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 30rem;
+    padding-left: 18.5%;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
-    margin: 0%;
-    /* display: flex; */
-    /* align-items: center; */
+    margin-top: 0%;
+    /* margin-bottom: 2em; */
+    width: 100vw;
+    display: flex;
+    margin-bottom: 0;
+    align-items: center;
   }
 
   /* Carousel */
