@@ -22,7 +22,7 @@
       <iframe
         class="frame"
         width="560"
-        height="314"
+        height="315"
         src={category.youTubeLink}
         frameborder="0"
         allowfullscreen
