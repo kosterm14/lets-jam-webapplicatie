@@ -40,7 +40,6 @@
         <br />
         <em>Visuele identiteit en webdesign:</em> Ramon Boers <br />
         <em>Webdevelopment:</em> t.b.a.
-
     </section>
 </main>
 
@@ -89,13 +88,15 @@
         width: 100vw;
         display: flex;
         align-items: center;
-
     }
 
     /* tablet */
     @media (min-width: 31em) and (max-width: 55em) {
         section {
             width: 80%;
+        }
+        .line {
+            padding-left: 25%;
         }
     }
 
@@ -106,6 +107,9 @@
         }
         section {
             width: 77%;
+        }
+        .line {
+            padding-left: 14.5%;
         }
     }
 </style>

@@ -1,17 +1,26 @@
 <script>
   export let loading = false;
+  let active = false;
+
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      active = false;
+    } else {
+      x.style.display = "block";
+      active = true;
+    }
+  }
 </script>
 
 <section>
   <body>
-    <!-- <label>
-      <input type="checkbox" />
-      <span class="menu"> <span class="hamburger" /> </span> -->
-
     <nav class={loading ? "animate" : ""}>
       <ul>
         <a href="/tekenmethodes"><li>Tekenmethodes</li></a>
         <a href="/over"><li>Over</li></a>
+        <a href="/minicursussen"> <li>Minicursussen</li></a>
         <a href="/"
           ><li>
             <img
@@ -23,12 +32,29 @@
         >
         <a href="/kennisclips"><li>Kennisclips</li></a>
         <a href="/artikelen"><li>Artikelen</li></a>
+        <a href="/tekenruimte"><li>Tekenruimte</li></a>
       </ul>
-      <!-- <img src="assets/Group 1.svg" alt="yellowIcons" class="yellowIcons"> -->
     </nav>
-    <!-- </label> -->
   </body>
 </section>
+
+<div class="mobile-container">
+  <div class="topnav">
+    <a
+      href="/"
+      class={active ? "active rotate" : "active"}
+      on:click|preventDefault={myFunction}>Navigatie</a
+    >
+    <div id="myLinks">
+      <a href="/over">Over</a>
+      <a href="/tekenmethodes">Tekenmethodes</a>
+      <a href="/minicursussen">Minicursussen</a>
+      <a href="/kennisclips">Kennisclips</a>
+      <a href="/artikelen">Artikelen</a>
+      <a href="/tekenruimte">Tekenruimte</a>
+    </div>
+  </div>
+</div>
 
 <style>
   .animate {
@@ -61,11 +87,9 @@
   }
 
   nav {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    /* margin-left: -7em; */
+    padding-top: 1em;
+    padding-bottom: 1em;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     width: 100vw;
   }
@@ -79,13 +103,9 @@
     padding: 0;
     margin: 0;
     align-items: center;
-    /* justify-content: center; */
   }
 
   li {
-    /* margin-left: 1em;
-    margin-right: 1em; */
-
     width: 7.7rem;
     display: flex;
     justify-content: center;
@@ -96,15 +116,9 @@
     height: auto;
   }
 
-  input {
+  .mobile-container {
     display: none;
   }
-
-  /* .yellowIcons {
-    max-width: 10em;
-    margin-right: -13.5em;
-    margin-top: -2em;
- } */
 
   /* tablet */
   @media (min-width: 31em) and (max-width: 55em) {
@@ -128,6 +142,177 @@
     .animate {
       animation: none;
     }
+
+    .mobile-container {
+      display: inherit;
+      position: relative;
+      z-index: 9999;
+    }
+
+    .mobile-container {
+      background-color: #555;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
+    }
+
+    .topnav #myLinks {
+      display: none;
+    }
+
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      display: block;
+    }
+
+    .topnav a:nth-child(1),
+    .topnav a:nth-child(2),
+    .topnav a:nth-child(3),
+    .topnav a:nth-child(4),
+    .topnav a:nth-child(5),
+    .topnav a:nth-child(6) {
+      text-transform: uppercase;
+      color: var(--vtWhite);
+      font-family: var(--vtPrimaryFont);
+      font-size: 0.9rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      margin-top: 0%;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .topnav > a:nth-child(1) {
+      background-color: var(--vtGrey-50);
+      color: var(--vtDarkBlue);
+      padding-left: 20%;
+    }
+
+    #myLinks a:nth-child(1) {
+      background-color: var(--vtSec-DarkBlue);
+      animation: slide1 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(2) {
+      background-color: var(--vtYellow);
+      animation: slide2 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(3) {
+      background-color: var(--vtRed);
+      animation: slide3 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(4) {
+      background-color: var(--vtLightBlue);
+      animation: slide4 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(5) {
+      background-color: var(--vtDarkBlue);
+      color: var(--vtWhite);
+      animation: slide5 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(6) {
+      background-color: var(--vtDarkBlue);
+      color: var(--vtWhite);
+      animation: slide6 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    nav ul a:nth-child(1),
+    nav ul a:nth-child(2),
+    nav ul a:nth-child(3),
+    nav ul a:nth-child(5),
+    nav ul a:nth-child(6),
+    nav ul a:nth-child(7) {
+      display: none;
+    }
+
+    nav {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .active::before {
+      content: ">";
+      transition: 600ms;
+    }
+
+    .active.rotate::before {
+      content: ">";
+      transform: rotate(90deg);
+    }
+
+    @keyframes slide1 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 26%;
+      }
+    }
+
+    @keyframes slide2 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 32%;
+      }
+    }
+
+    @keyframes slide3 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 38%;
+      }
+    }
+
+    @keyframes slide4 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 44%;
+      }
+    }
+
+    @keyframes slide5 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 50%;
+      }
+    }
+
+    @keyframes slide6 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 56%;
+      }
+    }
   }
 
   /* mobile */
@@ -135,14 +320,6 @@
     .animate {
       animation: none;
     }
-
-    input {
-      display: none;
-    }
-
-    /* label {
-            display: none;
-		} */
 
     a:link {
       text-decoration: none;
@@ -165,105 +342,176 @@
       flex-direction: column;
     }
 
-    /* label .menu {
-      position: fixed;
-      right: -100px;
-      top: -120px;
-      z-index: 100;
-      width: 200px;
-      height: 200px;
-      background: #ffffff;
-      border-radius: 50% 50% 50% 50%;
-      -webkit-transition: 0.5s ease-in-out;
-      transition: 0.5s ease-in-out;
-      box-shadow:
-        0 0 0 0 #fff,
-        0 0 0 0 #fff;
-      cursor: pointer;
+    .mobile-container {
+      display: inherit;
+      position: relative;
+      z-index: 9999;
     }
 
-    label .hamburger {
-      position: absolute;
-      top: 150px;
-      left: 50px;
-      width: 30px;
-      height: 2px;
-      background: #000000;
-      display: block;
-      -webkit-transform-origin: center;
-      transform-origin: center;
-      -webkit-transition: 0.5s ease-in-out;
-      transition: 0.5s ease-in-out;
+    .mobile-container {
+      max-width: 480px;
+      margin: auto;
+      background-color: #555;
+      color: white;
+      border-radius: 10px;
     }
 
-    label .hamburger:after,
-    label .hamburger:before {
-      -webkit-transition: 0.5s ease-in-out;
-      transition: 0.5s ease-in-out;
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: #000000;
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: relative;
     }
 
-    label .hamburger:before {
-      top: -10px;
-    }
-
-    label .hamburger:after {
-      bottom: -10px;
-    }
-
-    label input {
+    .topnav #myLinks {
       display: none;
     }
 
-    label input:checked + .menu {
-      box-shadow:
-        0 0 0 100vw #fff,
-        0 0 0 100vh #fff;
-      border-radius: 0;
-    }
-
-    label input:checked + .menu .hamburger {
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
-
-    label input:checked + .menu .hamburger:after {
-      -webkit-transform: rotate(90deg);
-      transform: rotate(90deg);
-      bottom: 0;
-    }
-
-    label input:checked + .menu .hamburger:before {
-      -webkit-transform: rotate(90deg);
-      transform: rotate(90deg);
-      top: 0;
-    }
-
-    label input:checked + .menu + ul {
-      opacity: 1;
-    }
-
-    label ul {
-      z-index: 200;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: 0.25s 0.05s ease-in-out;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    li {
-      margin-bottom: 1em;
-      display: block;
-      color: #000000;
+    .topnav a {
+      color: white;
+      padding: 14px 16px;
       text-decoration: none;
-    } */
+      font-size: 17px;
+      display: block;
+    }
+
+    .topnav a:nth-child(1),
+    .topnav a:nth-child(2),
+    .topnav a:nth-child(3),
+    .topnav a:nth-child(4),
+    .topnav a:nth-child(5),
+    .topnav a:nth-child(6) {
+      text-transform: uppercase;
+      color: var(--vtWhite);
+      font-family: var(--vtPrimaryFont);
+      font-size: 0.9rem;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      margin-top: 0%;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+    }
+
+    .topnav > a:nth-child(1) {
+      background-color: var(--vtGrey-50);
+      color: var(--vtDarkBlue);
+      padding-left: 11%;
+    }
+
+    #myLinks a:nth-child(1) {
+      background-color: var(--vtSec-DarkBlue);
+      animation: slide1 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(2) {
+      background-color: var(--vtYellow);
+      animation: slide2 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(3) {
+      background-color: var(--vtRed);
+      animation: slide3 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(4) {
+      background-color: var(--vtLightBlue);
+      animation: slide4 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(5) {
+      background-color: var(--vtDarkBlue);
+      color: var(--vtWhite);
+      animation: slide5 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .topnav a:nth-child(6) {
+      background-color: var(--vtDarkBlue);
+      color: var(--vtWhite);
+      animation: slide6 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    nav ul a:nth-child(1),
+    nav ul a:nth-child(2),
+    nav ul a:nth-child(3),
+    nav ul a:nth-child(5),
+    nav ul a:nth-child(6),
+    nav ul a:nth-child(7) {
+      display: none;
+    }
+
+    nav {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .active::before {
+      content: ">";
+      transition: 600ms;
+    }
+
+    .active.rotate::before {
+      content: ">";
+      transform: rotate(90deg);
+    }
+
+    @keyframes slide1 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 17%;
+      }
+    }
+
+    @keyframes slide2 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 23%;
+      }
+    }
+
+    @keyframes slide3 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 29%;
+      }
+    }
+
+    @keyframes slide4 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 35%;
+      }
+    }
+
+    @keyframes slide5 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 41%;
+      }
+    }
+
+    @keyframes slide6 {
+      0% {
+        padding-left: 0%;
+      }
+
+      100% {
+        padding-left: 47%;
+      }
+    }
   }
 </style>

@@ -5,8 +5,8 @@
 		<h3>
 			<em>Kennisclips</em>
 		</h3>
+		<img src="/arrows.svg" alt="" />
 	</a>
-	<img src="/arrows.svg" alt="" />
 </section>
 
 <style>
