@@ -1,17 +1,19 @@
 <section class="red" />
 
 <section class="h3-red">
-	<h3>
-		<em>Minicursussen</em>
-	</h3>
-	<img src="/arrows.svg" alt="" />
+	<a href="/minicursussen">
+		<h3>
+			<em>Minicursussen</em>
+		</h3>
+		<img src="/arrows.svg" alt="" />
+	</a>
 </section>
 
 <style>
 	.h3-red:hover h3 {
-        /* color: var(--vtSec-Green); */
+		/* color: var(--vtSec-Green); */
 		text-transform: uppercase;
-    }
+	}
 
 	.red {
 		background: var(--vtRed);
@@ -48,6 +50,12 @@
 		margin-top: -10%;
 	}
 
+	a {
+		text-decoration: none;
+		cursor: pointer;
+		color: var(--vtWhite);
+	}
+
 	em {
 		font-family: var(--vtPrimaryFont);
 		font-style: normal;
@@ -80,7 +88,7 @@
 		}
 
 		.h3-red {
-            margin-left: 50%;
-        }
+			margin-left: 50%;
+		}
 	}
 </style>

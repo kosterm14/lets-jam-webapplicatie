@@ -1,38 +1,18 @@
 <script>
+    import Header from "$lib/molecules/header.svelte";
+    import Footer from "$lib/molecules/footer.svelte";
     export let data;
     console.log(data);
 </script>
 
-<!-- <Header /> -->
-<body class="page">
-    <header>
-        <section>
-            <a href="/">
-                <img class="logo" src="/assets/vtHBO-v1.0-Logo_1.svg" alt="" />
-            </a>
-        </section>
+<Header />
 
-        <section class="navheader">
-            <nav>
-                <ul>
-                    <a href="/over">
-                        <li>Over</li>
-                    </a>
-                    <a href="/blog">
-                        <li>Blog</li>
-                    </a>
-                    <!-- <li>
-                        <img src="/assets/account.svg" alt="" />
-                    </li> -->
-                </ul>
-            </nav>
-        </section>
-    </header>
+<body class="page">
 
     <section>
         <a href="/tekenmethodes">
             <p class="line">
-                <img class="arrows-line" src="/assets/arrows.svg" alt="" />
+                <img class="arrows-line" src="/arrows.svg" alt="" />
                 Overzicht <strong>tekenmethodes</strong>
             </p>
         </a>
@@ -63,14 +43,7 @@
                             <li>
                                 <h2 class="h2-detail">Voorbeelden</h2>
                             </li>
-                        </a>
-                        <a
-                            href="/tekenmethodes/{method.slug}/form?id={method.id}"
-                        >
-                            <li>
-                                <h2 class="h2-detail">Feedback</h2>
-                            </li>
-                        </a>
+                          </a>
                     </ul>
                 </nav>
             {/each}
@@ -90,35 +63,21 @@
     </main>
 </body>
 
+<Footer />
+
 
 <style>
+  :root {
+    --vtGrey-80: #c0beb9;
+    --vtGrey-50: #e0dedc;
+    --vtGrey-10: #f9f8f8;
+  }
+
   .page {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
-
-   /* desktop */
-   @media (min-width: 55em) {
-
-   }
-
-
-   /* tablet */
-   @media (min-width: 31em) and (max-width: 55em) {
-
-   }
-
-
-
-       /* mobile */
-       @media (max-width: 31em) {
- 
-
-    }
-
- 
 
   h1 {
     font-size: 3.157rem;
@@ -127,7 +86,7 @@
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 2.369rem;
     font-family: var(--vtSecondaryFont);
     line-height: 1.5rem;
     color: var(--vtDarkBlue);
@@ -135,13 +94,25 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    max-width: 30rem;
-    max-height: 6rem;
+    /* max-width: 30rem; */
+    /* max-height: 6rem; */
+    /* width: 90%; */
+    /* margin-top: -0.7em; */
+    /* margin-bottom: 1.5em; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    hyphens: auto;
+  }
+
+  .h1-detail:hover {
+    white-space: unset;
+    text-overflow: unset;
   }
 
   .h2-detail,
   .bold {
-    font-size: 1rem;
+    font-size: 2.369rem;
     font-weight: 400;
 
     font-family: var(--vtPrimaryFont);
@@ -156,7 +127,7 @@
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.777rem;
     font-family: var(--vtSecondaryFont);
     line-height: 1.5rem;
   }
@@ -170,24 +141,14 @@
     color: var(--vtWhite);
   }
 
-
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1%;
-  }
-
-  .navmain ul,
-  .navheader ul {
+  .navmain ul {
     display: flex;
     align-items: center;
-
     list-style: none;
+    
   }
 
-  .navmain li,
-  .navheader li {
+  .navmain li {
     padding: 0.6rem;
     font-size: 1rem;
 
@@ -196,20 +157,11 @@
     font-weight: bolder;
   }
 
-  .navheader {
-    display: flex;
-    align-items: center;
-  }
-
-  .navheader li {
-    padding: 1.4rem;
-  }
-
   .navmain {
     display: flex;
     justify-content: space-between;
-
-    margin-top: -1rem;
+    background-color: var(--vtGrey-10);
+    margin-top: -2rem;
     margin-bottom: -1rem;
   }
 
@@ -222,7 +174,6 @@
   .navmain ul {
     padding-right: 4rem;
   }
-
 
   h1 {
     font-size: 3.157rem;
@@ -273,7 +224,7 @@
   .text {
     padding-top: 1.5rem;
     max-width: 35rem;
-
+    margin-left: 1em;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
     color: var(--vtSec-DarkBlue);
@@ -309,12 +260,11 @@
   }
 
   .arrows-line {
-    width: 1%;
+    width: 20px;
     transform: rotate(180deg);
   }
 
-  .flex-b,
-  .flex-s {
+  .flex-b {
     display: flex;
     justify-content: space-evenly;
   }
@@ -332,6 +282,7 @@
     width: calc(39.8rem / 1.3);
     height: calc(27rem / 1.3);
     margin-left: 6.6rem;
+    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
 
@@ -348,6 +299,7 @@
       width: auto;
       float: right;
       padding: 5px 0;
+
     }
 
     nav ul {
@@ -363,6 +315,120 @@
     }
 
 
+    /* tablet */
+    @media (min-width: 31em) and (max-width: 62em) {
+      .line {
+    padding-left: 2rem;
+    }
 
+    .h1-detail {
+    padding-left: 2rem;
+    }
+
+    h1 {
+    font-size: 2rem;
+    }
+
+    nav {
+      width: auto;
+      float: left;
+      margin-top: 2.5em;
+      margin-left: -11.5em;
+      padding: 5px 0;
+      
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .flex-b {
+    padding-left: 0rem;
+  }
+
+  /* .flex-b {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } */
+
+  .flex-b {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .template-url {
+    /* display: flex;
+    justify-content: center; */
+    width: 420px;
+    height: 300px;
+    margin-top: 3em;
+    /* margin-right: -10em; */
+    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
+  }
+
+  .text {
+    /* margin-left: -20em;
+    margin-top: 20rem; */
+    width: 77%;
+    font-size: 1rem;
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtSec-DarkBlue);
+  }
+    }
+
+    /* ---MOBILE--- */
+  @media (max-width: 31em) {
+    .line {
+      padding-left: 2rem;
+    }
+
+    .h1-detail {
+      padding-left: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      width: auto;
+      float: left;
+      margin-top: 4.5em;
+      margin-left: -11.5em;
+      padding: 5px 0;
+      
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .flex-b {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .template-url {
+      display: flex;
+      justify-content: center;
+      width: 330px;
+      height: 230px;
+      margin-top: 3em;
+      box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
+    }
+
+    .text {
+      margin-left: -15em;
+      margin-top: 16rem;
+      min-width: 15em;
+      font-size: 1rem;
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtSec-DarkBlue);
+    }
+  }
 
 </style>

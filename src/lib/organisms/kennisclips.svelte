@@ -8,29 +8,41 @@
   </section>
 </header>
 
-
 <main>
-  
-
   {#each data.categories as category}
+    <article class="clips">
+      <a href="">
+        <img
+          class="left-arrow"
+          src="./arrows_black.svg"
+          alt="Knop met pijl naar volgende video"
+        />
+      </a>
+
+      <iframe
+        class="frame"
+        width="560"
+        height="315"
+        src={category.youTubeLink}
+        frameborder="0"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+
+      <a href="">
+        <img
+          class="right-arrow"
+          src="./arrows_black.svg"
+          alt="Knop met pijl naar volgende video"
+        />
+      </a>
+    </article>
+
+
+    <h1>{category.title}</h1>
+
     <article class="category">
-
-        <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a>
-      <h1>{category.title}</h1>
       <p>{@html category.content.html}</p>
-
-      <aside>
-        <button>
-          <button onclick="myFunction()">Previous</button>
-        </button>
-
-        <!-- <a href={category.knowledgeClip.url}>{category.knowledgeClip.url}</a> -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yr-rRMElLFg" frameborder="0" allowfullscreen></iframe>
-
-        <button>
-          <button onclick="myFunction()">Next</button>
-        </button>
-      </aside>
     </article>
   {/each}
 </main>
@@ -68,22 +80,41 @@
     --vtRed-30: #fdc4b9;
     --vtRed-10: #fee2dc;
 
+    --vtGrey-80: #c0beb9;
+    --vtGrey-50: #e0dedc;
+    --vtGrey-10: #f9f8f8;
+
     --vtPrimaryFont: "rigid-square", sans-serif;
     --vtSecondaryFont: "yrsa", serif;
   }
 
-  /* Clip styling */
+  body {
+    padding: 0;
+    overflow-x: hidden;
+  }
 
   /* Header styling */
-
   h1 {
     font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-    line-height: 1.5rem;
+    line-height: 3rem;
+    text-align: center;
+    /* border-bottom: 0.5px solid #333; */
+    padding-bottom: 22px;
+    /* padding-left: 1em; */
   }
+
+  /* h1 {
+  width: 100%; 
+  text-align: center; 
+  box-sizing: border-box; 
+
+h1::after {
+  display: inline-block; 
+  width: 90vw; 
+  border-bottom: 1px solid black;
+} */
 
   h2 {
     font-size: 2rem;
@@ -92,20 +123,6 @@
     color: var(--vtDarkBlue);
     margin-left: 1.5em;
     margin-right: 1.5em;
-  }
-
-  .h1-detail {
-    padding-left: 6.7rem;
-    max-width: 30rem;
-    max-height: 6rem;
-  }
-
-  .h2-detail,
-  .bold {
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: var(--vtPrimaryFont);
-    color: var(--vtSec-DarkBlue);
   }
 
   .bold {
@@ -121,102 +138,96 @@
     line-height: 1.5rem;
   }
 
-  /* Header styling */
-  aside {
+  .frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+  /* Clip styling */
+
+  @media screen and (min-width: 1120px) {
+    .frame {
+      width: 884px;
+      height: 497px;
+    }
+  }
+
+  @media (max-width: 481px) {
+    .frame {
+      width: 320px;
+      height: 169px;
+    }
+  }
+
+  /* H1, iframe styling */
+  .clips {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 40px;
+    /* padding-bottom: 30px ; */
+    background-color: var(--vtGrey-10);
   }
 
   /* Kennisclip teksten */
-
   p {
     text-align: left;
-    text-transform: none;
     line-height: 1.5rem;
-    margin-left: 3em;
-    margin-right: 3em;
-    font-family: var(--vtPrimaryFont);
+    font-family: var(--vtSecondaryFont);
     font-size: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40em;
   }
 
-  /* Arrow buttons */
+  @media screen and (max-width: 900px) {
+    p {
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+  }
 
-  button {
-    display: inline-block;
-    font-size: 10px;
-    text-align: center;
+  a {
+    padding: 2em;
+  }
+
+  a {
     text-decoration: none;
     cursor: pointer;
-    border-radius: 5px;
-    background-color: var(--vtDarkBlue);
-    color: #ffffff;
-    border: 2px solid var(--vtDarkBlue);
   }
 
-  /* Hexagon */
-
-  /* .yellow-wrapped {
-    display: grid;
-    grid-template-columns: auto;
-    margin-top: 1%;
-    justify-content: center;
-    margin-right: -13em;
-    margin-top: -3em;
+  a:link {
+    text-decoration: none;
   }
 
-  .yellow,
-  .yellow2,
-  .yellow3,
-  .yellow4 {
-    width: 80px;
-    height: 70px;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    transform: rotate(90deg);
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    margin-top: -14%;
+  .right-arrow {
+    cursor: pointer;
+    border: none;
   }
 
-  .yellow {
-    background: var(--vtYellow);
-  }
-  .yellow2 {
-    background: rgb(255, 213, 97);
-    grid-column-start: 3;
-    grid-column-end: 5;
-    grid-row-start: 2;
-    margin-top: -7%;
+  .left-arrow {
+    cursor: pointer;
+    transform: rotate(180deg);
   }
 
-  .yellow3 {
-    background: rgb(255, 213, 97);
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    margin-top: -7%;
-  }
-
-  .yellow4 {
-    background: var(--vtYellow);
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 3;
-    margin-top: -7%;
-  } */
+  /* Header line */
 
   .line {
     text-transform: uppercase;
-    background-color: var(--vtLightBlue);
+    background-color: var(--vtSec-LightBlue);
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 7rem;
+    padding-left: 18.5%;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     margin-top: 0%;
+    /* margin-bottom: 2em; */
+    width: 100vw;
     display: flex;
-    /* align-items: center; */
+    margin-bottom: 0;
+    align-items: center;
   }
+
+  /* Carousel */
 </style>

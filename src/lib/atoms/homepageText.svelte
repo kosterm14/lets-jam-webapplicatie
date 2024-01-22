@@ -52,7 +52,7 @@
             grid-column-end: 5;
             grid-row-start: 1;
 
-            margin-bottom: -10%;
+            margin-bottom: -5%;
         }
 
         .h2 {

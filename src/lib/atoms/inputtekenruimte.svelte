@@ -71,8 +71,8 @@
         <label for="lineWidth">Pen dikte:</label>
         <input id="lineWidth" name="lineWidth" type="number" value="5" />
         <button id="clear">Wissen</button>
-        <button on:click={handleHeenEnWeer}>x</button>
-        <!-- <button id="clear" class:heen class:weer on:click={handleHeenEnWeer}>?</button> -->
+        <button on:click={handleHeenEnWeer}>✏️</button>
+        <!-- <button id="clear" class:heen class:weer on:click={handleHeenEnWeer}>✏️</button> -->
       </div>
     </li>
   </ul>
@@ -105,7 +105,6 @@
     width: 40%;
     border-style: none;
   }
-
 
   li {
     display: grid;
@@ -168,7 +167,7 @@
     }
     100% {
       width: 11em;
-      height: 11em;
+      height: 15em;
       color: var(--vtDarkBlue);
     }
   }
@@ -176,7 +175,7 @@
   @keyframes weerP {
     0% {
       width: 11em;
-      height: 11em;
+      height: 15em;
       color: var(--vtDarkBlue);
     }
     50% {
@@ -194,8 +193,8 @@
   li[aria-label="heen en weer"] div {
     position: relative;
     overflow: hidden;
-    width: 2.5em;
-    height: 2.5em;
+    /* width: 2.5em; */
+    /* height: 2.5em; */
     padding: 0 1.25em;
     display: grid;
     place-items: center;
@@ -208,7 +207,7 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     overflow: hidden;
-    height: 2.5em; /* Beginhoogte van de tekst */
+    /* height: 2.5em;  */
     transition: height 0.5s ease-in-out; /* Animatie voor de hoogteverandering */
   }
 

@@ -40,77 +40,10 @@
         <br />
         <em>Visuele identiteit en webdesign:</em> Ramon Boers <br />
         <em>Webdevelopment:</em> t.b.a.
-
     </section>
 </main>
 
-<!-- <section class="yellow-wrapped">
-    <section class="yellow" />
-    <section class="yellow2" />
-    <section class="yellow3" />
-    <section class="yellow4" />
-</section> -->
-
 <style>
-    /* .yellow-wrapped {
-        display: grid;
-        grid-template-columns: auto;
-        margin-top: 1%;
-        justify-content: center;
-        transform: scaleX(-1);
-        margin-top: -6em;
-        margin-left: -15rem;
-        align-items: center;
-    }
-
-    .yellow,
-    .yellow2,
-    .yellow3,
-    .yellow4 {
-        width: 80px;
-        height: 70px;
-        clip-path: polygon(
-            25% 0%,
-            75% 0%,
-            100% 50%,
-            75% 100%,
-            25% 100%,
-            0% 50%
-        );
-        transform: rotate(90deg);
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        margin-top: -14%;
-    }
-
-    .yellow {
-        background: var(--vtYellow);
-    }
-
-    .yellow2 {
-        background: rgb(255, 213, 97);
-        grid-column-start: 3;
-        grid-column-end: 5;
-        grid-row-start: 2;
-    }
-
-    .yellow3 {
-        background: rgb(255, 213, 97);
-        grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row-start: 3;
-        margin-top: -7%;
-    }
-
-    .yellow4 {
-        background: var(--vtYellow);
-        grid-column-start: 4;
-        grid-column-end: 5;
-        grid-row-start: 3;
-        margin-top: -7%;
-    } */
-
     main {
         display: flex;
         align-items: center;
@@ -155,7 +88,6 @@
         width: 100vw;
         display: flex;
         align-items: center;
-
     }
 
     /* tablet */
@@ -163,15 +95,21 @@
         section {
             width: 80%;
         }
+        .line {
+            padding-left: 25%;
+        }
     }
 
     /* mobile */
     @media (max-width: 31em) {
         h1 {
-            font-size: 2rem;
+            font-size: 1.7rem;
         }
         section {
-            width: 90%;
+            width: 77%;
+        }
+        .line {
+            padding-left: 14.5%;
         }
     }
 </style>

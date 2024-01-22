@@ -220,6 +220,9 @@
 <style>
     .container {
         position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-46.5%, -45%);
         overflow: hidden;
         height: 100vh;
         pointer-events: none;
@@ -237,8 +240,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         pointer-events: none;
         z-index: 1000;
         /* background: radial-gradient(circle, transparent, var(--vtYellow) 90%); */
@@ -323,15 +326,15 @@
 
     @keyframes float {
         0% {
-            transform: translateY(0) scale(1);
+            transform: translate(-46.5%, -45%) scale(1);
             opacity: 1;
         }
         80% {
-            transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
+            transform: translate(-48.75%, -91.5%) scale(0.25);
             opacity: 0.5;
         }
         100% {
-            transform: translateX(-1.75rem) translateY(-15rem) scale(0.25);
+            transform: translate(-48.75%, -91.5%) scale(0.25);
             opacity: 0;
         }
     }
@@ -377,7 +380,8 @@
     .hexagon1-6 {
         position: relative;
         overflow: hidden;
-        background: var(--vtDarkBlue);
+        /* background: white; */
+        background: transparent;
     }
 
     /* tablet */

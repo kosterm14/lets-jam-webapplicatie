@@ -39,7 +39,7 @@
     }
 
     .animate {
-        animation: appear 4s forwards;
+        animation: appear 5.5s forwards;
     }
 
     @keyframes appear {
