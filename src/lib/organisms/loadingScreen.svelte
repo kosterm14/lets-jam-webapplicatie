@@ -330,11 +330,11 @@
             opacity: 1;
         }
         80% {
-            transform: translate(-48.75%, -92%) scale(0.25);
+            transform: translate(-48.75%, -91.5%) scale(0.25);
             opacity: 0.5;
         }
         100% {
-            transform: translate(-48.75%, -92%) scale(0.25);
+            transform: translate(-48.75%, -91.5%) scale(0.25);
             opacity: 0;
         }
     }
