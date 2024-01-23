@@ -24,7 +24,7 @@
 
   function heenAnimation() {
     setTimeout(() => {
-      heenEnWeerButton.textContent = "wissen";
+      heenEnWeerButton.textContent = "x";
       heenEnWeerP.style.height = `${heenEnWeerP.scrollHeight}px`;
     }, 100);
 
@@ -50,29 +50,8 @@
       'li[aria-label="heen en weer"] button',
     );
 
-    heenEnWeerButton.removeEventListener("click", handleHeenEnWeer);
+    heenEnWeerButton.addEventListener("click", handleHeenEnWeer);
     window.addEventListener("keydown", handleKeydown);
-
-    const canvas = document.getElementById("drawing-board");
-    const test = document.getElementById("test");
-    const ctx = canvas.getContext("2d");
-    const canvasOffsetX = canvas.offsetLeft;
-    const canvasOffsetY = canvas.offsetTop;
-    canvas.width = window.innerWidth - canvasOffsetX;
-    canvas.height = window.innerHeight - canvasOffsetY;
-    test.addEventListener("click", (e) => {
-      if (e.target.id === "clear") {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    });
-    test.addEventListener("change", (e) => {
-      if (e.target.id === "stroke") {
-        ctx.strokeStyle = e.target.value;
-      }
-      if (e.target.id === "lineWidth") {
-        lineWidth = e.target.value;
-      }
-    });
   });
 
   // onDestroy(() => {
@@ -84,7 +63,7 @@
 <main>
   <ul>
     <li aria-label="heen en weer">
-      <div id="test" class:heen class:weer>
+      <div class:heen class:weer>
         <h5>Kleurenpalet</h5>
         <br />
         <label for="stroke">Kleur</label>
@@ -112,23 +91,6 @@
   *::before,
   *::after {
     box-sizing: border-box;
-  }
-
-  @media (min-width: 55em) {
-    #clear {
-      position: absolute;
-      right: 30%;
-      bottom: 5%;
-      width: 4.5em;
-    }
-    
-    #lineWidth {
-      margin-bottom: 3em;
-    }
-
-    h5 {
-      margin: 0;
-    }
   }
 
   h5 {
