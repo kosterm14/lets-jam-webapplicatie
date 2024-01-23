@@ -10,8 +10,9 @@
 
 <main>
   {#each data.categories as category}
+
     <article class="clips">
-      <a href="">
+      <a href="#">
         <img
           class="left-arrow"
           src="./arrows_black.svg"
@@ -29,7 +30,7 @@
         loading="lazy"
       ></iframe>
 
-      <a href="">
+      <a href="#">
         <img
           class="right-arrow"
           src="./arrows_black.svg"
@@ -46,6 +47,8 @@
     </article>
   {/each}
 </main>
+
+
 
 <style>
   :root {
@@ -218,7 +221,7 @@ h1::after {
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 18.5%;
+    padding-left: 9%;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     margin-top: 0%;
