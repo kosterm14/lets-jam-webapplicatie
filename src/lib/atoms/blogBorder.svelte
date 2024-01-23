@@ -86,6 +86,8 @@
       justify-items: center;
       justify-content: center;
       padding-bottom: 1em;
+      max-width: fit-content;
+      margin: auto;
     }
 
     .introtitel {
@@ -125,26 +127,32 @@
       justify-items: center;
       padding-left: 7em;
       padding-right: 7em;
+      margin-top: -4em;
     }
 
     .introtitel {
-      margin-left: 4.2em;
+      margin-left: 5.5em;
     }
 
     .introtext {
       width: 38%;
-      margin-left: 7em;
+      margin-left: 9em;
     }
   }
 
   @media screen and (min-width: 2280px) {
+    section{
+      gap: 8em;
+      margin-top: -8em;
+    }
+
     .introtitel {
-      margin-left: 10em;
+      margin-left: 18.1em;
     }
 
     .introtext {
       width: 23%;
-      margin-left: 16em;
+      margin-left: 29em;
     }
   }
 </style>

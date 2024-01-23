@@ -8,8 +8,8 @@
   /* MOBILE - STYLING */
   .line {
     text-transform: uppercase;
-    background-color: var(--vtGrey-50);
-    color: var(--vtDarkBlue);
+    background-color: var(--vtDarkBlue);
+    color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
     padding-left: 3rem;
