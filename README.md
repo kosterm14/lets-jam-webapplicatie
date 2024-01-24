@@ -1,6 +1,6 @@
 
 # Visual Thinking
-<img src='https://github.com/Daniquedejong/lose-your-head-the-client-case/assets/112856683/3d34589b-d9a4-4b92-bebb-482fb2d30fda' width=50%>
+<img src='https://github.com/kosterm14/lets-jam-webapplicatie/assets/112856683/9b0ae620-4072-4701-80fd-2550ef351d0f' width=50%>
 
 ## 📚 Inhoudsopgave
 
