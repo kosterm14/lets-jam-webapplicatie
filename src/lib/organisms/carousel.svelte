@@ -1,153 +1,537 @@
-<script>
+<!-- <script>
   export let data;
 </script>
 
 
-<div class="slider">
-  
-  <a href="#slide-1"></a>
-  <a href="#slide-2"></a>
-  <a href="#slide-3"></a>
-  <a href="#slide-4"></a>
-  <a href="#slide-5"></a>
-
-  <div class="slides">
-    <div id="slide-1">
-      1
-    </div>
-    <div id="slide-2">
-      2
-    </div>
-    <div id="slide-3">
-      3
-    </div>
-    <div id="slide-4">
-      4
-    </div>
-    <div id="slide-5">
-      5
-    </div>
-  </div>
-</div>
+<section class="carousel" aria-label="Gallery">
+  <ol class="carousel__viewport">
+    <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper">
+        <a href="#carousel__slide4"
+           class="carousel__prev">Go to last slide</a>
+        <a href="#carousel__slide2"
+           class="carousel__next">Go to next slide</a>
+      </div>
+      
+    </li>
+    <li id="carousel__slide2"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide1"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide3"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide3"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide2"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide4"
+         class="carousel__next">Go to next slide</a>
+    </li>
+    <li id="carousel__slide4"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide3"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide1"
+         class="carousel__next">Go to first slide</a>
+    </li>
+  </ol>
+  <aside class="carousel__navigation">
+    <ol class="carousel__navigation-list">
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide1"
+           class="carousel__navigation-button">Go to slide 1</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide2"
+           class="carousel__navigation-button">Go to slide 2</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide3"
+           class="carousel__navigation-button">Go to slide 3</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide4"
+           class="carousel__navigation-button">Go to slide 4</a>
+      </li>
+    </ol>
+  </aside>
+</section>
 
 <style>
+  @keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+body {
+  max-width: 37.5rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  font-family: 'Lato', sans-serif;
+}
+
 * {
   box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
 }
 
-.slider {
-  width: 300px;
-  text-align: center;
-  overflow: hidden;
+*::-webkit-scrollbar {
+  width: 0;
 }
 
-.slides {
-  display: flex;
-  
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  
-  
-  
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  
-  /*
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-  */
-}
-.slides::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.slides::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-.slides::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: transparent;
 }
-.slides > div {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  width: 300px;
-  height: 300px;
-  margin-right: 50px;
-  border-radius: 10px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel {
   position: relative;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 100px;
+  padding-top: 75%;
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
 }
-.slides > div:target {
-/*   transform: scale(0.8); */
-}
-.author-info {
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-  padding: 0.75rem;
-  text-align: center;
+
+.carousel__viewport {
   position: absolute;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
   width: 100%;
-  margin: 0;
+  background-color: #f99;
+  counter-increment: item;
 }
-.author-info a {
-  color: white;
+
+.carousel__slide:nth-child(even) {
+  background-color: #99f;
 }
-img {
-  object-fit: cover;
+
+.carousel__slide:before {
+  content: counter(item);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-40%,70px);
+  color: #fff;
+  font-size: 2em;
+}
+
+.carousel__snapper {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  scroll-snap-align: center;
 }
 
-.slider > a {
-  display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: white;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  margin: 0 0 0.5rem 0;
-  position: relative;
-}
-.slider > a:active {
-  top: 1px;
-}
-.slider > a:focus {
-  background: #000;
-}
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
 
-/* Don't need button navigation */
-@supports (scroll-snap-type) {
-  .slider > a {
-    display: none;
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
   }
 }
 
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom, #74ABE2, #5563DE);
-  font-family: 'Ropa Sans', sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none;
+  }
 }
 
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+
+.carousel__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #333;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+  right: -1rem;
+}
+
+.carousel::before,
+.carousel::after {
+  content: '';
+  z-index: 1;
+  background-color: #333;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.carousel::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.carousel::after {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+</style> -->
+
+<script>
+  import { onMount } from "svelte";
+
+  let listContent = [];
+
+  onMount(() => {
+    const list = document.querySelector("#list");
+
+    Array.from(list.children).forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      list.appendChild(duplicatedItem);
+
+      listContent = Array.from(list.children);
+    });
+  });
+</script>
+
+<section id="container" data-animated>
+  <article class="hexagon"></article>
+
+  <ul id="list">
+    <li>
+      <a href="/page1">
+        <img
+          src="path/to/thumbnail1.jpg"
+          alt="Video Thumbnail 1"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/page2">
+        <img
+          src="path/to/thumbnail2.jpg"
+          alt="Video Thumbnail 2"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/page2">
+        <img
+          src="path/to/thumbnail3.jpg"
+          alt="Video Thumbnail 3"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="/page2">
+        <img
+          src="path/to/thumbnail4.jpg"
+          alt="Video Thumbnail 4"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+        <li>
+      <a href="/page2">
+        <img
+          src="path/to/thumbnail5.jpg"
+          alt="Video Thumbnail 5"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+        <li>
+      <a href="/page2">
+        <img
+          src="path/to/thumbnail6.jpg"
+          alt="Video Thumbnail 6"
+          width="100"
+          height="56"
+        />
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="blue" />
+
+<!-- <section class="h3-blue">
+  <a href="/over">
+    <h3>
+      <em>Over <br /> visual thinking</em>
+    </h3>
+    <img src="assets\arrows.svg" alt="" />
+  </a>
+</section> -->
+
+<style>
+  :root {
+    --dark-blue: #1c2739;
+    --darker-blue: #141c29;
+    --light-blue: #3c4759;
+    --text-color: #dadada;
+    --dark-blue-shadow: #111822ab;
+  }
+  body {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100dvh;
+    margin: 0;
+  }
+
+  img{
+    transform: rotate(270deg);
+    
+  }
+
+  h1 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--text-color);
+    text-shadow: 5px 5px 1px var(--dark-blue-shadow);
+  }
+  #container {
+    width: 100%;
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      white 40%,
+      white 60%,
+      transparent
+    );
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 40%,
+      white 60%,
+      transparent
+    );
+  }
+  ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    background: var(--light-blue);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 7px;
+  }
+
+  #container[data-animated] {
+    overflow: hidden;
+  }
+  #container[data-animated] #list {
+    width: max-content;
+    animation: scroll 60s linear infinite;
+  }
+
+  @keyframes scroll {
+    to {
+      translate: calc(-50% - 5px);
+    }
+  }
+
+  .h3-blue:hover h3 {
+    text-transform: uppercase;
+  }
+
+  .blue, li {
+    background: var(--light-blue);
+
+    width: 300px;
+    height: 275px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: rotate(90deg);
+  }
+
+  .h3-blue{
+    color: var(--light-blue);
+    z-index: 1;
+    display: grid;
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+  }
+
+  .blue,
+  .h3-blue {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+
+    margin-top: -7%;
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--vtWhite);
+  }
+
+  em {
+    font-family: var(--vtPrimaryFont);
+    font-style: normal;
+
+    font-size: 1rem;
+  }
+
+  /* tablet */
+  @media (min-width: 31em) and (max-width: 55em) {
+    .blue,
+    .h3-blue {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 3;
+
+      margin-bottom: 15%;
+    }
+  }
+
+  /* mobile */
+  @media (max-width: 31em) {
+    .blue,
+    .h3-blue {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+
+      margin-left: 25%;
+    }
+  }
 </style>
+ 
