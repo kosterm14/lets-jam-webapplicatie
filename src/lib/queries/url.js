@@ -18,12 +18,15 @@ export default function getQueryUrl(gql, slug) {
             description {
               html
             }
-            # visual {
-            #   url
-            # }
+            visual {
+              url
+            }
           }
           categories {
             title
+          }
+          examples {
+            url(transformation: {image: {}, document: {output: {format: webp}}})
           }
         }
       }

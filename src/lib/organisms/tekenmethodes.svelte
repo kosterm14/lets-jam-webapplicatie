@@ -194,7 +194,7 @@
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 7rem;
+    padding-left: 9%;
     /* padding-top: 0.2rem;
     padding-bottom: 0.2rem; */
     margin-top: 0%;
@@ -511,8 +511,8 @@
   }
 
   p {
-    font-size: 0.75rem;
-    font-family: var(--vtPrimaryFont);
+    font-size: 1rem;
+    font-family: var(--vtSecondaryFont);
     text-transform: uppercase;
   }
 
@@ -1000,6 +1000,18 @@
     margin-right: 1em;
     margin-top: -2.2em;
   }
+
+  .line {
+      padding-left: 11%;
+    }
+
+}
+
+@media (min-width: 68em) {
+.line {
+
+    padding-left: 9% !important;
+}
 }
 
   /*
@@ -1024,7 +1036,7 @@
   }
 
     h1 {
-    font-size: 2.157rem;
+    font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
   }
@@ -1052,6 +1064,10 @@
 
     .tekenmethodes-main {
       margin-left: 0em;
+    }
+
+    .line {
+      padding-left: 20%;
     }
 
 
@@ -1182,7 +1198,7 @@
     }
 
     .intro-text h1 {
-      font-size: 40px;
+      font-size: 3.157rem;
     }
 
     .intro-text p {
