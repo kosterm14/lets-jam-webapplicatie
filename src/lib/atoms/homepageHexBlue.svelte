@@ -46,7 +46,7 @@
         grid-column-end: 4;
         grid-row-start: 2;
 
-        margin-top: -7%;
+        margin-top: -9%;
     }
 
     a {
