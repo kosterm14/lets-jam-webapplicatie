@@ -1,17 +1,19 @@
 <script>
   import BlogButton from "./blogButton.svelte";
   export let data;
-  console.log(data.introTeksts)
 </script>
 
+<!-- INTRO DATA - CONTENT -->
 {#each data.introTeksts as intro}
-<h1>{intro.title}</h1>
-<p>{intro.description.text}</p>
+  <h1 class="introtitel">{intro.title}</h1>
+  <p class="introtext">{intro.description.text}</p>
 {/each}
+
+<!-- BORDERS - BUTTON - ARTIKELEN DATA - CONTENT -->
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
     <article>
-      <img src={artikelenHomepages.img.url} alt="" />
+      <img src={artikelenHomepages.img.url} alt="artikelen" />
       <h1>{artikelenHomepages.title}</h1>
       <p>{artikelenHomepages.description}</p>
       <BlogButton />
@@ -21,6 +23,18 @@
 
 <style>
   /* MOBILE - STYLING */
+  /* INTRO - STYLING */
+  .introtitel {
+    margin-left: 0em;
+    font-size: 30px;
+  }
+
+  .introtext {
+    font-size: 19px;
+    margin-bottom: -1em;
+  }
+
+  /* BORDER - CONTENT - STYLING */
   section {
     display: grid;
     grid-template-columns: auto;
@@ -30,7 +44,6 @@
     justify-content: center;
     padding-bottom: 1em;
     gap: 2em;
-    /* background-color: blue; */
   }
 
   article {
@@ -38,7 +51,6 @@
     width: 16em;
     border: 4px solid var(--vtYellow);
     border-radius: 0.5em;
-    /* margin-left: -2em; */
   }
 
   img {
@@ -70,46 +82,73 @@
     height: 26%;
   }
 
-  /* 
-  @media screen and (min-width: 900px) {
-    section{
-      grid-template-columns: 1fr 1fr;
-    }
-
-  } */
-  /* 
-  @media screen and (min-width: 850px) {
-    div {
-      grid-template-columns: 1fr 1fr;
-    }
-  } */
-
+  /* MEDIA QUERY */
+  /* TABLET - STYLING */
   @media screen and (min-width: 760px) {
+    .introtitel {
+      margin-left: 3em;
+    }
+
+    .introtext {
+      width: 45%;
+      margin-left: 5em;
+      margin-bottom: -4em;
+    }
+
     section {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
-      justify-items: center;
-      /* padding: -10em; */
-      justify-content: center;
       padding-bottom: 1em;
+      max-width: fit-content;
+      margin: auto;
     }
   }
 
-  @media screen and (min-width: 1400px) {
+  /* TABLET - STYLING */
+  @media screen and (min-width: 600px) {
+    .introtitel {
+      margin-left: 2em;
+    }
+
+    .introtext {
+      width: 55%;
+      margin-left: 3em;
+      margin-bottom: -2em;
+    }
+  }
+
+  /* DESKTOP - STYLING */
+  @media screen and (min-width: 1280px) {
+    .introtitel {
+      margin-left: 5.5em;
+    }
+
+    .introtext {
+      width: 38%;
+      margin-left: 9em;
+    }
+
     section {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 2em;
-      grid-auto-columns: auto;
-      align-items: center;
-      justify-items: center;
       padding-left: 7em;
       padding-right: 7em;
+      margin-top: -4em;
     }
-    /* 
-    article{
-      margin-left: 1em;
-    } */
+  }
+
+  /* GROTERSCHREM - DESKTOP - STYLING */
+  @media screen and (min-width: 2280px) {
+    .introtitel {
+      margin-left: 18.1em;
+    }
+
+    .introtext {
+      width: 23%;
+      margin-left: 29em;
+    }
+
+    section {
+      gap: 8em;
+      margin-top: -8em;
+    }
   }
 </style>
