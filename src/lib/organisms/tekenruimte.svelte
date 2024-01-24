@@ -59,6 +59,10 @@ import { onMount } from "svelte";
     });
 </script>
 
+<section>
+    <h4 class="line">Tekenruimte</h4>
+  </section>
+
 <main>
     <!-- <img src="/assets/highlighter_7931172.png" width="32" height="32"> -->
     <div class="labeltekst"><h2>Teken hier!</h2></div>
@@ -153,6 +157,19 @@ import { onMount } from "svelte";
         margin: 0;
         padding: 0;
     }
+
+    .line {
+    text-transform: uppercase;
+    background-color: var(--vtDarkBlue);
+    color: var(--vtWhite);
+    font-family: var(--vtPrimaryFont);
+    font-size: 0.9rem;
+    padding-left: 7rem;
+    padding-top: 0.3em;
+    margin-top: 0%;
+    display: flex;
+    height: 30px;
+  }
 
     h2 {
         font-size: 2.369rem;
@@ -322,8 +339,13 @@ import { onMount } from "svelte";
 
      /* tablet */
      @media (min-width: 31em) and (max-width: 55em) {
+        
+        .line {
+        padding-left: 20%;
+        }
+
         .inputComponent {
-            display: none;
+        display: none;
         }
 
         .labeltekst {
@@ -372,6 +394,10 @@ import { onMount } from "svelte";
 
     /* ---MOBILE--- */
     @media (max-width: 31em) {
+
+        .line {
+        padding-left: 11%;
+        }
 
       .inputComponent {
         display: none;
