@@ -1,6 +1,6 @@
 
 # Visual Thinking
-<img src='https://github.com/kosterm14/lets-jam-webapplicatie/assets/112856683/9b0ae620-4072-4701-80fd-2550ef351d0f' width=50%>
+<img src='https://github.com/kosterm14/lets-jam-webapplicatie/assets/112856683/c60b24fc-f915-4fb6-92c2-3dc39f1a66f7' width=50%>
 
 ## 📚 Inhoudsopgave
 
