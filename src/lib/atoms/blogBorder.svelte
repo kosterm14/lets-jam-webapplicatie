@@ -3,15 +3,17 @@
   export let data;
 </script>
 
+<!-- INTRO DATA - CONTENT -->
 {#each data.introTeksts as intro}
   <h1 class="introtitel">{intro.title}</h1>
   <p class="introtext">{intro.description.text}</p>
 {/each}
 
+<!-- BORDERS - BUTTON - ARTIKELEN DATA - CONTENT -->
 <section>
   {#each data.artikelenHomepages as artikelenHomepages}
     <article>
-      <img src={artikelenHomepages.img.url} alt="" />
+      <img src={artikelenHomepages.img.url} alt="artikelen" />
       <h1>{artikelenHomepages.title}</h1>
       <p>{artikelenHomepages.description}</p>
       <BlogButton />
@@ -21,6 +23,18 @@
 
 <style>
   /* MOBILE - STYLING */
+  /* INTRO - STYLING */
+  .introtitel {
+    margin-left: 0em;
+    font-size: 30px;
+  }
+
+  .introtext {
+    font-size: 19px;
+    margin-bottom: -1em;
+  }
+
+  /* BORDER - CONTENT - STYLING */
   section {
     display: grid;
     grid-template-columns: auto;
@@ -68,68 +82,42 @@
     height: 26%;
   }
 
-  .introtitel {
-    margin-left: 0em;
-    font-size: 30px;
-  }
-
-  .introtext {
-    font-size: 19px;
-    margin-bottom: -1em;
-  }
-
+  /* MEDIA QUERY */
+  /* TABLET - STYLING */
   @media screen and (min-width: 760px) {
-    section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      justify-items: center;
-      justify-content: center;
-      padding-bottom: 1em;
-      max-width: fit-content;
-      margin: auto;
-    }
-
     .introtitel {
       margin-left: 3em;
-      font-size: 30px;
     }
 
     .introtext {
       width: 45%;
-      font-size: 19px;
       margin-left: 5em;
       margin-bottom: -4em;
     }
+
+    section {
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: 1em;
+      max-width: fit-content;
+      margin: auto;
+    }
   }
 
+  /* TABLET - STYLING */
   @media screen and (min-width: 600px) {
     .introtitel {
       margin-left: 2em;
-      font-size: 30px;
     }
 
     .introtext {
       width: 55%;
-      font-size: 19px;
       margin-left: 3em;
       margin-bottom: -2em;
     }
   }
 
+  /* DESKTOP - STYLING */
   @media screen and (min-width: 1280px) {
-    section {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2em;
-      grid-auto-columns: auto;
-      align-items: center;
-      justify-items: center;
-      padding-left: 7em;
-      padding-right: 7em;
-      margin-top: -4em;
-    }
-
     .introtitel {
       margin-left: 5.5em;
     }
@@ -138,14 +126,17 @@
       width: 38%;
       margin-left: 9em;
     }
+
+    section {
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-left: 7em;
+      padding-right: 7em;
+      margin-top: -4em;
+    }
   }
 
+  /* GROTERSCHREM - DESKTOP - STYLING */
   @media screen and (min-width: 2280px) {
-    section{
-      gap: 8em;
-      margin-top: -8em;
-    }
-
     .introtitel {
       margin-left: 18.1em;
     }
@@ -153,6 +144,11 @@
     .introtext {
       width: 23%;
       margin-left: 29em;
+    }
+
+    section {
+      gap: 8em;
+      margin-top: -8em;
     }
   }
 </style>

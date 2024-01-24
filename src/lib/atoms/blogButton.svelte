@@ -14,16 +14,9 @@
     padding: 1em;
     margin-top: 0em;
     margin-left: 8em;
-    
   }
 
   button:hover {
     background-color: var(--vtRed);
   }
-
-  /* a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-  } */
 </style>
