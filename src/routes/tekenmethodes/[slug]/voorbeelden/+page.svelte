@@ -60,7 +60,7 @@
                         <li class="carousel-slide current-slide">
                             <img
                                 class="carousel-img"
-                                src={JSON.stringify(method.examples)}
+                                src={method.examples}
                                 alt=""
                             />
                         </li>

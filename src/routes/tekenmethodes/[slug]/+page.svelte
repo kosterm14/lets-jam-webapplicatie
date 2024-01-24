@@ -224,10 +224,12 @@
   .text {
     padding-top: 1.5rem;
     max-width: 35rem;
+    text-transform: none;
+    font-weight: 500;
     margin-left: 1em;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
-    color: var(--vtSec-DarkBlue);
+    color: var(--vtDarkBlue);
   }
 
 
@@ -372,9 +374,10 @@
     /* margin-left: -20em;
     margin-top: 20rem; */
     width: 77%;
+    font-weight: 500;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
-    color: var(--vtSec-DarkBlue);
+    color: var(--vtDarkBlue);
   }
     }
 
@@ -426,8 +429,9 @@
       margin-top: 16rem;
       min-width: 15em;
       font-size: 1rem;
+      font-weight: 500;
       font-family: var(--vtSecondaryFont);
-      color: var(--vtSec-DarkBlue);
+      color: var(--vtDarkBlue);
     }
   }
 

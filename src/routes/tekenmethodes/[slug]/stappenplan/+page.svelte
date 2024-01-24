@@ -3,14 +3,16 @@
     import Footer from "$lib/molecules/footer.svelte";
 
     export let data;
-    console.log(data);
+    // console.log(data);
+    let toon = false;
 
     let stappenplanButton;
 
     // Function to toggle the "toon" class on the "stappen" element
     function toonStappenplan() {
-        const stappenElement = document.getElementById("stappen");
-        stappenElement.classList.toggle("toon");
+        // const stappenElement = document.getElementById("stappen");
+        // stappenElement.classList.toggle("toon");
+        toon = !toon;
     }
 
     // This function will be called when the Svelte component is mounted
@@ -108,27 +110,25 @@
                     <h2 class="tag">Charley Muhren</h2>
                 </section>
 
-                <div class="buttondeel">
-                    <h4>Stappenplan</h4>
-                    <button id="stappenplanbutton" on:click={toonStappenplan}>
-                        <img
-                            src="/arrow-down.svg"
-                            alt="Pijl naar beneden"
-                        />
-                    </button>
-                </div>
-                <div id="stappen" class="stappen">
-                    <ol class="tobiashaha">
-                        {#each data.methods as method}
-                            <li>
-                                <h4>{@html JSON.stringify(method.steps)}</h4>
-                                <div class="step-description">
-                                    <!-- {@html method.description.html} -->
-                                </div>
-                            </li>
-                        {/each}
-                    </ol>
-                </div>
+                  <section class="steps">
+                  {#each data.methods as method} 
+                                  {#each method.steps as step}
+                                      <p class="step-title">{step.title}</p>
+                                      {#if typeof step.description === 'object'}
+                                          <p class="step-description">{@html step.description.html}</p>
+                                      {:else}
+                                          <p>{step.description}</p>
+                                      {/if}
+
+
+                                      <!-- {#if typeof step.visual === 'object'} -->
+                                          <img src={step.visual} alt="Visual" />
+                                      {:else}
+                                          <!-- <img src={step.visual} alt="Visual" /> -->
+                                      <!-- {/if} -->
+                                  {/each}
+                      {/each}
+                    </section>
             </section>
         </section>
     </main>
@@ -152,18 +152,12 @@
   :root {
     font-size: 20px;
 
-    /* Visual Thinking: Primary Colors:
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    */
     --vtDarkBlue: #090940;
     --vtLightBlue: #67c5d1;
     --vtYellow: #feb51e;
     --vtRed: #f96c4f;
     --vtWhite: #ffffff;
 
-    /* Visual Thinking: Primary Colors Lichtere versies, ongeveer 80%, 50%, 30% en 10% opacity van de originele kleuren ^
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    */
     --vtDarkBlue-80: #3a3a66;
     --vtDarkBlue-50: #6b6b8c;
     --vtDarkBlue-30: #9d9db3;
@@ -190,9 +184,6 @@
         --vtRed: #f96c4f;
         --vtWhite: #ffffff;
 
-        /* Visual Thinking: Primary Colors Lichtere versies, ongeveer 80%, 50%, 30% en 10% opacity van de originele kleuren ^
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    */
         --vtDarkBlue-80: #3a3a66;
         --vtDarkBlue-50: #6b6b8c;
         --vtDarkBlue-30: #9d9db3;
@@ -217,14 +208,12 @@
     --vtGrey-50: #e0dedc;
     --vtGrey-10: #f9f8f8;
 
-
     --vtSec-Red: #af1301;
     --vtSec-Red-30: #fbc5b4;
     --vtSec-Green: #169861;
     --vtSec-Green-30: #63c09f;
     --vtSec-LightBlue: #4fbbc2;
     --vtSec-DarkBlue: #31439c;
-    /* <--- deze kleur is de blauwe balk van de tekenmethodes detailpagina */
     --vtSec-Brown: #8b3a00;
     --vtSec-Orange: #fe6f07;
 
@@ -237,8 +226,6 @@
     overflow-x: hidden;
     font-family: var(--vtSecondaryFont);
   }
-
-  /* @media only screen and (max-width: 400px)  { */
 
   h1 {
     font-size: 3.157rem;
@@ -314,7 +301,6 @@
   .navmain ul {
     padding-right: 4rem;
   } 
-/* } */
 
   h1 {
     font-size: 3.157rem;
@@ -414,7 +400,6 @@
     align-items: center;
   }
 
-
   .tag {
     background-color: var(--vtYellow);
     color: var(--vtDarkBlue);
@@ -444,59 +429,9 @@
     height: 94.5%;
   }
 
-
-
-
- 
-
   .detail-main {
     margin: 2rem 0;
   }
-
-
-
-  /*
-                        RESPONSIVE TABLET  
-*/
-  /* @media (min-width: 31em) { */
-    /* Index page */
-/* 
-
-
-    nav {
-      display: block !important;
-      position: relative;
-      width: auto;
-      float: right;
-      padding: 5px 0;
-    }
-
-    nav ul {
-      float: left;
-    }
-
-    nav ul li {
-      display: inline-block;
-      padding-right: 30px;
-      padding-top: 5px;
-      color: var(--vtDarkBlue);
-      font: var(--vtMenuFont);
-    }
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  footer ul li {
-    list-style: none;
-    font-family: var(--vtPrimaryFont);
-    font-size: 1em;
-    font-weight: 400;
-    color: var(--vtDarkBlue);
-    padding: 10px;
-  } */
 
   @media (min-width: 68em) {
 
@@ -505,67 +440,34 @@
     margin-top: -2em;
   }
 
-  #stappenplanbutton {
-    background-color: white;
-    border: none;
-  }
-
-  .buttondeel {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tobiashaha {
-    list-style-type: none;
-  }
-
-  .stappen {
-    display: none;
-  }
-
-  .buttondeel {
-    display: flex;
-    justify-content: center;
-    min-width: 2.6rem;
-    max-width: 2.6rem;
-    height: 3rem;
-    margin-top: 1.2rem;
-    margin-right: 1.2rem;
-    margin-left: -1rem;
-    -webkit-clip-path: polygon(
-      50% 0%,
-      100% 25%,
-      100% 75%,
-      50% 100%,
-      0% 75%,
-      0% 25%
-    );
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-color: var(--vtGrey-80);
-  }
-
-  #stappenplanbutton {
-    font: var(--rigid);
-    background-color: white;
-    border: 0px;
-    transition: 1s;
-  }
-
-  #stappenplanbutton:hover {
-    cursor: pointer;
-  }
-
-  #stappenplanbutton img {
-    width: 3em;
-    height: 3em;
-  }
-
   .full-b {
     display: flex;
     justify-content: center;
     margin-left: 12em;
+  }
+
+  .steps {
+    margin-left: -35em;
+    margin-top: 3em;
+  }
+
+  .step-title {
+    font-family: var(--vtPrimaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    margin-top: 3em;
+    margin-bottom: -1em;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .step-description {
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    font-size: 1rem;
+    min-width: 110%;
   }
 }
 
@@ -628,6 +530,25 @@
     font-family: var(--vtSecondaryFont);
     color: var(--vtSec-DarkBlue);
   }
+
+  .step-title {
+    font-family: var(--vtPrimaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    margin-top: 3em;
+    margin-bottom: -1em;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .step-description {
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    font-size: 1rem;
+    min-width: 110%;
+  }
     }
 
     /* --- MOBILE DEVICE --- */
@@ -687,8 +608,23 @@
     margin-bottom: 0.5em;
   }
 
-  .buttondeel {
-    margin-top: 2em;
+  .step-title {
+    font-family: var(--vtPrimaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    margin-top: 3em;
+    margin-bottom: -1em;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .step-description {
+    font-family: var(--vtSecondaryFont);
+    color: var(--vtDarkBlue);
+    text-transform: none;
+    font-size: 1rem;
+    min-width: 110%;
   }
   }
 </style>
