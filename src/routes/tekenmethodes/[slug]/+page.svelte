@@ -94,11 +94,6 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    /* max-width: 30rem; */
-    /* max-height: 6rem; */
-    /* width: 90%; */
-    /* margin-top: -0.7em; */
-    /* margin-bottom: 1.5em; */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -114,7 +109,6 @@
   .bold {
     font-size: 2.369rem;
     font-weight: 400;
-
     font-family: var(--vtPrimaryFont);
     color: var(--vtSec-DarkBlue);
   }
@@ -131,9 +125,6 @@
     font-family: var(--vtSecondaryFont);
     line-height: 1.5rem;
   }
-
-
-
 
   a {
     text-decoration: none;
@@ -232,26 +223,21 @@
     color: var(--vtDarkBlue);
   }
 
-
   p {
     font-size: 0.75rem;
     font-family: var(--vtPrimaryFont);
     text-transform: uppercase;
   }
 
-
   .line {
     background-color: var(--vtSec-DarkBlue);
     color: var(--vtWhite);
-
     text-transform: uppercase;
     font-family: var(--vtPrimaryFont);
     font-size: 0.75rem;
-
     padding-left: 7rem;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
-
     margin-top: 0px;
     display: flex;
     align-items: center;
@@ -275,7 +261,6 @@
     padding-left: 4.7rem;
   }
 
-
   .flex-b .template-url {
     margin-left: 0rem;
   }
@@ -287,21 +272,16 @@
     box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
-
-
   .detail-main {
     margin: 2rem 0;
   }
 
-
     nav {
       display: block !important;
-      /* prevent the nav to hide when resize */
       position: relative;
       width: auto;
       float: right;
       padding: 5px 0;
-
     }
 
     nav ul {
@@ -317,7 +297,7 @@
     }
 
 
-    /* tablet */
+    /*---TABLET---*/
     @media (min-width: 31em) and (max-width: 62em) {
       .line {
     padding-left: 2rem;
@@ -350,29 +330,19 @@
     padding-left: 0rem;
   }
 
-  /* .flex-b {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  } */
-
   .flex-b {
     display: flex;
     flex-wrap: wrap;
   }
 
   .template-url {
-    /* display: flex;
-    justify-content: center; */
     width: 420px;
     height: 300px;
     margin-top: 3em;
-    /* margin-right: -10em; */
     box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
   .text {
-    /* margin-left: -20em;
-    margin-top: 20rem; */
     width: 77%;
     font-weight: 500;
     font-size: 1rem;
@@ -381,7 +351,7 @@
   }
     }
 
-    /* ---MOBILE--- */
+    /*---MOBILE---*/
   @media (max-width: 31em) {
     .line {
       padding-left: 2rem;
