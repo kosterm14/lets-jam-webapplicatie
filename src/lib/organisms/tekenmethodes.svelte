@@ -511,8 +511,8 @@
   }
 
   p {
-    font-size: 0.75rem;
-    font-family: var(--vtPrimaryFont);
+    font-size: 1rem;
+    font-family: var(--vtSecondaryFont);
     text-transform: uppercase;
   }
 
@@ -1000,6 +1000,11 @@
     margin-right: 1em;
     margin-top: -2.2em;
   }
+
+  .line {
+      padding-left: 11%;
+    }
+
 }
 
   /*
@@ -1024,7 +1029,7 @@
   }
 
     h1 {
-    font-size: 2.157rem;
+    font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
   }
@@ -1052,6 +1057,10 @@
 
     .tekenmethodes-main {
       margin-left: 0em;
+    }
+
+    .line {
+      padding-left: 20%;
     }
 
 
@@ -1182,7 +1191,7 @@
     }
 
     .intro-text h1 {
-      font-size: 40px;
+      font-size: 3.157rem;
     }
 
     .intro-text p {

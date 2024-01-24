@@ -1,144 +1,142 @@
 <script>
-    import Header from "$lib/molecules/header.svelte";
-    import Footer from "$lib/molecules/footer.svelte";
+  import Header from "$lib/molecules/header.svelte";
+  import Footer from "$lib/molecules/footer.svelte";
 
-    export let data;
-    // console.log(data);
-    let toon = false;
+  export let data;
+  // console.log(data);
+  let toon = false;
 
-    let stappenplanButton;
+  let stappenplanButton;
 
-    // Function to toggle the "toon" class on the "stappen" element
-    function toonStappenplan() {
-        // const stappenElement = document.getElementById("stappen");
-        // stappenElement.classList.toggle("toon");
-        toon = !toon;
-    }
+  // Function to toggle the "toon" class on the "stappen" element
+  function toonStappenplan() {
+    // const stappenElement = document.getElementById("stappen");
+    // stappenElement.classList.toggle("toon");
+    toon = !toon;
+  }
 
-    // This function will be called when the Svelte component is mounted
-    function setup() {
-        stappenplanButton = document.getElementById("stappenplanbutton");
-        stappenplanButton.addEventListener("click", toonStappenplan);
-    }
+  // This function will be called when the Svelte component is mounted
+  function setup() {
+    stappenplanButton = document.getElementById("stappenplanbutton");
+    stappenplanButton.addEventListener("click", toonStappenplan);
+  }
 
-    // This function will be called when the Svelte component is unmounted
-    function teardown() {
-        stappenplanButton.removeEventListener("click", toonStappenplan);
-    }
+  // This function will be called when the Svelte component is unmounted
+  function teardown() {
+    stappenplanButton.removeEventListener("click", toonStappenplan);
+  }
 </script>
 
 <Header />
 
-
 <body class="page">
+  <section>
+    <a href="/tekenmethodes">
+      <p class="line">
+        <img class="arrows-line" src="/arrows.svg" alt="" />
+        Overzicht <strong>tekenmethodes</strong>
+      </p>
+    </a>
+  </section>
 
-    <section>
-        <a href="/tekenmethodes">
-            <p class="line">
-                <img class="arrows-line" src="/arrows.svg" alt="" />
-                Overzicht <strong>tekenmethodes</strong>
-            </p>
-        </a>
+  <main class="detail-main">
+    <section class="navmain">
+      <section>
+        <h1 class="h1-detail">
+          {#each data.methods as method}
+            {method.title}
+          {/each}
+        </h1>
+      </section>
+
+      {#each data.methods as method}
+        <nav>
+          <ul>
+            <a href="/tekenmethodes/{method.slug}">
+              <li>
+                <h2 class="h2-detail">Beschrijving</h2>
+              </li>
+            </a>
+            <li>
+              <h2 class="bold">Stappenplan</h2>
+            </li>
+            <a href="/tekenmethodes/{method.slug}/voorbeelden">
+              <li>
+                <h2 class="h2-detail">Voorbeelden</h2>
+              </li>
+            </a>
+          </ul>
+        </nav>
+      {/each}
     </section>
 
-    <main class="detail-main">
-        <section class="navmain">
-            <section>
-                <h1 class="h1-detail">
-                    {#each data.methods as method}
-                        {method.title}
-                    {/each}
-                </h1>
-            </section>
+    {#each data.methods as method}
+      <img class="template-url" src={method?.template?.url} alt="" />
+    {/each}
 
-            {#each data.methods as method}
-                <nav>
-                    <ul>
-                        <a href="/tekenmethodes/{method.slug}">
-                            <li>
-                                <h2 class="h2-detail">Beschrijving</h2>
-                            </li>
-                        </a>
-                        <li>
-                            <h2 class="bold">Stappenplan</h2>
-                        </li>
-                        <a href="/tekenmethodes/{method.slug}/voorbeelden">
-                            <li>
-                                <h2 class="h2-detail">Voorbeelden</h2>
-                            </li>
-                        </a>
-                    </ul>
-                </nav>
+    <section class="flex-s">
+      <section class="full-b">
+        <section class="tags-b">
+          <img class="icon" src="/icon1.svg" alt="" />
+          {#each data.methods as method}
+            {#each method.categories as category}
+              <h2 class="tag">
+                {@html category.title}
+              </h2>
             {/each}
+          {/each}
         </section>
 
-        {#each data.methods as method}
-            <img class="template-url" src={method?.template?.url} alt="" />
-        {/each}
-
-        <section class="flex-s">
-            <section class="full-b">
-                <section class="tags-b">
-                    <img class="icon" src="/icon1.svg" alt="" />
-                    {#each data.methods as method}
-                        <h2 class="tag">
-                            {@html JSON.stringify(method.categories)}
-                        </h2>
-                    {/each}
-                </section>
-
-                <section class="tags-b">
-                    <img class="icon" src="/icon2.svg" alt="" />
-                    <h2 class="tag">
-                        {#each data.methods as method}
-                            {method.material}
-                        {/each}
-                    </h2>
-                </section>
-
-                <section class="tags-b">
-                    <img class="icon" src="/icon3.svg" alt="" />
-                    <h2 class="tag">
-                        {#each data.methods as method}
-                            {method.duration}
-                        {/each}
-                    </h2>
-                </section>
-
-                <section class="tags-b">
-                    <img class="icon" src="/icon4.svg" alt="" />
-                    <h2 class="tag">Charley Muhren</h2>
-                </section>
-
-                  <section class="steps">
-                  {#each data.methods as method} 
-                                  {#each method.steps as step}
-                                      <p class="step-title">{step.title}</p>
-                                      {#if typeof step.description === 'object'}
-                                          <p class="step-description">{@html step.description.html}</p>
-                                      {:else}
-                                          <p>{step.description}</p>
-                                      {/if}
-
-
-                                      <!-- {#if typeof step.visual === 'object'} -->
-                                          <img src={step.visual} alt="Visual" />
-                                      {:else}
-                                          <!-- <img src={step.visual} alt="Visual" /> -->
-                                      <!-- {/if} -->
-                                  {/each}
-                      {/each}
-                    </section>
-            </section>
+        <section class="tags-b">
+          <img class="icon" src="/icon2.svg" alt="" />
+          <h2 class="tag">
+            {#each data.methods as method}
+              {method.material}
+            {/each}
+          </h2>
         </section>
-    </main>
+
+        <section class="tags-b">
+          <img class="icon" src="/icon3.svg" alt="" />
+          <h2 class="tag">
+            {#each data.methods as method}
+              {method.duration}
+            {/each}
+          </h2>
+        </section>
+
+        <section class="tags-b">
+          <img class="icon" src="/icon4.svg" alt="" />
+          <h2 class="tag">Charley Muhren</h2>
+        </section>
+
+        <section class="steps">
+          {#each data.methods as method}
+            {#each method.steps as step}
+              <p class="step-title">{step.title}</p>
+              {#if typeof step.description === "object"}
+                <p class="step-description">{@html step.description.html}</p>
+              {:else}
+                <p>{step.description}</p>
+              {/if}
+
+              <!-- {#if typeof step.visual === 'object'} -->
+              <img src={step.visual} alt="Visual" />
+            {:else}
+              <!-- <img src={step.visual} alt="Visual" /> -->
+              <!-- {/if} -->
+            {/each}
+          {/each}
+        </section>
+      </section>
+    </section>
+  </main>
 </body>
 
 <Footer />
 
-
 <style>
-   body {
+  body {
     margin: 0;
     padding: 0;
   }
@@ -178,31 +176,31 @@
     --vtRed-30: #fdc4b9;
     --vtRed-10: #fee2dc;
 
-        --vtDarkBlue: #090940;
-        --vtLightBlue: #67c5d1;
-        --vtYellow: #feb51e;
-        --vtRed: #f96c4f;
-        --vtWhite: #ffffff;
+    --vtDarkBlue: #090940;
+    --vtLightBlue: #67c5d1;
+    --vtYellow: #feb51e;
+    --vtRed: #f96c4f;
+    --vtWhite: #ffffff;
 
-        --vtDarkBlue-80: #3a3a66;
-        --vtDarkBlue-50: #6b6b8c;
-        --vtDarkBlue-30: #9d9db3;
-        --vtDarkBlue-10: #ceced9;
+    --vtDarkBlue-80: #3a3a66;
+    --vtDarkBlue-50: #6b6b8c;
+    --vtDarkBlue-30: #9d9db3;
+    --vtDarkBlue-10: #ceced9;
 
-        --vtLightBlue-80: #85d1da;
-        --vtLightBlue-50: #a4dce3;
-        --vtLightBlue-30: #c2e8ed;
-        --vtLightBlue-10: #e1f3f6;
+    --vtLightBlue-80: #85d1da;
+    --vtLightBlue-50: #a4dce3;
+    --vtLightBlue-30: #c2e8ed;
+    --vtLightBlue-10: #e1f3f6;
 
-        --vtYellow-80: #fec44b;
-        --vtYellow-50: #fed378;
-        --vtYellow-30: #ffe1a5;
-        --vtYellow-10: #fff0d2;
+    --vtYellow-80: #fec44b;
+    --vtYellow-50: #fed378;
+    --vtYellow-30: #ffe1a5;
+    --vtYellow-10: #fff0d2;
 
-        --vtRed-80: #fa8972;
-        --vtRed-50: #fba795;
-        --vtRed-30: #fdc4b9;
-        --vtRed-10: #fee2dc;
+    --vtRed-80: #fa8972;
+    --vtRed-50: #fba795;
+    --vtRed-30: #fdc4b9;
+    --vtRed-10: #fee2dc;
 
     --vtGrey-80: #c0beb9;
     --vtGrey-50: #e0dedc;
@@ -300,7 +298,7 @@
 
   .navmain ul {
     padding-right: 4rem;
-  } 
+  }
 
   h1 {
     font-size: 3.157rem;
@@ -336,7 +334,6 @@
     text-decoration-thickness: 0.2rem;
     text-underline-offset: 0.5rem;
   }
-
 
   h4 {
     font-size: 1rem;
@@ -418,7 +415,6 @@
     margin-top: -20rem;
   }
 
-
   .full-b {
     display: flex;
     margin-left: 8rem;
@@ -434,135 +430,127 @@
   }
 
   @media (min-width: 68em) {
+    .navmain {
+      background-color: var(--vtGrey-10);
+      margin-top: -2em;
+    }
 
-  .navmain {
-    background-color: var(--vtGrey-10);
-    margin-top: -2em;
+    .full-b {
+      display: flex;
+      justify-content: center;
+      margin-left: 12em;
+    }
+
+    .steps {
+      margin-left: -35em;
+      margin-top: 3em;
+    }
+
+    .step-title {
+      font-family: var(--vtPrimaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      margin-top: 3em;
+      margin-bottom: -1em;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .step-description {
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      font-size: 1rem;
+      min-width: 110%;
+    }
   }
 
-  .full-b {
-    display: flex;
-    justify-content: center;
-    margin-left: 12em;
-  }
-
-  .steps {
-    margin-left: -35em;
-    margin-top: 3em;
-  }
-
-  .step-title {
-    font-family: var(--vtPrimaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    margin-top: 3em;
-    margin-bottom: -1em;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 100%;
-  }
-
-  .step-description {
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    font-size: 1rem;
-    min-width: 110%;
-  }
-}
-
-
-
-
-
-
-
-
-    /* tablet */
-    @media (min-width: 31em) and (max-width: 68em) {
+  /* tablet */
+  @media (min-width: 31em) and (max-width: 68em) {
     .line {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     .h1-detail {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     h1 {
-    font-size: 2rem;
+      font-size: 2rem;
     }
 
     nav {
-    width: auto;
-    float: left;
-    margin-top: 2.5em;
-    margin-left: -11.5em;
-    padding: 5px 0;
-     
-    overflow-x: scroll;
-    white-space: nowrap;
+      width: auto;
+      float: left;
+      margin-top: 2.5em;
+      margin-left: -11.5em;
+      padding: 5px 0;
+
+      overflow-x: scroll;
+      white-space: nowrap;
     }
 
     .navmain {
-    background-color: var(--vtGrey-10);
-    margin-top: -2em;
-  }
+      background-color: var(--vtGrey-10);
+      margin-top: -2em;
+    }
 
     nav::-webkit-scrollbar {
-    display: none;
+      display: none;
     }
 
     .template-url {
-    display: flex;
-    justify-content: center;
-    width: 420px;
-    height: 300px;
-    margin-top: 3em;
-    margin-left: 3em;
-    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
-  }
-
-    .flex-s {
-    margin-left: -35em;
-    margin-top: 24rem;
-    min-width: 15%;
-    font-size: 1rem;
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtSec-DarkBlue);
-  }
-
-  .step-title {
-    font-family: var(--vtPrimaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    margin-top: 3em;
-    margin-bottom: -1em;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 100%;
-  }
-
-  .step-description {
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    font-size: 1rem;
-    min-width: 110%;
-  }
+      display: flex;
+      justify-content: center;
+      width: 420px;
+      height: 300px;
+      margin-top: 3em;
+      margin-left: 3em;
+      box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
     }
 
-    /* --- MOBILE DEVICE --- */
-    @media (max-width: 31em) {
+    .flex-s {
+      margin-left: -35em;
+      margin-top: 24rem;
+      min-width: 15%;
+      font-size: 1rem;
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtSec-DarkBlue);
+    }
+
+    .step-title {
+      font-family: var(--vtPrimaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      margin-top: 3em;
+      margin-bottom: -1em;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .step-description {
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      font-size: 1rem;
+      min-width: 110%;
+    }
+  }
+
+  /* --- MOBILE DEVICE --- */
+  @media (max-width: 31em) {
     .line {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     .h1-detail {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     h1 {
-    font-size: 2rem;
+      font-size: 2rem;
     }
 
     nav {
@@ -571,61 +559,60 @@
       margin-top: 4.5em;
       margin-left: -11.5em;
       padding: 5px 0;
-      
+
       overflow-x: scroll;
       white-space: nowrap;
     }
 
     .navmain {
-    background-color: var(--vtGrey-10);
-    margin-top: -2em;
-  }
+      background-color: var(--vtGrey-10);
+      margin-top: -2em;
+    }
 
     nav::-webkit-scrollbar {
       display: none;
     }
 
-  .template-url {
-    display: flex;
-    justify-content: center;
-    width: 330px;
-    height: 230px;
-    margin-top: 3em;
-    margin-left: 1.5em;
-    box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
-  }
+    .template-url {
+      display: flex;
+      justify-content: center;
+      width: 330px;
+      height: 230px;
+      margin-top: 3em;
+      margin-left: 1.5em;
+      box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
+    }
 
-  .flex-s {
-    margin-top: 24rem;
-    padding-left: 2em;
-    padding-right: 2em;
-    font-size: 1rem;
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtSec-DarkBlue);
-  }
+    .flex-s {
+      margin-top: 24rem;
+      padding-left: 2em;
+      padding-right: 2em;
+      font-size: 1rem;
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtSec-DarkBlue);
+    }
 
-  .tags-b {
-    margin-bottom: 0.5em;
-  }
+    .tags-b {
+      margin-bottom: 0.5em;
+    }
 
-  .step-title {
-    font-family: var(--vtPrimaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    margin-top: 3em;
-    margin-bottom: -1em;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 100%;
-  }
+    .step-title {
+      font-family: var(--vtPrimaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      margin-top: 3em;
+      margin-bottom: -1em;
+      font-size: 1rem;
+      font-weight: 600;
+      width: 100%;
+    }
 
-  .step-description {
-    font-family: var(--vtSecondaryFont);
-    color: var(--vtDarkBlue);
-    text-transform: none;
-    font-size: 1rem;
-    min-width: 110%;
-  }
+    .step-description {
+      font-family: var(--vtSecondaryFont);
+      color: var(--vtDarkBlue);
+      text-transform: none;
+      font-size: 1rem;
+      min-width: 110%;
+    }
   }
 </style>
-

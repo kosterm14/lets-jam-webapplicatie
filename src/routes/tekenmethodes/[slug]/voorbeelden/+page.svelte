@@ -1,92 +1,133 @@
 <script>
-    import Header from "$lib/molecules/header.svelte";
-    import Footer from "$lib/molecules/footer.svelte";
+  import Header from "$lib/molecules/header.svelte";
+  import Footer from "$lib/molecules/footer.svelte";
 
-    export let data;
-    // console.log(data);
+  export let data;
+
+  console.log(data.methods[0].examples);
+
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    const track = document.querySelector('.carousel-list');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button-right');
+    const prevButton = document.querySelector('.carousel-button-left');
+
+    const slideWidth = slides[0].getBoundingClientRect().width;
+
+    const setSlidePosition = (slide, index) => {
+      slide.style.left = slideWidth * index + 'px';
+    };
+
+    slides.forEach(setSlidePosition);
+
+    const moveToSlide = (currentSlide, targetSlide) => {
+      track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+      currentSlide.classList.remove('current-slide');
+      targetSlide.classList.add('current-slide');
+    };
+
+    prevButton.addEventListener('click', () => {
+      const currentSlide = track.querySelector('.current-slide');
+      const prevSlide = currentSlide.previousElementSibling;
+
+      if (prevSlide) {
+        moveToSlide(currentSlide, prevSlide);
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      const currentSlide = track.querySelector('.current-slide');
+      const nextSlide = currentSlide.nextElementSibling;
+
+      if (nextSlide) {
+        moveToSlide(currentSlide, nextSlide);
+      }
+    });
+  });
+
+
 </script>
+
 
 <Header />
 
 <body class="page">
+  <section>
+    <a href="/tekenmethodes">
+      <p class="line">
+        <img class="arrows-line" src="/arrows.svg" alt="" />
+        Overzicht <strong>tekenmethodes</strong>
+      </p>
+    </a>
+  </section>
 
-    <section>
-        <a href="/tekenmethodes">
-            <p class="line">
-                <img class="arrows-line" src="/arrows.svg" alt="" />
-                Overzicht <strong>tekenmethodes</strong>
-            </p>
-        </a>
+  <main class="detail-main">
+    <section class="navmain">
+      <section>
+        <h1 class="h1-detail">
+          {#each data.methods as method}
+            {method.title}
+          {/each}
+        </h1>
+      </section>
+
+      {#each data.methods as method}
+        <nav>
+          <ul>
+            <a href="/tekenmethodes/{method.slug}">
+              <li>
+                <h2 class="h2-detail">Beschrijving</h2>
+              </li>
+            </a>
+            <a href="/tekenmethodes/{method.slug}/stappenplan">
+              <li>
+                <h2 class="h2-detail">Stappenplan</h2>
+              </li>
+            </a>
+            <li>
+              <h2 class="bold">Voorbeelden</h2>
+            </li>
+          </ul>
+        </nav>
+      {/each}
     </section>
 
-    <main class="detail-main">
-        <section class="navmain">
-            <section>
-                <h1 class="h1-detail">
-                    {#each data.methods as method}
-                        {method.title}
-                    {/each}
-                </h1>
-            </section>
+    <section class="carousel">
+      <button class="carousel-button-left">
+        <img src="/arrow.svg" alt="" />
+      </button>
+      <section class="carousel-container">
+        <ul class="carousel-list">
+          {#each data.methods as method}
+          {#each method.examples as example}
+            <li class="carousel-slide current-slide">
+              <img class="carousel-img-blur" src={example.url} alt="" />
+              <img class="carousel-img" src={example.url} alt="" />
+            </li>
+          {/each}
+          {/each}
+        </ul>
+      </section>
 
-            {#each data.methods as method}
-                <nav>
-                    <ul>
-                        <a href="/tekenmethodes/{method.slug}">
-                            <li>
-                                <h2 class="h2-detail">Beschrijving</h2>
-                            </li>
-                        </a>
-                        <a href="/tekenmethodes/{method.slug}/stappenplan">
-                            <li>
-                                <h2 class="h2-detail">Stappenplan</h2>
-                            </li>
-                        </a>
-                        <li>
-                            <h2 class="bold">Voorbeelden</h2>
-                        </li>
-                    </ul>
-                </nav>
-            {/each}
-        </section>
-
-        <section class="carousel">
-            <button class="carousel-button-left">
-                <img src="/arrow.svg" alt="" />
-            </button>
-            <section class="carousel-container">
-                <ul class="carousel-list">
-                    {#each data.methods as method}
-                        <li class="carousel-slide current-slide">
-                            <img
-                                class="carousel-img"
-                                src={method.examples}
-                                alt=""
-                            />
-                        </li>
-                    {/each}
-                </ul>
-            </section>
-            <button class="carousel-button-right">
-                <img src="/arrows_black.svg" alt="" />
-            </button>
-        </section>
-    </main>
+    <button class="carousel-button-right">
+        <img src="/arrows_black.svg" alt="" />
+      </button>
+    </section>
+  </main>
 </body>
 
 <Footer />
 
-
-
 <style>
-
-:root {
+  :root {
     --vtGrey-80: #c0beb9;
     --vtGrey-50: #e0dedc;
     --vtGrey-10: #f9f8f8;
   }
 
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -171,7 +212,6 @@
     padding-right: 4rem;
   }
 
-
   h1 {
     font-size: 3.157rem;
     font-family: var(--vtPrimaryFont);
@@ -249,6 +289,16 @@
     transform: rotate(180deg);
   }
 
+    /*---DESKTOP---*/
+    @media (min-width: 68em) {
+    .carousel-container {
+    height: 100%;
+    margin-top: 5em;
+    }
+    }
+
+
+  /*---CAROUSEL---*/
   .carousel {
     position: relative;
     height: 27.5rem;
@@ -289,16 +339,12 @@
   .carousel-button-right {
     position: absolute;
     top: 50%;
-    /* transform: translateY(-50%); */
     background: var(--vtYellow);
     border: 0;
     cursor: pointer;
     z-index: 1;
     padding: 0.5rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .carousel-button-left:active,
@@ -327,29 +373,36 @@
     width: 25px;
   }
 
+  .carousel-img-blur {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.2rem);
+    position: absolute;
+}
+
   .detail-main {
     margin: 2rem 0;
   }
 
-  
-    /* tablet */
-    @media (min-width: 31em) and (max-width: 68em) {
-      .line {
-    padding-left: 2rem;
+  /* tablet */
+  @media (min-width: 31em) and (max-width: 68em) {
+    .line {
+      padding-left: 2rem;
     }
 
     .h1-detail {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     h1 {
-    font-size: 2rem;
+      font-size: 2rem;
     }
 
     .navmain {
-    background-color: var(--vtGrey-10);
-    margin-top: -2em;
-  }
+      background-color: var(--vtGrey-10);
+      margin-top: -2em;
+    }
 
     nav::-webkit-scrollbar {
       display: none;
@@ -368,7 +421,7 @@
       margin-top: 2.5em;
       margin-left: -11.5em;
       padding: 5px 0;
-      
+
       overflow-x: scroll;
       white-space: nowrap;
     }
@@ -386,28 +439,35 @@
     }
 
     .carousel-button-right {
-    margin-right: 1rem;
-    margin-top: -5em;
-  }
-
-  .carousel-button-left {
-    margin-left: 1rem;
-    margin-top: -5em;
-  }
+      margin-right: 1rem;
+      margin-top: -12.5em;
     }
 
-    /* --- MOBILE DEVICE --- */
-    @media (max-width: 31em) {
+    .carousel-button-left {
+      margin-left: 1rem;
+      margin-top: -12.5em;
+    }
+
+    .carousel-container {
+    margin-top: 6em;
+    height: 50%;
+    position: relative;
+    overflow: hidden;
+  }
+  }
+
+  /* --- MOBILE DEVICE --- */
+  @media (max-width: 31em) {
     .line {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     .h1-detail {
-    padding-left: 2rem;
+      padding-left: 2rem;
     }
 
     h1 {
-    font-size: 2rem;
+      font-size: 2rem;
     }
 
     nav {
@@ -416,33 +476,45 @@
       margin-top: 4.5em;
       margin-left: -11em;
       padding: 5px 0;
-      
+
       overflow-x: scroll;
       white-space: nowrap;
     }
 
     .navmain {
-    background-color: var(--vtGrey-10);
-    margin-top: -2em;
-  }
+      background-color: var(--vtGrey-10);
+      margin-top: -2em;
+    }
 
     nav::-webkit-scrollbar {
       display: none;
     }
 
     .carousel-button-right {
-    margin-right: 5rem;
-    margin-top: 5em;
+      margin-right: 5rem;
+      margin-top: 5em;
+      z-index: 2;
+    }
+
+    .carousel-button-left {
+      margin-left: 5rem;
+      margin-top: 5em;
+      z-index: 2;
+    }
+
+    .carousel-img-blur {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.2rem);
+    position: absolute;
+    }
+
+    .carousel-container {
+      margin-top: 5em;
+    height: 50%;
+    position: relative;
+    overflow: hidden;
   }
-
-  .carousel-button-left {
-    margin-left: 5rem;
-    margin-top: 5em;
   }
-
-
-  }
-
 </style>
-
-
