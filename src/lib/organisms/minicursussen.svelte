@@ -114,7 +114,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         margin-top: -30%;
     }
 
@@ -203,16 +203,29 @@
             padding-left: 20%;
         }
 
+        .grid-container {
+            margin-bottom: 10%;
+        }
+
         .h1 {
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 1;
-
-            text-align: center;
         }
 
         h1 {
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+
+            margin-top: 6%;
+        }
+
+        .h2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 2;
+
+            margin-top: -50%;
         }
 
         .hex1,
@@ -221,7 +234,7 @@
             grid-column-end: 3;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex2,
@@ -230,7 +243,7 @@
             grid-column-end: 5;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex3,
@@ -239,7 +252,7 @@
             grid-column-end: 3;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex4,
@@ -248,7 +261,7 @@
             grid-column-end: 5;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
     }
 
@@ -258,16 +271,27 @@
             padding-left: 11%;
         }
 
+        .grid-container {
+            margin-bottom: 15%;
+        }
+
         .h1 {
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 1;
+        }
 
-            text-align: center;
+        .h2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 2;
+
+            margin-top: -110%;
         }
 
         h1 {
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            font-size: 2rem;
         }
 
         .hex1,
@@ -276,7 +300,7 @@
             grid-column-end: 3;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex2,
@@ -285,7 +309,7 @@
             grid-column-end: 3;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex3,
@@ -294,7 +318,7 @@
             grid-column-end: 3;
             grid-row-start: 4;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex4,
@@ -303,7 +327,7 @@
             grid-column-end: 3;
             grid-row-start: 5;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
     }
 </style>
