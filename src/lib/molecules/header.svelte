@@ -225,7 +225,7 @@
     }
 
     .topnav a:nth-child(6) {
-      background-color: var(--vtDarkBlue);
+      background-color: var(--vtGrey-80);
       color: var(--vtWhite);
       animation: slide6 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
     }
