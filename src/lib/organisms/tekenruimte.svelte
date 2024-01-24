@@ -167,9 +167,10 @@
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
     padding-left: 9%;
-    padding-top: 0.3em;
+    /* padding-top: 0.3em; */
     margin-top: 0%;
     display: flex;
+    align-items: center;
     height: 30px;
     }
 
