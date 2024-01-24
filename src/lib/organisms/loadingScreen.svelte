@@ -229,10 +229,6 @@
         animation: float 3s forwards;
         animation-delay: 2500ms;
         z-index: 1000;
-        /* background: transparent; */
-        /* animation: blur 3s linear infinite; */
-        /* background-color: hsl(60, 100%, 50%); */
-        /* background: radial-gradient(circle, transparent, var(--vtDarkBlue) 40%); */
     }
 
     .container::before {
@@ -244,7 +240,6 @@
         height: 100vh;
         pointer-events: none;
         z-index: 1000;
-        /* background: radial-gradient(circle, transparent, var(--vtYellow) 90%); */
     }
 
     .row {
@@ -288,12 +283,10 @@
     .hexagon1-6 {
         transition: 0s;
         background-color: var(--vtYellow);
-        /* cursor: alias; */
     }
 
     .hexagon2 {
         background: white;
-        /* background-color: transparent; */
         pointer-events: none;
         animation: gone 3s forwards;
     }
@@ -380,7 +373,6 @@
     .hexagon1-6 {
         position: relative;
         overflow: hidden;
-        /* background: white; */
         background: transparent;
     }
 

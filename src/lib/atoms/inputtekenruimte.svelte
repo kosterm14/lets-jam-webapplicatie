@@ -207,7 +207,6 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     overflow: hidden;
-    /* height: 2.5em;  */
     transition: height 0.5s ease-in-out; /* Animatie voor de hoogteverandering */
   }
 

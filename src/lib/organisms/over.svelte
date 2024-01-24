@@ -49,7 +49,6 @@
         align-items: center;
         flex-direction: column;
         margin-bottom: 5rem;
-        /* width: 100vw; */
     }
 
     h1 {

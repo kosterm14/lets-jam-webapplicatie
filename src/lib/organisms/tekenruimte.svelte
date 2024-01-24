@@ -1,70 +1,95 @@
 <script>
-import Inputtekenruimte from "$lib/atoms/inputtekenruimte.svelte";
-import { onMount } from "svelte";
+    import Inputtekenruimte from "$lib/atoms/inputtekenruimte.svelte";
   
+    import { onMount } from "svelte";
+  
+    // Voer code uit na het renderen van de component
     onMount(() => {
-        const canvas = document.getElementById("drawing-board");
-        const toolbar = document.getElementById("toolbar");
-        const ctx = canvas.getContext("2d");
-        const canvasOffsetX = canvas.offsetLeft;
-        const canvasOffsetY = canvas.offsetTop;
-        canvas.width = window.innerWidth - canvasOffsetX;
-        canvas.height = window.innerHeight - canvasOffsetY;
-        let isPainting = false;
-        let lineWidth = 5;
-        let startX;
-        let startY;
-        toolbar.addEventListener("click", (e) => {
-            if (e.target.id === "clear") {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-            }
-        });
-        toolbar.addEventListener("change", (e) => {
-            if (e.target.id === "stroke") {
-                ctx.strokeStyle = e.target.value;
-            }
-            if (e.target.id === "lineWidth") {
-                lineWidth = e.target.value;
-            }
-        });
-        const draw = (e) => {
-            if (!isPainting) {
-                return;
-            }
-
-            const x = (e.clientX || e.touches[0].clientX) - canvas.getBoundingClientRect().left;
-            const y = (e.clientY || e.touches[0].clientY) - canvas.getBoundingClientRect().top;
-
-            ctx.lineWidth = lineWidth;
-            ctx.lineCap = "round";
-            ctx.lineTo(x, y);
-            ctx.stroke();
-        };
-        const start = (e) => {
-            isPainting = true;
-            startX = e.clientX || e.touches[0].clientX;
-            startY = e.clientY || e.touches[0].clientY;
-        };
-        const end = (e) => {
-            isPainting = false;
-            ctx.stroke();
-            ctx.beginPath();
-        };
-        canvas.addEventListener("mousedown", start);
-        canvas.addEventListener("touchstart", start);
-        canvas.addEventListener("mouseup", end);
-        canvas.addEventListener("touchend", end);
-        canvas.addEventListener("mousemove", draw);
-        canvas.addEventListener("touchmove", draw);
+      // Haal het canvas, de toolbar en de 2D-context op
+      const canvas = document.getElementById("drawing-board");
+      const toolbar = document.getElementById("toolbar");
+      const ctx = canvas.getContext("2d");
+  
+      // Bepaal de offset van het canvas ten opzichte van het document
+      const canvasOffsetX = canvas.offsetLeft;
+      const canvasOffsetY = canvas.offsetTop;
+  
+      // Stel de breedte en hoogte van het canvas in op het vensterformaat
+      canvas.width = window.innerWidth - canvasOffsetX;
+      canvas.height = window.innerHeight - canvasOffsetY;
+  
+      // Initialiseer variabelen voor schilderen
+      let isPainting = false;
+      let lineWidth = 5;
+      let startX;
+      let startY;
+  
+      // Voeg een click eventlistener toe aan de toolbar voor wissen
+      toolbar.addEventListener("click", (e) => {
+        if (e.target.id === "clear") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+  
+      // Voeg een change eventlistener toe aan de toolbar voor kleur en lijnbreedte
+      toolbar.addEventListener("change", (e) => {
+        if (e.target.id === "stroke") {
+          // Stel de lijnkleur in op de geselecteerde waarde
+          ctx.strokeStyle = e.target.value;
+        }
+        if (e.target.id === "lineWidth") {
+          // Stel de lijnbreedte in op de geselecteerde waarde
+          lineWidth = e.target.value;
+        }
+      });
+  
+      // Functie om tekenen te implementeren
+      const draw = (e) => {
+        if (!isPainting) {
+          return;
+        }
+  
+        // Bepaal de x- en y-positie op het canvas
+        const x = (e.clientX || e.touches[0].clientX) - canvas.getBoundingClientRect().left;
+        const y = (e.clientY || e.touches[0].clientY) - canvas.getBoundingClientRect().top;
+  
+        // Configureer de lijnparameters en teken de lijn
+        ctx.lineWidth = lineWidth;
+        ctx.lineCap = "round";
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      };
+  
+      // Functie om tekenen te starten
+      const start = (e) => {
+        isPainting = true;
+        startX = e.clientX || e.touches[0].clientX;
+        startY = e.clientY || e.touches[0].clientY;
+      };
+  
+      // Functie om tekenen te beëindigen
+      const end = (e) => {
+        isPainting = false;
+        ctx.stroke();
+        ctx.beginPath();
+      };
+  
+      // Voeg eventlisteners toe voor mousedown, mouseup, mousemove, touchstart, touchend en touchmove
+      canvas.addEventListener("mousedown", start);
+      canvas.addEventListener("touchstart", start);
+      canvas.addEventListener("mouseup", end);
+      canvas.addEventListener("touchend", end);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("touchmove", draw);
     });
-</script>
+  </script>
+  
 
 <section>
     <h4 class="line">Tekenruimte</h4>
   </section>
 
 <main>
-    <!-- <img src="/assets/highlighter_7931172.png" width="32" height="32"> -->
     <div class="labeltekst"><h2>Teken hier!</h2></div>
     <section class="container">
         <div id="toolbar">
@@ -86,72 +111,49 @@ import { onMount } from "svelte";
 
 <style>
 
-
 :root {
-		font-size: 20px;
+    --vtDarkBlue: #090940;
+    --vtLightBlue: #67c5d1;
+    --vtYellow: #feb51e;
+    --vtRed: #f96c4f;
+    --vtWhite: #ffffff;
+    
+    --vtDarkBlue-80: #3a3a66;
+    --vtDarkBlue-50: #6b6b8c;
+    --vtDarkBlue-30: #9d9db3;
+    --vtDarkBlue-10: #ceced9;
 
-		/* Visual Thinking: Primary Colors:
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    */
-		--vtDarkBlue: #090940;
-		--vtLightBlue: #67c5d1;
-		--vtYellow: #feb51e;
-		--vtRed: #f96c4f;
-		--vtWhite: #ffffff;
+    --vtLightBlue-80: #85d1da;
+    --vtLightBlue-50: #a4dce3;
+    --vtLightBlue-30: #c2e8ed;
+    --vtLightBlue-10: #e1f3f6;
 
-		/* Visual Thinking: Primary Colors Lichtere versies, ongeveer 80%, 50%, 30% en 10% opacity van de originele kleuren ^
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    */
-		--vtDarkBlue-80: #3a3a66;
-		--vtDarkBlue-50: #6b6b8c;
-		--vtDarkBlue-30: #9d9db3;
-		--vtDarkBlue-10: #ceced9;
+    --vtYellow-80: #fec44b;
+    --vtYellow-50: #fed378;
+    --vtYellow-30: #ffe1a5;
+    --vtYellow-10: #fff0d2;
 
-		--vtLightBlue-80: #85d1da;
-		--vtLightBlue-50: #a4dce3;
-		--vtLightBlue-30: #c2e8ed;
-		--vtLightBlue-10: #e1f3f6;
+    --vtRed-80: #fa8972;
+    --vtRed-50: #fba795;
+    --vtRed-30: #fdc4b9;
+    --vtRed-10: #fee2dc;
 
-		--vtYellow-80: #fec44b;
-		--vtYellow-50: #fed378;
-		--vtYellow-30: #ffe1a5;
-		--vtYellow-10: #fff0d2;
+    --vtGrey-80: #c0beb9;
+    --vtGrey-50: #e0dedc;
+    --vtGrey-10: #f9f8f8;
 
-		--vtRed-80: #fa8972;
-		--vtRed-50: #fba795;
-		--vtRed-30: #fdc4b9;
-		--vtRed-10: #fee2dc;
+    --vtSec-Red: #af1301;
+    --vtSec-Red-30: #fbc5b4;
+    --vtSec-Green: #169861;
+    --vtSec-Green-30: #63c09f;
+    --vtSec-LightBlue: #4fbbc2;
+    --vtSec-DarkBlue: #31439c;
+    --vtSec-Brown: #8b3a00;
+    --vtSec-Orange: #fe6f07;
 
-		/* Visual Thinking: Grijstinten:
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik!
-     Word vaak gebruikt voor backgrounds en borders. 
-    */
-
-		--vtGrey-80: #c0beb9;
-		--vtGrey-50: #e0dedc;
-		--vtGrey-10: #f9f8f8;
-
-		/* Visual Thinking: Secondary colors,
-    Zie kleuren styleguide of eventueel Figma designs voor gebruik! 
-    Word gebruikt als steunkleuren bv: kleurcoderen van categorieën
-    */
-
-		--vtSec-Red: #af1301;
-		--vtSec-Red-30: #fbc5b4;
-		--vtSec-Green: #169861;
-		--vtSec-Green-30: #63c09f;
-		--vtSec-LightBlue: #4fbbc2;
-		--vtSec-DarkBlue: #31439c;
-		/* <--- deze kleur is de blauwe balk van de tekenmethodes detailpagina */
-		--vtSec-Brown: #8b3a00;
-		--vtSec-Orange: #fe6f07;
-
-		/* Visual Thinking: Fonts,
-    */
-
-		--vtPrimaryFont: "rigid-square", sans-serif;
-		--vtSecondaryFont: "yrsa", serif;
-	}
+    --vtPrimaryFont: "rigid-square", sans-serif;
+    --vtSecondaryFont: "yrsa", serif;
+  }
 
     * {
         margin: 0;
@@ -165,11 +167,12 @@ import { onMount } from "svelte";
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
     padding-left: 9%;
-    padding-top: 0.3em;
+    /* padding-top: 0.3em; */
     margin-top: 0%;
     display: flex;
+    align-items: center;
     height: 30px;
-  }
+    }
 
     h2 {
         font-size: 2.369rem;
@@ -188,12 +191,9 @@ import { onMount } from "svelte";
         display: flex;
         justify-content: center;
         align-items: center;
-        /* width: 100vw; */
     }
     .container {
-      /* display: flex;  */
       font-family: var(--vtPrimaryFont);
-      /* align-items: center; */
       justify-items: center;
       padding-bottom: 2em;
       width: 100vw; 
@@ -206,10 +206,6 @@ import { onMount } from "svelte";
         box-shadow: var(--vtGrey-80) 1px 1px 20px 1px;
         margin: 2em;
         cursor: pointer;
-    }
-    
-    .container:hover {
-        cursor: url('/assets/highlighter_7931172.png'), auto;
     }
     
 #toolbar {
@@ -278,7 +274,7 @@ import { onMount } from "svelte";
 
 
 
-  /* desktop */
+  /*---DESKTOP---*/
   @media (min-width: 55em) {
     .container {
         display: flex;
@@ -302,7 +298,6 @@ import { onMount } from "svelte";
         box-shadow: var(--vtGrey-50) 1px 1px 20px 1px;
         margin: 2em;
         margin-left: 4em;
-        /* max-width: 30em; */
         height: 25em;
         width: 90%;
         cursor: url('cursor-img.jpg');
@@ -337,7 +332,7 @@ import { onMount } from "svelte";
     }
   }
 
-     /* tablet */
+     /*---TABLET---*/
      @media (min-width: 31em) and (max-width: 55em) {
         
         .line {
@@ -392,7 +387,7 @@ import { onMount } from "svelte";
     }
 
 
-    /* ---MOBILE--- */
+    /*---MOBILE---*/
     @media (max-width: 31em) {
 
         .line {

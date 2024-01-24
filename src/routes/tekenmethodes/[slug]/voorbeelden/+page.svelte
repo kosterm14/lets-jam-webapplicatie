@@ -4,30 +4,43 @@
 
   export let data;
 
+  // Log het voorbeeld van de eerste methode in de console
   console.log(data.methods[0].examples);
 
+  // Importeer de onMount functie van Svelte om code uit te voeren na het renderen
   import { onMount } from "svelte";
 
+  // Voer code uit na het renderen van de component
   onMount(() => {
+    // Selecteer het element met de class 'carousel-list'
     const track = document.querySelector('.carousel-list');
+
+    // Maak een array van slides uit de children van het 'track'-element
     const slides = Array.from(track.children);
+
+    // Selecteer de knoppen voor vorige en volgende slides
     const nextButton = document.querySelector('.carousel-button-right');
     const prevButton = document.querySelector('.carousel-button-left');
 
+    // Bepaal de breedte van een slide
     const slideWidth = slides[0].getBoundingClientRect().width;
 
+    // Functie om de positie van een slide in te stellen op basis van de index
     const setSlidePosition = (slide, index) => {
       slide.style.left = slideWidth * index + 'px';
     };
 
+    // Stel de positie in voor elke slide
     slides.forEach(setSlidePosition);
 
+    // Functie om naar een specifieke slide te verplaatsen
     const moveToSlide = (currentSlide, targetSlide) => {
       track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
       currentSlide.classList.remove('current-slide');
       targetSlide.classList.add('current-slide');
     };
 
+    // Voeg een eventlistener toe aan de knop voor vorige slide
     prevButton.addEventListener('click', () => {
       const currentSlide = track.querySelector('.current-slide');
       const prevSlide = currentSlide.previousElementSibling;
@@ -37,6 +50,7 @@
       }
     });
 
+    // Voeg een eventlistener toe aan de knop voor volgende slide
     nextButton.addEventListener('click', () => {
       const currentSlide = track.querySelector('.current-slide');
       const nextSlide = currentSlide.nextElementSibling;
@@ -46,8 +60,6 @@
       }
     });
   });
-
-
 </script>
 
 
@@ -132,8 +144,6 @@
     padding: 0;
     box-sizing: border-box;
   }
-
-  /* @media only screen and (max-width: 400px)  { */
 
   h1 {
     font-size: 3.157rem;
@@ -385,7 +395,7 @@
     margin: 2rem 0;
   }
 
-  /* tablet */
+  /*---TABLET---*/
   @media (min-width: 31em) and (max-width: 68em) {
     .line {
       padding-left: 2rem;
@@ -410,7 +420,6 @@
 
     nav {
       display: block !important;
-      /* prevent the nav to hide when resize */
       position: relative;
       width: auto;
       float: right;
@@ -456,7 +465,7 @@
   }
   }
 
-  /* --- MOBILE DEVICE --- */
+  /*---MOBILE---*/
   @media (max-width: 31em) {
     .line {
       padding-left: 2rem;

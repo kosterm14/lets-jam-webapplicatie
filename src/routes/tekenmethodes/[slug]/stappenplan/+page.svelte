@@ -3,26 +3,30 @@
   import Footer from "$lib/molecules/footer.svelte";
 
   export let data;
-  // console.log(data);
+
+  // Variabele om de zichtbaarheid van stappenplan te regelen
   let toon = false;
 
+  // Variabele voor de stappenplan knop
   let stappenplanButton;
 
-  // Function to toggle the "toon" class on the "stappen" element
+  // Functie om stappenplan zichtbaarheid te toggelen
   function toonStappenplan() {
-    // const stappenElement = document.getElementById("stappen");
-    // stappenElement.classList.toggle("toon");
     toon = !toon;
   }
 
-  // This function will be called when the Svelte component is mounted
+  // Uitvoeren bij het laden van de component
   function setup() {
+    // Koppel stappenplanButton aan het DOM-element met id "stappenplanbutton"
     stappenplanButton = document.getElementById("stappenplanbutton");
+
+    // Voeg klik eventlistener toe aan stappenplanButton
     stappenplanButton.addEventListener("click", toonStappenplan);
   }
 
-  // This function will be called when the Svelte component is unmounted
+  // Wordt uitgevoerd bij het sluiten van de component
   function teardown() {
+    // Verwijder klik eventlistener om geheugenlekken te voorkomen
     stappenplanButton.removeEventListener("click", toonStappenplan);
   }
 </script>
@@ -119,12 +123,6 @@
               {:else}
                 <p>{step.description}</p>
               {/if}
-
-              <!-- {#if typeof step.visual === 'object'} -->
-              <img src={step.visual} alt="Visual" />
-            {:else}
-              <!-- <img src={step.visual} alt="Visual" /> -->
-              <!-- {/if} -->
             {/each}
           {/each}
         </section>
@@ -148,40 +146,12 @@
   }
 
   :root {
-    font-size: 20px;
-
     --vtDarkBlue: #090940;
     --vtLightBlue: #67c5d1;
     --vtYellow: #feb51e;
     --vtRed: #f96c4f;
     --vtWhite: #ffffff;
-
-    --vtDarkBlue-80: #3a3a66;
-    --vtDarkBlue-50: #6b6b8c;
-    --vtDarkBlue-30: #9d9db3;
-    --vtDarkBlue-10: #ceced9;
-
-    --vtLightBlue-80: #85d1da;
-    --vtLightBlue-50: #a4dce3;
-    --vtLightBlue-30: #c2e8ed;
-    --vtLightBlue-10: #e1f3f6;
-
-    --vtYellow-80: #fec44b;
-    --vtYellow-50: #fed378;
-    --vtYellow-30: #ffe1a5;
-    --vtYellow-10: #fff0d2;
-
-    --vtRed-80: #fa8972;
-    --vtRed-50: #fba795;
-    --vtRed-30: #fdc4b9;
-    --vtRed-10: #fee2dc;
-
-    --vtDarkBlue: #090940;
-    --vtLightBlue: #67c5d1;
-    --vtYellow: #feb51e;
-    --vtRed: #f96c4f;
-    --vtWhite: #ffffff;
-
+    
     --vtDarkBlue-80: #3a3a66;
     --vtDarkBlue-50: #6b6b8c;
     --vtDarkBlue-30: #9d9db3;
@@ -215,14 +185,8 @@
     --vtSec-Brown: #8b3a00;
     --vtSec-Orange: #fe6f07;
 
-    /* Visual Thinking: Fonts,
-    */
-
     --vtPrimaryFont: "rigid-square", sans-serif;
     --vtSecondaryFont: "yrsa", serif;
-
-    overflow-x: hidden;
-    font-family: var(--vtSecondaryFont);
   }
 
   h1 {
@@ -335,13 +299,6 @@
     text-underline-offset: 0.5rem;
   }
 
-  h4 {
-    font-size: 1rem;
-    font-family: var(--vtPrimaryFont);
-    line-height: 1.5rem;
-    color: var(--vtDarkBlue);
-  }
-
   p {
     font-size: 0.75rem;
     font-family: var(--vtPrimaryFont);
@@ -451,7 +408,7 @@
       color: var(--vtDarkBlue);
       text-transform: none;
       margin-top: 3em;
-      margin-bottom: -1em;
+      margin-bottom: -0em;
       font-size: 1rem;
       font-weight: 600;
       width: 100%;
@@ -466,7 +423,7 @@
     }
   }
 
-  /* tablet */
+  /*---TABLET---*/
   @media (min-width: 31em) and (max-width: 68em) {
     .line {
       padding-left: 2rem;
@@ -539,7 +496,7 @@
     }
   }
 
-  /* --- MOBILE DEVICE --- */
+  /*---MOBILE---*/
   @media (max-width: 31em) {
     .line {
       padding-left: 2rem;

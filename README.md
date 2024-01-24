@@ -1,38 +1,69 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Visual Thinking
+<img src='https://github.com/kosterm14/lets-jam-webapplicatie/assets/112856683/c60b24fc-f915-4fb6-92c2-3dc39f1a66f7' width=50%>
 
-## Creating a project
+## 📚 Inhoudsopgave
 
-If you're seeing this, you've probably already done this step. Congrats!
+* [Beschrijving](#beschrijving)
+* [Kenmerken](#kenmerken)
+* [Bronnen](#bronnen)
+* [Licentie](#licentie)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## 🗒️ Beschrijving
+<strong>Visual thinking 🖌️:</strong>
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+<p> Wij gaan de website van Visual Thinking verbeteren en aanvullen. <br> 
+</p>
 
-## Developing
+## 💻👨🏻‍💻👨🏼‍💻 Gebruik
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Visual thinking leert studenten en docenten hun gedachten en doelen te verbeelden.
+Het helpt ze bij het creëren van overzicht en het overbrengen van hun boodschap.
 
-```bash
-npm run dev
+## 👩🏼‍💻👩🏾‍💻👨🏻‍💻👨🏼‍💻 Kenmerken
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Lijst met gebruikte tools, technieken en communicatie middelen.
+Dit project is gemaakt met Sveltekit en Hygraph.
 
-## Building
+Sveltekit: Dit is een framework. SvelteKit biedt extra mogelijkheden bovenop Svelte, zoals routing, statische site generation (SSG) en server-side rendering (SSR).
 
-To create a production version of your app:
+Hygraph: Dit is een headless CMS. Hierin heeft Charley al haar data staan.
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
+<ul>
+<li><strong>TOOLS 🧰:</strong></li>
+<li>VSCode</li>
+<li>Pen & Papier</li>
+<li>Laptop</li>
+</ul>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+<ul>
+<li><strong>GEBRUIKTE TECHNIEKEN 🛠️:</strong></li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Sveltekit<li>
+<li>Hygraph<li>
+</ul>
+
+<ul>
+<li><strong>COMMUNICATIE MIDDELEN 🗣️:</strong></li>
+<li>Microsoft Teams</li>
+ <li>Whatsapp</li>
+</ul>
+
+
+## 🌐 Bronnen
+
+<ul>
+<li>https://github.com//</li>
+<li>https://www.google.nl/</li>
+</ul>
+
+
+
+## 🔒 Licentie
+
+![GNU GPL V3](https://www.gnu.org/graphics/gplv3-127x51.png)
+
+This work is licensed under [GNU GPLv3](./LICENSE).

@@ -30,6 +30,9 @@
 
         <section class="h1">
             <h1>Minicursussen</h1>
+        </section>
+
+        <section class="h2">
             <h2>
                 Maak een keuze uit een <br /> van de vier minicursussen
             </h2>
@@ -63,21 +66,12 @@
     .grid-container {
         display: grid;
         grid-template-columns: auto;
-        margin-top: 5%;
         margin-bottom: 5%;
         justify-content: center;
     }
 
-    .h1 {
-        grid-column-start: 3;
-        grid-column-end: 6;
-        grid-row-start: 1;
-
-        text-align: center;
-    }
-
     h1 {
-        font-size: 2rem;
+        font-size: 3.157rem;
         font-family: var(--vtPrimaryFont);
         color: var(--vtDarkBlue);
     }
@@ -101,29 +95,48 @@
         align-content: center;
     }
 
+    .h1 {
+        grid-column-start: 1;
+        grid-column-end: 8;
+        grid-row-start: 1;
+
+        text-align: center;
+
+        margin-bottom: -5%;
+    }
+
+    .h2 {
+        grid-column-start: 3;
+        grid-column-end: 6;
+        grid-row-start: 2;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: -30%;
+    }
+
     .hex1,
     .h3-hex1 {
         grid-column-start: 1;
         grid-column-end: 3;
-        grid-row-start: 1;
-
-        margin-top: -10%;
+        grid-row-start: 2;
     }
 
     .hex2,
     .h3-hex2 {
         grid-column-start: 6;
         grid-column-end: 8;
-        grid-row-start: 1;
-
-        margin-top: -10%;
+        grid-row-start: 2;
     }
 
     .hex3,
     .h3-hex3 {
         grid-column-start: 2;
         grid-column-end: 4;
-        grid-row-start: 2;
+        grid-row-start: 3;
 
         margin-top: -10%;
     }
@@ -132,7 +145,7 @@
     .h3-hex4 {
         grid-column-start: 5;
         grid-column-end: 7;
-        grid-row-start: 2;
+        grid-row-start: 3;
 
         margin-top: -10%;
     }
@@ -190,16 +203,29 @@
             padding-left: 20%;
         }
 
+        .grid-container {
+            margin-bottom: 10%;
+        }
+
         .h1 {
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 1;
-
-            text-align: center;
         }
 
         h1 {
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+
+            margin-top: 6%;
+        }
+
+        .h2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 2;
+
+            margin-top: -50%;
         }
 
         .hex1,
@@ -208,7 +234,7 @@
             grid-column-end: 3;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex2,
@@ -217,7 +243,7 @@
             grid-column-end: 5;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex3,
@@ -226,7 +252,7 @@
             grid-column-end: 3;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex4,
@@ -235,7 +261,7 @@
             grid-column-end: 5;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
     }
 
@@ -245,16 +271,27 @@
             padding-left: 11%;
         }
 
+        .grid-container {
+            margin-bottom: 15%;
+        }
+
         .h1 {
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 1;
+        }
 
-            text-align: center;
+        .h2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            grid-row-start: 2;
+
+            margin-top: -110%;
         }
 
         h1 {
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            font-size: 2rem;
         }
 
         .hex1,
@@ -263,7 +300,7 @@
             grid-column-end: 3;
             grid-row-start: 2;
 
-            margin-top: 10%;
+            margin-top: 20%;
         }
 
         .hex2,
@@ -272,7 +309,7 @@
             grid-column-end: 3;
             grid-row-start: 3;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex3,
@@ -281,7 +318,7 @@
             grid-column-end: 3;
             grid-row-start: 4;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
 
         .hex4,
@@ -290,7 +327,7 @@
             grid-column-end: 3;
             grid-row-start: 5;
 
-            margin-top: 15%;
+            margin-top: 25%;
         }
     }
 </style>

@@ -69,7 +69,6 @@
             width: 20%;
             margin-right: 20%;
             margin-top: -5%;
-            /* scale: 0.75; */
         }   
     }
 </style>
