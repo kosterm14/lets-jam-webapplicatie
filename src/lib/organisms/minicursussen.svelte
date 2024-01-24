@@ -30,6 +30,9 @@
 
         <section class="h1">
             <h1>Minicursussen</h1>
+        </section>
+
+        <section class="h2">
             <h2>
                 Maak een keuze uit een <br /> van de vier minicursussen
             </h2>
@@ -63,21 +66,12 @@
     .grid-container {
         display: grid;
         grid-template-columns: auto;
-        margin-top: 10%;
         margin-bottom: 5%;
         justify-content: center;
     }
 
-    .h1 {
-        grid-column-start: 3;
-        grid-column-end: 6;
-        grid-row-start: 1;
-
-        text-align: center;
-    }
-
     h1 {
-        font-size: 2rem;
+        font-size: 3.157rem;
         font-family: var(--vtPrimaryFont);
         color: var(--vtDarkBlue);
     }
@@ -101,29 +95,48 @@
         align-content: center;
     }
 
+    .h1 {
+        grid-column-start: 1;
+        grid-column-end: 8;
+        grid-row-start: 1;
+
+        text-align: center;
+
+        margin-bottom: -5%;
+    }
+
+    .h2 {
+        grid-column-start: 3;
+        grid-column-end: 6;
+        grid-row-start: 2;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        margin-top: -30%;
+    }
+
     .hex1,
     .h3-hex1 {
         grid-column-start: 1;
         grid-column-end: 3;
-        grid-row-start: 1;
-
-        margin-top: -10%;
+        grid-row-start: 2;
     }
 
     .hex2,
     .h3-hex2 {
         grid-column-start: 6;
         grid-column-end: 8;
-        grid-row-start: 1;
-
-        margin-top: -10%;
+        grid-row-start: 2;
     }
 
     .hex3,
     .h3-hex3 {
         grid-column-start: 2;
         grid-column-end: 4;
-        grid-row-start: 2;
+        grid-row-start: 3;
 
         margin-top: -10%;
     }
@@ -132,7 +145,7 @@
     .h3-hex4 {
         grid-column-start: 5;
         grid-column-end: 7;
-        grid-row-start: 2;
+        grid-row-start: 3;
 
         margin-top: -10%;
     }

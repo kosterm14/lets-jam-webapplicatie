@@ -11,7 +11,6 @@
 
 <style>
     .h3-gray1:hover h3 {
-        /* color: var(--vtSec-Green); */
         text-transform: uppercase;
     }
 
@@ -85,7 +84,6 @@
             grid-row-start: 7;
 
             margin-left: 25%;
-            /* scale: 0.75; */
         }
 
         .h3-gray1 {
