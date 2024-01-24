@@ -194,7 +194,7 @@
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 7rem;
+    padding-left: 9%;
     /* padding-top: 0.2rem;
     padding-bottom: 0.2rem; */
     margin-top: 0%;
@@ -1005,6 +1005,13 @@
       padding-left: 11%;
     }
 
+}
+
+@media (min-width: 68em) {
+.line {
+
+    padding-left: 9% !important;
+}
 }
 
   /*

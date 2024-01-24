@@ -160,11 +160,11 @@ import { onMount } from "svelte";
 
     .line {
     text-transform: uppercase;
-    background-color: var(--vtDarkBlue);
+    background-color: var(--vtGrey-80);
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 7rem;
+    padding-left: 9%;
     padding-top: 0.3em;
     margin-top: 0%;
     display: flex;
