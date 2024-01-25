@@ -735,7 +735,7 @@
   }
 
   h1 {
-    font-size: 3.157rem;
+    font-size: 2.369rem;
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
   }

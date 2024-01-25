@@ -323,12 +323,10 @@
 
     #clear:hover{
         color: var(--vtYellow);
-
     }
 
     #clear:active{
         transform: translateY(1px);
-
     }
   }
 
@@ -384,6 +382,7 @@
         border-radius: 4px;
         margin: 0em;
     }
+
     }
 
 

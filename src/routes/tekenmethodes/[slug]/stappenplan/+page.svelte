@@ -399,8 +399,8 @@
     }
 
     .steps {
-      margin-left: -35em;
-      margin-top: 3em;
+      margin-left: -38em;
+      margin-top: 6em;
     }
 
     .step-title {

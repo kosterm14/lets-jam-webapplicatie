@@ -94,10 +94,11 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-top: 2em;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
     white-space: nowrap;
-    hyphens: auto;
+    /* hyphens: auto; */
   }
 
   .h1-detail:hover {
@@ -295,7 +296,6 @@
       color: var(--vtDarkBlue);
       font: var(--vtMenuFont);
     }
-
 
     /*---TABLET---*/
     @media (min-width: 31em) and (max-width: 62em) {
