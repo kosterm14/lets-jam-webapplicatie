@@ -28,7 +28,7 @@
   /* INTRO - STYLING */
   .introtitel {
     margin-left: 0em;
-    font-size: 2rem;
+    font-size: 3.157rem;
   }
 
   .introtext {
@@ -89,12 +89,14 @@
   @media screen and (min-width: 760px) {
     .introtitel {
       margin-left: 3em;
+      font-size: 3.157rem;
     }
 
     .introtext {
       width: 45%;
       margin-left: 5em;
       margin-bottom: -4em;
+      
     }
 
     section {
@@ -108,7 +110,8 @@
   /* TABLET - STYLING */
   @media screen and (min-width: 600px) {
     .introtitel {
-      margin-left: 1em;
+      margin-left: 0.5em;
+      font-size: 3.157rem;
     }
 
     .introtext {
@@ -121,7 +124,9 @@
   /* DESKTOP - STYLING */
   @media screen and (min-width: 1280px) {
     .introtitel {
-      margin-left: 4em;
+      margin-left: 2em;
+      font-size: 3.157rem;
+      max-width: 35rem;
     }
 
     .introtext {
