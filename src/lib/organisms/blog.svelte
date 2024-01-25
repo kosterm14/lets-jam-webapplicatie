@@ -12,7 +12,7 @@
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
-    padding-left: 18.5%;
+    padding-left: 9%;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     margin-top: 0%;
@@ -21,9 +21,17 @@
     align-items: center;
   }
 
-  @media screen and (min-width: 37em) {
+  /* tablet */
+  @media (min-width: 31em) and (max-width: 55em) {
     .line {
-      padding-left: 7rem;
+      padding-left: 20%;
+    }
+  }
+
+  /* mobile */
+  @media (max-width: 31em) {
+    .line {
+      padding-left: 11%;
     }
   }
 </style>
