@@ -188,7 +188,7 @@ object-fit: cover;
   }
 </style>-->
 
-<script>
+<!-- <script>
   let index = 0;
 
   const nextButton = () => {
@@ -215,7 +215,7 @@ object-fit: cover;
 </div>
 
 <style>
-  /* .hexagon {
+  .hexagon {
     background: var(--light-blue);
     object-fit: cover;
     width: 300px;
@@ -223,5 +223,5 @@ object-fit: cover;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     transform: rotate(90deg);
     color: red;
-  } */
-</style>
+  }
+</style> -->

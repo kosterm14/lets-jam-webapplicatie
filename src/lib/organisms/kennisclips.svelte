@@ -26,6 +26,7 @@
         class="left-arrow"
         src="./arrows_black.svg"
         alt="Knop met pijl naar volgende video"
+        loading="lazy"
       />
     </button>
 
@@ -40,6 +41,7 @@
         class="right-arrow"
         src="./arrows_black.svg"
         alt="Knop met pijl naar volgende video"
+        loading="lazy"
       />
     </button>
   </section>
@@ -198,7 +200,7 @@
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.5em !important; 
     }
 
     p {
@@ -214,7 +216,7 @@
     }
 
     h1 {
-      font-size: 1.157em;
+      font-size: 1.157em !important
     }
 
     p {
