@@ -208,7 +208,7 @@
     }
 
     h1 {
-      font-size: 2.5em !important; 
+      font-size: 2.1em !important; 
     }
 
     p {
