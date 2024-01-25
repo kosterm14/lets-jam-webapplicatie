@@ -93,7 +93,7 @@
     <div class="labeltekst"><h2>Teken hier!</h2></div>
     <section class="container">
         <div id="toolbar">
-            <h3>Kleurenpalet</h3>
+            <h3>Tekentools</h3>
             <label for="stroke">Kleur</label>
             <input id="stroke" name="stroke" type="color" />
             <label for="lineWidth">Pen dikte:</label>

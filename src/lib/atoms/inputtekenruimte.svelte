@@ -1,70 +1,90 @@
 <script>
-  let heenEnWeerP;
-  let heenEnWeerButton;
-  let heen = false; // Initialize heen as a boolean variable
-  let weer = false; // Initialize weer as a boolean variable
+  // Variabelen voor heen-en-weer effect
+  let heenEnWeerP; // Element voor de animatie
+  let heenEnWeerButton; // Knop om heen-en-weer te schakelen
+  let heen = false; // Status "heen" actief
+  let weer = false; // Status "weer" actief
 
+  // Functie om tussen "heen" en "weer" te schakelen
   function handleHeenEnWeer() {
     if (!heen) {
+      // Schakel naar "heen" als niet al actief
       heen = true;
       weer = false;
-      heenAnimation(); // Call the 'heenAnimation' function when heen is true
+      heenAnimation();
     } else {
+      // Schakel naar "weer" als niet al actief
       heen = false;
       weer = true;
-      weerAnimation(); // Call the 'weerAnimation' function when weer is true
+      weerAnimation();
     }
   }
 
+  // Functie voor animatie bij Escape-toets
   function handleKeydown(e) {
     if (e.code === "Escape") {
       weerAnimation();
     }
   }
 
+  // Animatie voor "heen" effect
   function heenAnimation() {
     setTimeout(() => {
+      // Update inhoud en hoogte met vertraging
       heenEnWeerButton.textContent = "x";
       heenEnWeerP.style.height = `${heenEnWeerP.scrollHeight}px`;
     }, 100);
 
+    // Voeg klasse toe voor "heen" animatie
     heenEnWeerP.classList.add("heenAnimation");
   }
 
+  // Animatie voor "weer" effect
   function weerAnimation() {
     setTimeout(() => {
+      // Vertraagd aanpassen van hoogte
       heenEnWeerP.style.height = `2.5em`;
     }, 100);
 
+    // Verwijder klasse voor "heen" animatie
     heenEnWeerP.classList.remove("heenAnimation");
+    // Forceer heropbouw voor het element
     heenEnWeerP.style.height = `${heenEnWeerP.scrollHeight}px`;
     void heenEnWeerP.offsetWidth;
+    // Zet hoogte terug naar 0 voor "weer" animatie
     heenEnWeerP.style.height = `0px`;
   }
 
+  // Importeer functies van Svelte voor mounten en vernietigen
   import { onMount, onDestroy } from "svelte";
 
+  // Voer uit bij het mounten van het component
   onMount(() => {
+    // Zoek benodigde DOM-elementen
     heenEnWeerP = document.querySelector('li[aria-label="heen en weer"] div');
     heenEnWeerButton = document.querySelector(
       'li[aria-label="heen en weer"] button',
     );
 
+    // Voeg event listeners toe voor heen-en-weer effect
     heenEnWeerButton.addEventListener("click", handleHeenEnWeer);
     window.addEventListener("keydown", handleKeydown);
   });
 
-  // onDestroy(() => {
-  //   heenEnWeerButton.removeEventListener("click", handleHeenEnWeer);
-  //   window.removeEventListener("keydown", handleKeydown);
-  // });
+  // Voer uit bij het vernietigen van het component
+  onDestroy(() => {
+    // Verwijder event listeners om geheugenlekken te voorkomen
+    heenEnWeerButton.removeEventListener("click", handleHeenEnWeer);
+    window.removeEventListener("keydown", handleKeydown);
+  });
 </script>
+
 
 <main>
   <ul>
     <li aria-label="heen en weer">
       <div class:heen class:weer>
-        <h5>Kleurenpalet</h5>
+        <h5>Tekentools</h5>
         <br />
         <label for="stroke">Kleur</label>
         <input id="stroke" name="stroke" type="color" />
