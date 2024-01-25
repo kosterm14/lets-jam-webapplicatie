@@ -85,7 +85,6 @@
         }
 
         .h2 {
-            /* display: none; */
             grid-column-start: 1;
             grid-column-end: 5;
             grid-row-start: 2;

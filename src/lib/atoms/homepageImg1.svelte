@@ -68,7 +68,6 @@
         img {
             width: 70%;
             margin-bottom: -5%;
-            /* scale: 0.75; */
         }
     }
 </style>
