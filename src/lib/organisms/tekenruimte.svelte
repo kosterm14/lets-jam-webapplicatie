@@ -103,7 +103,7 @@
         <div class="drawing-board" >
             <canvas id="drawing-board"  />
         </div>
-    <div class="inputComponent"><Inputtekenruimte /></div> 
+    <!-- <div class="inputComponent"><Inputtekenruimte /></div>  -->
         
     </section>
 </main>
@@ -283,11 +283,11 @@
     }
 
       #toolbar {
-        display: none;
+        /* display: none; */
         position: absolute;
         max-width: 8em;
         max-height: 20em;
-        margin-left: 2em;
+        margin-left: 4em;
         margin-top: 2em;
     }
 
@@ -318,7 +318,7 @@
         padding: 2px;
         margin-top: 0.5em;
         margin-bottom: 0.5em;
-        width: 25%;
+        width: 35%;
     }
 
     #clear:hover{
