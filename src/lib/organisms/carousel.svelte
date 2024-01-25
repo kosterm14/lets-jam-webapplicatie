@@ -1,398 +1,47 @@
 <!-- <script>
-  export let data;
-</script>
-
-
-<section class="carousel" aria-label="Gallery">
-  <ol class="carousel__viewport">
-    <li id="carousel__slide1"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper">
-        <a href="#carousel__slide4"
-           class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2"
-           class="carousel__next">Go to next slide</a>
-      </div>
-      
-    </li>
-    <li id="carousel__slide2"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide1"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide3"
-         class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide3"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide2"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide4"
-         class="carousel__next">Go to next slide</a>
-    </li>
-    <li id="carousel__slide4"
-        tabindex="0"
-        class="carousel__slide">
-      <div class="carousel__snapper"></div>
-      <a href="#carousel__slide3"
-         class="carousel__prev">Go to previous slide</a>
-      <a href="#carousel__slide1"
-         class="carousel__next">Go to first slide</a>
-    </li>
-  </ol>
-  <aside class="carousel__navigation">
-    <ol class="carousel__navigation-list">
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide1"
-           class="carousel__navigation-button">Go to slide 1</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide2"
-           class="carousel__navigation-button">Go to slide 2</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide3"
-           class="carousel__navigation-button">Go to slide 3</a>
-      </li>
-      <li class="carousel__navigation-item">
-        <a href="#carousel__slide4"
-           class="carousel__navigation-button">Go to slide 4</a>
-      </li>
-    </ol>
-  </aside>
-</section>
-
-<style>
-  @keyframes tonext {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: 100%;
-  }
-  98% {
-    left: 100%;
-  }
-  99% {
-    left: 0;
-  }
-}
-
-@keyframes tostart {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: -300%;
-  }
-  98% {
-    left: -300%;
-  }
-  99% {
-    left: 0;
-  }
-}
-
-@keyframes snap {
-  96% {
-    scroll-snap-align: center;
-  }
-  97% {
-    scroll-snap-align: none;
-  }
-  99% {
-    scroll-snap-align: none;
-  }
-  100% {
-    scroll-snap-align: center;
-  }
-}
-
-body {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  font-family: 'Lato', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
-  scrollbar-width: 0px;
-}
-
-*::-webkit-scrollbar {
-  width: 0;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
-}
-
-* {
-  -ms-overflow-style: none;
-}
-
-ol, li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.carousel {
-  position: relative;
-  padding-top: 75%;
-  filter: drop-shadow(0 0 10px #0003);
-  perspective: 100px;
-}
-
-.carousel__viewport {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel__slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  background-color: #f99;
-  counter-increment: item;
-}
-
-.carousel__slide:nth-child(even) {
-  background-color: #99f;
-}
-
-.carousel__slide:before {
-  content: counter(item);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%,-40%,70px);
-  color: #fff;
-  font-size: 2em;
-}
-
-.carousel__snapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: center;
-}
-
-@media (hover: hover) {
-  .carousel__snapper {
-    animation-name: tonext, snap;
-    animation-timing-function: ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
-
-  .carousel__slide:last-child .carousel__snapper {
-    animation-name: tostart, snap;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
-    animation-name: none;
-  }
-}
-
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
-  animation-name: none;
-}
-
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: #333;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-
-.carousel::before,
-.carousel::after,
-.carousel__prev,
-.carousel__next {
-  position: absolute;
-  top: 0;
-  margin-top: 37.5%;
-  width: 4rem;
-  height: 4rem;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  font-size: 0;
-  outline: 0;
-}
-
-.carousel::before,
-.carousel__prev {
-  left: -1rem;
-}
-
-.carousel::after,
-.carousel__next {
-  right: -1rem;
-}
-
-.carousel::before,
-.carousel::after {
-  content: '';
-  z-index: 1;
-  background-color: #333;
-  background-size: 1.5rem 1.5rem;
-  background-repeat: no-repeat;
-  background-position: center center;
-  color: #fff;
-  font-size: 2.5rem;
-  line-height: 4rem;
-  text-align: center;
-  pointer-events: none;
-}
-
-.carousel::before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
-}
-
-.carousel::after {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
-}
-
-</style> -->
-
-<script>
   import { onMount } from "svelte";
-
+  // export let data;
   let listContent = [];
 
   onMount(() => {
     const list = document.querySelector("#list");
 
+    // Clone and append each item in the list
     Array.from(list.children).forEach((item) => {
       const duplicatedItem = item.cloneNode(true);
       duplicatedItem.setAttribute("aria-hidden", true);
       list.appendChild(duplicatedItem);
 
+      // Update the reactive variable with the new list content
       listContent = Array.from(list.children);
     });
   });
 </script>
 
-<section id="container" data-animated>
-  <article class="hexagon"></article>
-
+<div id="container" data-animated>
+  <div class="hexagon"></div>
   <ul id="list">
     <li>
-      <a href="/page1">
-        <img
-          src="path/to/thumbnail1.jpg"
-          alt="Video Thumbnail 1"
-          width="100"
-          height="56"
-        />
-      </a>
+      <img src="/com&pre.jpg" alt="" />
     </li>
     <li>
-      <a href="/page2">
-        <img
-          src="path/to/thumbnail2.jpg"
-          alt="Video Thumbnail 2"
-          width="100"
-          height="56"
-        />
-      </a>
+      <img src="/leren-over-anderen.jpg" alt="" />
     </li>
     <li>
-      <a href="/page2">
-        <img
-          src="path/to/thumbnail3.jpg"
-          alt="Video Thumbnail 3"
-          width="100"
-          height="56"
-        />
-      </a>
+      <img src="/leren-over-jezelf-r.jpg" alt="" />
     </li>
     <li>
-      <a href="/page2">
-        <img
-          src="path/to/thumbnail4.jpg"
-          alt="Video Thumbnail 4"
-          width="100"
-          height="56"
-        />
-      </a>
+      <img src="/kennisclip1.jpeg" alt="" />
     </li>
-        <li>
-      <a href="/page2">
-        <img
-          src="path/to/thumbnail5.jpg"
-          alt="Video Thumbnail 5"
-          width="100"
-          height="56"
-        />
-      </a>
+    <li>
+      <img src="/kennisclip1.jpeg" alt="" />
     </li>
-        <li>
-      <a href="/page2">
-        <img
-          src="path/to/thumbnail6.jpg"
-          alt="Video Thumbnail 6"
-          width="100"
-          height="56"
-        />
-      </a>
+    <li>
+      <img src="/kennisclip1.jpeg" alt="" />
     </li>
   </ul>
-</section>
+</div>
 
-<section class="blue" />
-
-<!-- <section class="h3-blue">
-  <a href="/over">
-    <h3>
-      <em>Over <br /> visual thinking</em>
-    </h3>
-    <img src="assets\arrows.svg" alt="" />
-  </a>
-</section> -->
 
 <style>
   :root {
@@ -403,16 +52,11 @@ ol, li {
     --dark-blue-shadow: #111822ab;
   }
   body {
-    display: grid;
+    /* display: grid; */
     place-items: center;
     align-content: center;
     min-height: 100dvh;
     margin: 0;
-  }
-
-  img{
-    transform: rotate(270deg);
-    
   }
 
   h1 {
@@ -421,7 +65,8 @@ ol, li {
     color: var(--text-color);
     text-shadow: 5px 5px 1px var(--dark-blue-shadow);
   }
-  #container {
+
+  /* #container {
     width: 100%;
     mask: linear-gradient(
       90deg,
@@ -437,7 +82,8 @@ ol, li {
       white 60%,
       transparent
     );
-  }
+  } */
+
   ul {
     display: flex;
     gap: 10px;
@@ -445,41 +91,48 @@ ol, li {
     padding: 0;
   }
 
-  li {
+  /* li {
     background: var(--light-blue);
     color: var(--text-color);
-    padding: 10px 20px;
-    border-radius: 7px;
-  }
+  } */
 
-  #container[data-animated] {
+  /* #container[data-animated] {
     overflow: hidden;
-  }
+  } */
+
   #container[data-animated] #list {
     width: max-content;
     animation: scroll 60s linear infinite;
+    /* overflow: scroll; */
   }
 
   @keyframes scroll {
     to {
       translate: calc(-50% - 5px);
     }
-  }
+  } 
 
-  .h3-blue:hover h3 {
+  /* .h3-blue:hover h3 {
+    color: var(--vtSec-Green);
     text-transform: uppercase;
-  }
+  } */
 
-  .blue, li {
+  
+  li {
     background: var(--light-blue);
-
+object-fit: cover;
     width: 300px;
     height: 275px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     transform: rotate(90deg);
   }
 
-  .h3-blue{
+  img{
+    transform: rotate(270deg);
+    
+  }
+
+  .h3-blue {
     color: var(--light-blue);
     z-index: 1;
     display: grid;
@@ -533,5 +186,42 @@ ol, li {
       margin-left: 25%;
     }
   }
+</style>-->
+
+<script>
+  let index = 0;
+
+  const nextButton = () => {
+    index = index + 1;
+  };
+
+  const previousButton = () => {
+    index = index - 1;
+  };
+</script>
+
+<div class="carousel">
+  <div class="hexagon"></div>
+  <button class="carousel-btn prev" on:click={previousButton}></button>
+  <div class="carousel-container">
+    <img src="./com&pre.jpg" alt="Image 1" />
+    <img src="./leren-over-anderen.jpg" alt="Image 2" />
+    <img src="image3.jpg" alt="Image 3" />
+    <img src="image4.jpg" alt="Image 4" />
+    <img src="image5.jpg" alt="Image 5" />
+    <img src="image6.jpg" alt="Image 6" />
+  </div>
+  <button class="carousel-btn next" on:click={nextButton}>&#10095;</button>
+</div>
+
+<style>
+  /* .hexagon {
+    background: var(--light-blue);
+    object-fit: cover;
+    width: 300px;
+    height: 275px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    transform: rotate(90deg);
+    color: red;
+  } */
 </style>
- 

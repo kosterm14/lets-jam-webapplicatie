@@ -1,5 +1,16 @@
 <script>
+  let index = 0;
+
   export let data;
+  console.log(data);
+
+  const nextButton = () => {
+    index = index + 1;
+  };
+
+  const previousButton = () => {
+    index = index - 1;
+  };
 </script>
 
 <header>
@@ -9,46 +20,35 @@
 </header>
 
 <main>
-  {#each data.categories as category}
+  <section class="clips-container">
+    <button on:click={previousButton}
+      ><img
+        class="left-arrow"
+        src="./arrows_black.svg"
+        alt="Knop met pijl naar volgende video"
+      />
+    </button>
 
-    <article class="clips">
-      <a href="#">
-        <img
-          class="left-arrow"
-          src="./arrows_black.svg"
-          alt="Knop met pijl naar volgende video"
-        />
-      </a>
+    <iframe
+      class="youtubelink"
+      title="kennisclips"
+      src={data.categories[index].youTubeLink}
+    ></iframe>
 
-      <iframe
-        class="frame"
-        width="560"
-        height="315"
-        src={category.youTubeLink}
-        frameborder="0"
-        allowfullscreen
-        loading="lazy"
-      ></iframe>
+    <button on:click={nextButton}
+      ><img
+        class="right-arrow"
+        src="./arrows_black.svg"
+        alt="Knop met pijl naar volgende video"
+      />
+    </button>
+  </section>
 
-      <a href="#">
-        <img
-          class="right-arrow"
-          src="./arrows_black.svg"
-          alt="Knop met pijl naar volgende video"
-        />
-      </a>
-    </article>
-
-
-    <h1>{category.title}</h1>
-
-    <article class="category">
-      <p>{@html category.content.html}</p>
-    </article>
-  {/each}
+  <section class="text-container">
+    <h1>{data.categories[index].title}</h1>
+    <p>{@html data.categories[index].content.html}</p>
+  </section>
 </main>
-
-
 
 <style>
   :root {
@@ -94,6 +94,7 @@
   body {
     padding: 0;
     overflow-x: hidden;
+    text-align: center;
   }
 
   /* Header styling */
@@ -103,21 +104,7 @@
     color: var(--vtDarkBlue);
     line-height: 3rem;
     text-align: center;
-    /* border-bottom: 0.5px solid #333; */
-    padding-bottom: 22px;
-    /* padding-left: 1em; */
   }
-
-  /* h1 {
-  width: 100%; 
-  text-align: center; 
-  box-sizing: border-box; 
-
-h1::after {
-  display: inline-block; 
-  width: 90vw; 
-  border-bottom: 1px solid black;
-} */
 
   h2 {
     font-size: 2rem;
@@ -128,6 +115,12 @@ h1::after {
     margin-right: 1.5em;
   }
 
+  h3 {
+    font-size: 1.2rem;
+    font-family: var(--vtSecondaryFont);
+    line-height: 1.5rem;
+  }
+
   .bold {
     font-weight: 800;
     text-decoration: underline;
@@ -135,72 +128,49 @@ h1::after {
     text-underline-offset: 0.5rem;
   }
 
-  h3 {
-    font-size: 1.2rem;
-    font-family: var(--vtSecondaryFont);
-    line-height: 1.5rem;
-  }
-
-  .frame {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    height: auto;
-  }
-  /* Clip styling */
-
-  @media screen and (min-width: 1120px) {
-    .frame {
-      width: 884px;
-      height: 497px;
-    }
-  }
-
-  @media (max-width: 481px) {
-    .frame {
-      width: 320px;
-      height: 169px;
-    }
-  }
-
-  /* H1, iframe styling */
-  .clips {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
-    /* padding-bottom: 30px ; */
-    background-color: var(--vtGrey-10);
-  }
-
   /* Kennisclip teksten */
   p {
     text-align: left;
     line-height: 1.5rem;
     font-family: var(--vtSecondaryFont);
-    font-size: 1em;
+    font-size: 1rem;
     margin-left: auto;
     margin-right: auto;
     max-width: 40em;
+    text-transform: none;
   }
 
-  @media screen and (max-width: 900px) {
-    p {
-      margin-left: 1em;
-      margin-right: 1em;
-    }
+  /* clips */
+  .clips-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3.3em;
+    background-color: var(--vtGrey-10);
   }
 
-  a {
+  /* line in header */
+  .line {
+    text-transform: uppercase;
+    background-color: var(--vtSec-LightBlue);
+    color: var(--vtWhite);
+    font-family: var(--vtPrimaryFont);
+    font-size: 0.9rem;
+    padding-left: 9%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin-top: 0%;
+    width: 100vw;
+    display: flex;
+    margin-bottom: 0;
+    align-items: center;
+  }
+
+  /* buttons */
+  button {
+    background-color: transparent;
+    border: transparent;
     padding: 2em;
-  }
-
-  a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  a:link {
-    text-decoration: none;
   }
 
   .right-arrow {
@@ -213,24 +183,55 @@ h1::after {
     transform: rotate(180deg);
   }
 
-  /* Header line */
-
-  .line {
-    text-transform: uppercase;
-    background-color: var(--vtSec-LightBlue);
-    color: var(--vtWhite);
-    font-family: var(--vtPrimaryFont);
-    font-size: 0.9rem;
-    padding-left: 9%;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-    margin-top: 0%;
-    /* margin-bottom: 2em; */
-    width: 100vw;
-    display: flex;
-    margin-bottom: 0;
-    align-items: center;
+  /* responsive clips */
+  iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease-in;
   }
 
-  /* Carousel */
+  /* tablet */
+  @media (min-width: 31em) and (max-width: 55em) {
+    .line {
+      padding-left: 19.5% !important;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    p {
+      padding-left: 2.5em;
+      padding-right: 2.5em;
+    }
+  }
+
+  /* mobile */
+  @media (max-width: 31em) {
+    .line {
+      padding-left: 11% !important;
+    }
+
+    h1 {
+      font-size: 1.157em;
+    }
+
+    p {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    button {
+      padding: 0.6em;
+    }
+  }
+
+  /* desktop */
+  @media screen and (min-width: 1120px) {
+    .youtubelink {
+      width: 884px;
+      height: 497px;
+    }
+  }
 </style>
