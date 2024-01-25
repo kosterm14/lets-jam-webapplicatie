@@ -1,5 +1,7 @@
 <script>
   import BlogButton from "./blogButton.svelte";
+  import BlogButton2 from "./blogButton2.svelte";
+  import BlogButton3 from "./blogButton3.svelte";
   export let data;
 </script>
 
@@ -14,11 +16,11 @@
   {#each data.artikelenHomepages as artikelenHomepages}
     <article>
       <img src={artikelenHomepages.img.url} alt="artikelen" />
-      <h1>{artikelenHomepages.title}</h1>
+      <h2>{artikelenHomepages.title}</h2>
       <p>{artikelenHomepages.description}</p>
-      <BlogButton />
+      <BlogButton page="/artikelen/{artikelenHomepages.pageName}"/>
     </article>
-  {/each}
+    {/each}
 </section>
 
 <style>
@@ -26,7 +28,7 @@
   /* INTRO - STYLING */
   .introtitel {
     margin-left: 0em;
-    font-size: 30px;
+    font-size: 2rem;
   }
 
   .introtext {
@@ -60,7 +62,7 @@
     border-top-left-radius: 1em;
   }
 
-  h1 {
+  h1, h2 {
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
     line-height: 1.2em;
@@ -106,7 +108,7 @@
   /* TABLET - STYLING */
   @media screen and (min-width: 600px) {
     .introtitel {
-      margin-left: 2em;
+      margin-left: 1em;
     }
 
     .introtext {
@@ -119,7 +121,7 @@
   /* DESKTOP - STYLING */
   @media screen and (min-width: 1280px) {
     .introtitel {
-      margin-left: 5.5em;
+      margin-left: 4em;
     }
 
     .introtext {

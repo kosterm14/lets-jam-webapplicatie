@@ -16,6 +16,7 @@ export async function load() {
           }
           title
           description
+          pageName
         }
       }
   `;
