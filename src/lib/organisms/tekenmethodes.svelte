@@ -328,6 +328,7 @@
   .lowercase {
     text-transform: none;
     line-height: 1.5rem;
+    max-width: 75%;
   }
 
   .arrows {
@@ -563,10 +564,16 @@
 
     .intro-text {
       grid-area: intro;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
     }
 
     .intro-text h1 {
       font-size: 3.157rem;
+      position: relative;
+      justify-content: center;
     }
 
     .intro-text p {
