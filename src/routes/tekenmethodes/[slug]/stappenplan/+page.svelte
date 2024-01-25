@@ -38,7 +38,7 @@
     <a href="/tekenmethodes">
       <p class="line">
         <img class="arrows-line" src="/arrows.svg" alt="" />
-        Overzicht <strong>tekenmethodes</strong>
+        Overzicht <strong id="methodes-line">tekenmethodes</strong>
       </p>
     </a>
   </section>
@@ -392,6 +392,10 @@
       margin-top: -2em;
     }
 
+    #methodes-line {
+    margin-left: 0.7em;
+  }
+
     .full-b {
       display: flex;
       justify-content: center;
@@ -428,6 +432,10 @@
     .line {
       padding-left: 2rem;
     }
+
+    #methodes-line {
+    margin-left: 0.7em;
+  }
 
     .h1-detail {
       padding-left: 2rem;
@@ -501,6 +509,10 @@
     .line {
       padding-left: 2rem;
     }
+
+    #methodes-line {
+    margin-left: 0.7em;
+  }
 
     .h1-detail {
       padding-left: 2rem;
