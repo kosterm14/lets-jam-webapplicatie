@@ -1,11 +1,7 @@
-<script>
-  export let page;
-</script>
-
 <section>
-<a href={page}>
-  <button>Lees meer</button>
-</a>
+  <a href="/interview">
+    <button>Lees meer</button>
+  </a>
 </section>
 
 <style>
