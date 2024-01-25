@@ -115,7 +115,7 @@
           {#each data.methods as method}
           {#each method.examples as example}
             <li class="carousel-slide current-slide">
-              <img class="carousel-img-blur" src={example.url} alt="" />
+              <!-- <img class="carousel-img-blur" src={example.url} alt="" /> -->
               <img class="carousel-img" src={example.url} alt="" />
             </li>
           {/each}
