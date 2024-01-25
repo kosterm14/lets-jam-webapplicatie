@@ -140,6 +140,7 @@
     margin-right: auto;
     max-width: 40em;
     text-transform: none;
+    padding-bottom: 3em;
   }
 
   /* clips */
@@ -168,6 +169,11 @@
     align-items: center;
   }
 
+  .lineintro{
+    border-top:1px solid var(--vtDarkBlue) ;
+    width: 35rem;
+  }
+
   /* buttons */
   button {
     background-color: transparent;
@@ -193,6 +199,8 @@
     transition: opacity 0.3s ease-in;
   }
 
+  
+
   /* tablet */
   @media (min-width: 31em) and (max-width: 55em) {
     .line {
@@ -200,7 +208,7 @@
     }
 
     h1 {
-      font-size: 2.5em !important; 
+      font-size: 2.1em !important; 
     }
 
     p {
@@ -222,6 +230,7 @@
     p {
       padding-left: 2rem;
       padding-right: 2rem;
+
     }
 
     button {
