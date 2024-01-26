@@ -49,6 +49,7 @@
             {/each}
         </section>
 
+        <div class="section-wrapper">
         <section class="flex-b">
             {#each data.methods as method}
                 <img class="template-url" src={method?.template?.url} alt="" />
@@ -60,6 +61,7 @@
                 {/each}
             </h3>
         </section>
+      </div>
     </main>
 </body>
 
@@ -101,14 +103,14 @@
     margin-top: 2em;
     /* overflow: hidden; */
     /* text-overflow: ellipsis; */
-    white-space: nowrap;
+    /* white-space: nowrap; */
     /* hyphens: auto; */
   }
 
-  .h1-detail:hover {
+  /* .h1-detail:hover {
     white-space: unset;
     text-overflow: unset;
-  }
+  } */
 
   .h2-detail,
   .bold {
@@ -186,7 +188,6 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    max-width: 30rem;
     max-height: 6rem;
   }
 
@@ -218,11 +219,12 @@
   }
 
   .text {
-    padding-top: 1.5rem;
+    padding-top: 0rem;
     max-width: 35rem;
     text-transform: none;
     font-weight: 500;
-    margin-left: 1em;
+    margin-left: 2em;
+    padding-right: 1em;
     font-size: 1rem;
     font-family: var(--vtSecondaryFont);
     color: var(--vtDarkBlue);
@@ -257,12 +259,15 @@
     transform: rotate(180deg);
   }
 
-  .flex-b {
+  .section-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
   }
 
   .flex-b {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 80em;
     padding-left: 4.7rem;
   }
 
@@ -271,9 +276,11 @@
   }
 
   .template-url {
+    /* margin-left: 2em; */
+    /* margin-right: 2em; */
     width: calc(39.8rem / 1.3);
     height: calc(27rem / 1.3);
-    margin-left: 6.6rem;
+    margin-left: 1rem;
     box-shadow: 1px 1px 10px 5px rgb(244, 244, 244);
   }
 
@@ -300,6 +307,14 @@
       color: var(--vtDarkBlue);
       font: var(--vtMenuFont);
     }
+    
+        /*---DESKTOP---*/
+      @media (min-width: 68em) {
+      .h1-detail {
+        margin-left: 0em;
+        margin-top: 0.5em;
+      } 
+    }
 
     /*---TABLET---*/
     @media (min-width: 31em) and (max-width: 62em) {
@@ -313,6 +328,7 @@
 
     .h1-detail {
     padding-left: 2rem;
+    margin-top: 1rem;
     }
 
     h1 {
@@ -391,6 +407,10 @@
     nav::-webkit-scrollbar {
       display: none;
     }
+
+    .flex-b .template-url {
+    margin-left: 3rem;
+  }
 
     .flex-b {
       padding-left: 2rem;

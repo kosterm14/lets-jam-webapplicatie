@@ -362,6 +362,8 @@
     font-weight: bolder;
 
     padding: 0.3rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
     margin-left: 0.8rem;
     max-width: fit-content;
   }

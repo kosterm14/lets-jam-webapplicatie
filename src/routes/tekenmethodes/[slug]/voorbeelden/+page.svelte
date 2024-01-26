@@ -160,8 +160,8 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    max-width: 30rem;
     max-height: 6rem;
+    margin-top: -0.5em;
   }
 
   .h2-detail,
@@ -237,7 +237,7 @@
 
   .h1-detail {
     padding-left: 6.7rem;
-    max-width: 30rem;
+    /* max-width: 40rem; */
     max-height: 6rem;
   }
 
@@ -411,6 +411,7 @@
 
     .h1-detail {
       padding-left: 2rem;
+
     }
 
     h1 {
