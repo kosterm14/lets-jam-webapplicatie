@@ -1,5 +1,11 @@
+<script>
+    export let data;
+</script>
+
 <section class="img-man">
-    <img src="/man.svg" alt="" />
+    {#each data.homepages as homepage}
+        <img src={homepage?.image1.url} alt="" />
+    {/each}
 </section>
 
 <style>

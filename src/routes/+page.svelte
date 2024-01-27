@@ -9,6 +9,7 @@
     import LoadingScreen from "$lib/organisms/loadingScreen.svelte";
 
     let loading = true;
+    export let data;
 
     function handleKeyDown(event) {
         if (event.key === "L" || event.key === "l") {
@@ -44,10 +45,10 @@
 {#if loading}
     <LoadingScreen />
     <Header {loading}/>
-    <Homepage {loading}/>
+    <Homepage {data} {loading}/>
     <Footer />
 {:else}
     <Header {loading}/>
-    <Homepage {loading}/>
+    <Homepage {data} {loading}/>
     <Footer />
 {/if}

@@ -1,5 +1,11 @@
+<script>
+    export let data;
+</script>
+
 <section class="img-pencil">
-    <img src="/pencil.svg" alt="" />
+    {#each data.homepages as homepage}
+        <img src={homepage?.image2.url} alt="" />
+    {/each}
 </section>
 
 <style>
@@ -69,6 +75,6 @@
             width: 20%;
             margin-right: 20%;
             margin-top: -5%;
-        }   
+        }
     }
 </style>

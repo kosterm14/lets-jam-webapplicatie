@@ -12,13 +12,14 @@
     import HomepageHexGray2 from "$lib/atoms/homepageHexGray2.svelte";
 
     export let loading = false;
+    export let data = {};
 </script>
 
 <div class="grid-container {loading ? 'animate' : ''}">
-    <HomepageText />
+    <HomepageText {data} />
 
-    <HomepageImg1 />
-    <HomepageImg2 />
+    <HomepageImg1 {data} />
+    <HomepageImg2 {data} />
 
     <HomepageHexBlue />
     <HomepageHexYellow />
