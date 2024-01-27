@@ -155,7 +155,7 @@
   /* line in header */
   .line {
     text-transform: uppercase;
-    background-color: var(--vtSec-LightBlue);
+    background-color: var(--LightBlue);
     color: var(--vtWhite);
     font-family: var(--vtPrimaryFont);
     font-size: 0.9rem;
