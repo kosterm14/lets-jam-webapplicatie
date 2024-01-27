@@ -94,9 +94,14 @@
   }
 
   body {
-    padding: 0;
-    overflow-x: hidden;
-    text-align: center;
+    /* text-align: center; */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
   }
 
   /* Header styling */
@@ -105,7 +110,9 @@
     font-family: var(--vtPrimaryFont);
     color: var(--vtDarkBlue);
     line-height: 3rem;
-    text-align: center;
+    text-align: left;
+    margin: 0rem 3rem;
+    margin-top: 1em;
   }
 
   h2 {
@@ -136,11 +143,14 @@
     line-height: 1.5rem;
     font-family: var(--vtSecondaryFont);
     font-size: 1rem;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 40em;
     text-transform: none;
     padding-bottom: 3em;
+    margin: 0rem 3rem;
+  }
+
+  .text-container {
+    text-align: left;
   }
 
   /* clips */
@@ -169,8 +179,8 @@
     align-items: center;
   }
 
-  .lineintro{
-    border-top:1px solid var(--vtDarkBlue) ;
+  .lineintro {
+    border-top: 1px solid var(--vtDarkBlue);
     width: 35rem;
   }
 
@@ -199,8 +209,6 @@
     transition: opacity 0.3s ease-in;
   }
 
-  
-
   /* tablet */
   @media (min-width: 31em) and (max-width: 55em) {
     .line {
@@ -208,12 +216,12 @@
     }
 
     h1 {
-      font-size: 2.1em !important; 
+      font-size: 2.1em !important;
     }
 
     p {
-      padding-left: 2.5em;
-      padding-right: 2.5em;
+      /* padding-left: 2.5em;
+      padding-right: 2.5em; */
     }
   }
 
@@ -224,13 +232,12 @@
     }
 
     h1 {
-      font-size: 1.157em !important
+      font-size: 1.157em !important;
     }
 
     p {
-      padding-left: 2rem;
-      padding-right: 2rem;
-
+      /* padding-left: 2rem;
+      padding-right: 2rem; */
     }
 
     button {
@@ -246,3 +253,4 @@
     }
   }
 </style>
+
