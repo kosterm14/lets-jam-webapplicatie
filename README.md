@@ -42,8 +42,8 @@ Hygraph: Dit is een headless CMS. Hierin heeft Charley al haar data staan.
 <li>HTML</li>
 <li>CSS</li>
 <li>Javascript</li>
-<li>Sveltekit<li>
-<li>Hygraph<li>
+<li>Sveltekit</li>
+<li>Hygraph</li>
 </ul>
 
 <ul>
